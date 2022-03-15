@@ -124,7 +124,7 @@ class Footer_v1 extends Component {
 				            <div className="footer-menu go-top">
 				              <ul>
 				                <li><Link to="/login">Login</Link></li>
-				                <li><Link to="/my-account">My account</Link></li>
+				                <li><Link to="/my-account">Minha conta</Link></li>
 				                <li><Link to="/wishlist">Wish List</Link></li>
 				                <li><Link to="/add-listing">Add listing</Link></li>
 				                <li><Link to="/faq">FAQ</Link></li>

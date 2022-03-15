@@ -14,7 +14,7 @@ class Login extends Component {
 				<div className="row">
 					<div className="col-lg-12">
 					<div className="section-title-area text-center">
-						<h1 className="section-title">Sign In <br />To  Your Account</h1>
+						<h1 className="section-title">Entrar <br />To  Your Account</h1>
 						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
 						Sit aliquid,  Non distinctio vel iste.</p>
 					</div>
@@ -27,7 +27,7 @@ class Login extends Component {
 						<input type="text" name="email" placeholder="Email*" />
 						<input type="password" name="password" placeholder="Password*" />
 						<div className="btn-wrapper mt-0">
-							<button className="theme-btn-1 btn btn-block" type="submit">SIGN IN</button>
+							<button className="theme-btn-1 btn btn-block" type="submit">Entrar</button>
 						</div>
 						<div className="go-to-btn mt-20">
 						<a href="#" title="Forgot Password?" data-bs-toggle="modal" data-bs-target="#ltn_forget_password_modal"><small>FORGOTTEN YOUR PASSWORD?</small></a>

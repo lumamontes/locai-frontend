@@ -13,7 +13,7 @@ class Register extends Component {
 				<div className="row">
 					<div className="col-lg-12">
 					<div className="section-title-area text-center">
-						<h1 className="section-title">Register <br />Your Account</h1>
+						<h1 className="section-title">Cadastre <br />Sua Conta</h1>
 						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
 						Sit aliquid,  Non distinctio vel iste.</p>
 					</div>

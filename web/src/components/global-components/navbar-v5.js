@@ -93,9 +93,9 @@ class NavbarV5 extends Component {
 								<li>
 									<a href="#"><i className="icon-user" /></a>
 									<ul>
-									<li><a href="login.html">Sign in</a></li>
-									<li><a href="register.html">Register</a></li>
-									<li><a href="account.html">My Account</a></li>
+									<li><a href="login.html">Entrar</a></li>
+									<li><a href="register.html">Cadastrar</a></li>
+									<li><a href="account.html">Minha conta</a></li>
 									<li><a href="wishlist.html">Wishlist</a></li>
 									</ul>
 								</li>
@@ -214,9 +214,9 @@ class NavbarV5 extends Component {
 									<li><Link to="/product-details">Shop Details</Link></li>
 									<li><Link to="/cart">Cart</Link></li>
 									<li><Link to="/checkout">Checkout</Link></li>
-									<li><Link to="/my-account">My Account</Link></li>
-									<li><Link to="/login">Sign in</Link></li>
-									<li><Link to="/register">Register</Link></li>
+									<li><Link to="/my-account">Minha conta</Link></li>
+									<li><Link to="/login">Entrar</Link></li>
+									<li><Link to="/register">Cadastrar</Link></li>
 								</ul>
 							</li>
 							<li className="menu-icon"><Link to="/blog-grid">News</Link>
@@ -393,9 +393,9 @@ class NavbarV5 extends Component {
 							<li><Link to="/product-details">Shop Details</Link></li>
 							<li><Link to="/cart">Cart</Link></li>
 							<li><Link to="/checkout">Checkout</Link></li>
-							<li><Link to="/my-account">My Account</Link></li>
-							<li><Link to="/login">Sign in</Link></li>
-							<li><Link to="/register">Register</Link></li>
+							<li><Link to="/my-account">Minha conta</Link></li>
+							<li><Link to="/login">Entrar</Link></li>
+							<li><Link to="/register">Cadastrar</Link></li>
 						</ul>
 						</li>
 						<li><Link to="/blog-grid">News</Link>
@@ -432,11 +432,11 @@ class NavbarV5 extends Component {
 					<div className="ltn__utilize-buttons ltn__utilize-buttons-2">
 					<ul>
 						<li>
-						<Link to="/my-account" title="My Account">
+						<Link to="/my-account" title="Minha conta">
 							<span className="utilize-btn-icon">
 							<i className="far fa-user" />
 							</span>
-							My Account
+							Minha conta
 						</Link>
 						</li>
 						<li>
