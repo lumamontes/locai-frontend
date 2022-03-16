@@ -14,7 +14,7 @@ class ProductSliderV2 extends Component {
 			      <div className="col-lg-12">
 			        <div className="section-title-area ltn__section-title-2--- text-center---">
 			          <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">Area Properties</h6>
-			          <h1 className="section-title">Find Your Dream House <br />
+			          <h1 className="section-title">Encontre a casa dos sonhos <br />
 			            Search By Area</h1>
 			        </div>
 			      </div>

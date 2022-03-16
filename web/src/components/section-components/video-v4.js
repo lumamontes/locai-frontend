@@ -23,7 +23,7 @@ class VideoV4 extends Component {
 						<div className="slide-item-info">
 						<div className="slide-item-info-inner ltn__slide-animation">
 							<h6 className="slide-sub-title white-color animated"><span><i className="fas fa-home" /></span> Real Estate Agency</h6>
-							<h1 className="slide-title text-uppercase white-color animated ">Find Your Dream <br /> House By Us</h1>
+							<h1 className="slide-title text-uppercase white-color animated ">Encontre a casa <br /> Perfeita para você</h1>
 						</div>
 						</div>
 					</div>
