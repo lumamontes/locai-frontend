@@ -15,7 +15,7 @@ class Sidebar extends Component {
 			<label className="mb-30"><small>About 9,620 results (0.62 seconds) </small></label>
 			{/* Advance Information widget */}
 			<div className="widget ltn__menu-widget">
-				<h4 className="ltn__widget-title">Property Type</h4>
+				<h4 className="ltn__widget-title">Valor</h4>
 				<ul>
 				<li>
 					<label className="checkbox-item">House

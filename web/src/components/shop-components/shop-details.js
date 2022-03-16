@@ -52,7 +52,7 @@ class ShopDetails extends Component {
 							<li><label>Lot dimensions:</label> <span>120 sqft</span></li>
 							<li><label>Beds:</label> <span>7</span></li>
 							<li><label>Price:</label> <span>2</span></li>
-							<li><label>Property Status:</label> <span>For Sale</span></li>
+							<li><label>Bairro:</label> <span>For Sale</span></li>
 						</ul>
 						</div>
 						<h4 className="title-2">Facts and Features</h4>

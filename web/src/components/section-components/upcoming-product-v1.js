@@ -31,7 +31,7 @@ class UpcomingProductV1 extends Component {
 			            </div>
 			            <div className="col-lg-5 section-bg-1">
 			              <div className="ltn__upcoming-project-info ltn__menu-widget">
-			                <h6 className="section-subtitle ltn__secondary-color mb-0">About Projects</h6>
+			                <h6 className="section-subtitle ltn__secondary-color mb-0">Sobre Projects</h6>
 			                <h1 className="mb-30">Upcoming Projects</h1>
 			                <ul className="mt">
 			                  <li>1. Project Name: <span>Quarter</span></li>
@@ -59,7 +59,7 @@ class UpcomingProductV1 extends Component {
 			            </div>
 			            <div className="col-lg-5 section-bg-1">
 			              <div className="ltn__upcoming-project-info ltn__menu-widget">
-			                <h6 className="ltn__secondary-color">About Projects</h6>
+			                <h6 className="ltn__secondary-color">Sobre Projects</h6>
 			                <h1>Upcoming Projects</h1>
 			                <ul>
 			                  <li>1. Project Name: <span>Quarter</span></li>
@@ -87,7 +87,7 @@ class UpcomingProductV1 extends Component {
 			            </div>
 			            <div className="col-lg-5 section-bg-1">
 			              <div className="ltn__upcoming-project-info ltn__menu-widget">
-			                <h6 className="ltn__secondary-color">About Projects</h6>
+			                <h6 className="ltn__secondary-color">Sobre Projects</h6>
 			                <h1>Upcoming Projects</h1>
 			                <ul>
 			                  <li>1. Project Name: <span>Quarter</span></li>

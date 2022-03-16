@@ -33,7 +33,7 @@ class BannerV7 extends Component {
 									<form action="#" className="ltn__car-dealer-form-box row"> 
 									<div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
 										<select className="nice-select">
-										<option>Property Type</option>
+										<option>Valor</option>
 										<option>Apartment</option>
 										<option>Co-op</option>
 										<option>Condo</option>
@@ -76,7 +76,7 @@ class BannerV7 extends Component {
 									<form action="#" className="ltn__car-dealer-form-box row"> 
 									<div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
 										<select className="nice-select">
-										<option>Property Type</option>
+										<option>Valor</option>
 										<option>Apartment</option>
 										<option>Co-op</option>
 										<option>Condo</option>

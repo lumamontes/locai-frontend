@@ -101,7 +101,7 @@ class FaqV1 extends Component {
                     <div className="need-support text-center mt-100">
                     <h2>Still need help? Reach out to support 24/7:</h2>
                     <div className="btn-wrapper mb-30 go-top">
-                        <Link to="/contact" className="theme-btn-1 btn">Contact Us</Link>
+                        <Link to="/contact" className="theme-btn-1 btn">Entre em contato</Link>
                     </div>
                     <h3><i className="fas fa-phone" /> +0123-456-789</h3>
                     </div>

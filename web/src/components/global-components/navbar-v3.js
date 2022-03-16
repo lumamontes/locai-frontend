@@ -121,10 +121,10 @@ class NavbarV3 extends Component {
 									</li>
 			                    </ul>
 			                  </li>
-			                  <li className="menu-icon"><Link to="/about">About</Link>
+			                  <li className="menu-icon"><Link to="/about">Sobre</Link>
 			                    <ul>
-									<li><Link to="/about">About</Link></li>
-									<li><Link to="/service">Services</Link></li>
+									<li><Link to="/about">Sobre</Link></li>
+									<li><Link to="/service">Serviços</Link></li>
 									<li><Link to="/service-details">Service Details</Link></li>
 									<li><Link to="/portfolio">Portfolio</Link></li>
 									<li><Link to="/portfolio-v2">Portfolio - 02</Link></li>
@@ -176,7 +176,7 @@ class NavbarV3 extends Component {
 											<li><Link to="/add-listing">Add Listing</Link></li>
 											<li><Link to="/location">Google Map Locations</Link></li>
 											<li><Link to="/404">404</Link></li>
-											<li><Link to="/contact">Contact</Link></li>
+											<li><Link to="/contact">Contatos</Link></li>
 											<li><Link to="/coming-soon">Coming Soon</Link></li>
 										</ul>
 									</li>
@@ -194,7 +194,7 @@ class NavbarV3 extends Component {
 									</li>
 								</ul>
 								</li>
-			                  <li><Link to="/contact">Contact</Link></li>
+			                  <li><Link to="/contact">Contatos</Link></li>
 			                  <li className="special-link">
 			                    <Link to="/add-listing">Add Listing</Link>
 			                  </li>
@@ -249,10 +249,10 @@ class NavbarV3 extends Component {
 						<li><Link to="/home-v10">Home Style 10</Link></li>
 						</ul>
 						</li>
-						<li><Link to="/about">About</Link>
+						<li><Link to="/about">Sobre</Link>
 						<ul className="sub-menu">
-							<li><Link to="/about">About</Link></li>
-							<li><Link to="/service">Services</Link></li>
+							<li><Link to="/about">Sobre</Link></li>
+							<li><Link to="/service">Serviços</Link></li>
 							<li><Link to="/service-details">Service Details</Link></li>
 							<li><Link to="/portfolio">Portfolio</Link></li>
 							<li><Link to="/portfolio-v2">Portfolio - 02</Link></li>
@@ -288,8 +288,8 @@ class NavbarV3 extends Component {
 						</li>
 						<li><Link to="#">Pages</Link>
 							<ul class="sub-menu">
-								<li><Link to="/about">About</Link></li>
-								<li><Link to="/service">Services</Link></li>
+								<li><Link to="/about">Sobre</Link></li>
+								<li><Link to="/service">Serviços</Link></li>
 								<li><Link to="/service-details">Service Details</Link></li>
 								<li><Link to="/portfolio">Portfolio</Link></li>
 								<li><Link to="/portfolio-2">Portfolio - 02</Link></li>
@@ -301,11 +301,11 @@ class NavbarV3 extends Component {
 								<li><Link to="/add-listing">Add Listing</Link></li>
 								<li><Link to="/locations">Google Map Locations</Link></li>
 								<li><Link to="/404">404</Link></li>
-								<li><Link to="/contact">Contact</Link></li>
+								<li><Link to="/contact">Contatos</Link></li>
 								<li><Link to="/coming-soon">Coming Soon</Link></li>
 							</ul>
                     	</li>
-						<li><Link to="/contact">Contact</Link></li>
+						<li><Link to="/contact">Contatos</Link></li>
 					</ul>
 					</div>
 					<div className="ltn__utilize-buttons ltn__utilize-buttons-2">

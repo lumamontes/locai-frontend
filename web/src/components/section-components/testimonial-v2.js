@@ -16,7 +16,7 @@ class TestimonialV2 extends Component {
 			        <div className="section-title-area ltn__section-title-2--- text-center---">
 			          <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color--- white-color">Client,s Testimonial</h6>
 			          <h1 className="section-title white-color">See What,s Our Client <br />
-			            Says About Us</h1>
+			            Says Sobre nós</h1>
 			        </div>
 			      </div>
 			    </div>

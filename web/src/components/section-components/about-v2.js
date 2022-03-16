@@ -14,7 +14,7 @@ class AboutV2 extends Component {
 			      <div className="col-lg-6 align-self-center">
 			        <div className="about-us-info-wrap">
 			          <div className="section-title-area ltn__section-title-2--- mb-30">
-			            <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
+			            <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Sobre nós</h6>
 			            <h1 className="section-title">Today Sells Properties</h1>
 			            <p>Houzez allow you to design unlimited panels and real estate custom
 			              forms to capture leads and keep record of all information</p>
@@ -60,7 +60,7 @@ class AboutV2 extends Component {
 			      </div>
 			      <div className="col-lg-6 align-self-center">
 			        <div className="about-us-img-wrap about-img-right">
-			          <img src={publicUrl+"assets/img/others/9.png"} alt="About Us Image" />
+			          <img src={publicUrl+"assets/img/others/9.png"} alt="Sobre nós Image" />
 			        </div>
 			      </div>
 			    </div>

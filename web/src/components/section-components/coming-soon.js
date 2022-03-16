@@ -52,7 +52,7 @@ class ComingSoon extends Component {
 						</form>
 						</div>
 						<div className="btn-wrapper mt-50">
-						<Link to="/contact" className="btn theme-btn-2 btn-effect-2 text-uppercase">Contact Us</Link>
+						<Link to="/contact" className="btn theme-btn-2 btn-effect-2 text-uppercase">Entre em contato</Link>
 						</div>
 					</div>
 					</div>

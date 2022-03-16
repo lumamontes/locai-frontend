@@ -15,8 +15,8 @@ class FeaturesV1 extends Component {
 			    <div className="row">
 			      <div className="col-lg-12">
 			        <div className="section-title-area ltn__section-title-2--- text-center">
-			          <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Our Services</h6>
-			          <h1 className="section-title">Our Main Focus</h1>
+			          <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Serviços</h6>
+			          <h1 className="section-title">Nosso Foco</h1>
 			        </div>
 			      </div>
 			    </div>

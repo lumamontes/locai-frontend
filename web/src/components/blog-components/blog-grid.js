@@ -21,7 +21,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -52,7 +52,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -83,7 +83,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -114,7 +114,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -145,7 +145,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -176,7 +176,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -207,7 +207,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -238,7 +238,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>
@@ -269,7 +269,7 @@ class BlogGrid extends Component {
 							<Link to="/team-details"><i className="far fa-user" />by: Admin</Link>
 						</li>
 						<li className="ltn__blog-tags go-top">
-							<Link to="/service"><i className="fas fa-tags" />Services</Link>
+							<Link to="/service"><i className="fas fa-tags" />Serviços</Link>
 						</li>
 						</ul>
 					</div>

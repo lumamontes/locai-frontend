@@ -30,7 +30,7 @@ class BannerV5 extends Component {
 									<form action="#" className="ltn__car-dealer-form-box row">
 										<div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6">
 										<select className="nice-select">
-											<option>Property Type</option>
+											<option>Valor</option>
 											<option>Apartment</option>
 											<option>Co-op</option>
 											<option>Condo</option>
@@ -99,7 +99,7 @@ class BannerV5 extends Component {
 									<form action="#" className="ltn__car-dealer-form-box row">
 										<div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6">
 										<select className="nice-select">
-											<option>Property Type</option>
+											<option>Valor</option>
 											<option>Apartment</option>
 											<option>Co-op</option>
 											<option>Condo</option>

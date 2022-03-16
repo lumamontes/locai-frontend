@@ -26,7 +26,7 @@ class SearchForm extends Component {
 			                <form action="#" className="ltn__car-dealer-form-box row">
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Choose Area</option>
+			                      <option>Cidade</option>
 			                      <option>chicago</option>
 			                      <option>London</option>
 			                      <option>Los Angeles</option>
@@ -36,7 +36,7 @@ class SearchForm extends Component {
 			                  </div> 
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Property Status</option>
+			                      <option>Bairro</option>
 			                      <option>Open house</option>
 			                      <option>Rent</option>
 			                      <option>Sale</option>
@@ -45,7 +45,7 @@ class SearchForm extends Component {
 			                  </div> 
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Property Type</option>
+			                      <option>Valor</option>
 			                      <option>Apartment</option>
 			                      <option>Co-op</option>
 			                      <option>Condo</option>
@@ -55,7 +55,7 @@ class SearchForm extends Component {
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
 			                    <div className="btn-wrapper text-center mt-0 go-top">
 			                      {/* <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> */}
-			                      <Link to="/shop" className="btn theme-btn-1 btn-effect-1 text-uppercase">Find Now</Link>
+			                      <Link to="/shop" className="btn theme-btn-1 btn-effect-1 text-uppercase">PROCURAR</Link>
 			                    </div>
 			                  </div>
 			                </form>
@@ -66,7 +66,7 @@ class SearchForm extends Component {
 			                <form action="#" className="ltn__car-dealer-form-box row">
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Choose Area</option>
+			                      <option>Cidade</option>
 			                      <option>chicago</option>
 			                      <option>London</option>
 			                      <option>Los Angeles</option>
@@ -76,7 +76,7 @@ class SearchForm extends Component {
 			                  </div> 
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Property Status</option>
+			                      <option>Bairro</option>
 			                      <option>Open house</option>
 			                      <option>Rent</option>
 			                      <option>Sale</option>
@@ -85,7 +85,7 @@ class SearchForm extends Component {
 			                  </div> 
 			                  <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
-			                      <option>Property Type</option>
+			                      <option>Valor</option>
 			                      <option>Apartment</option>
 			                      <option>Co-op</option>
 			                      <option>Condo</option>

@@ -10,7 +10,7 @@ import Footer from './global-components/footer';
 const ContactV1 = () => {
     return <div>
         <Navbar />
-        <PageHeader headertitle="Contact Us" subheader="Contact" />
+        <PageHeader headertitle="Entre em contato" subheader="Contatos" />
         <ContactInfo />
         <ContactForm />
         <Map />
