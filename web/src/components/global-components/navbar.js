@@ -9,7 +9,7 @@ class Navbar extends Component {
         return (
 		<div>
            <header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
-			<div className="ltn__header-top-area section-bg-6 top-area-color-white---">
+			{/* <div className="ltn__header-top-area section-bg-6 top-area-color-white---">
 				<div className="container">
 				<div className="row">
 					<div className="col-md-7">
@@ -25,7 +25,7 @@ class Navbar extends Component {
 						<div className="ltn__top-bar-menu">
 						<ul>
 							<li className="d-none">
-							{/* ltn__language-menu */}
+							{/* ltn__language-menu 
 							<div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
 								<ul>
 								<li><a href="#" className="dropdown-toggle"><span className="active-currency">English</span></a>
@@ -45,7 +45,7 @@ class Navbar extends Component {
 								<Social />
 							</li>
 							<li>
-							{/* header-top-btn */}
+							header-top-btn
 							<div className="header-top-btn">
 								<Link to="/add-listing">Add Listing</Link>
 							</div>
@@ -56,7 +56,7 @@ class Navbar extends Component {
 					</div>
 				</div>
 				</div>
-			</div>
+			</div> */}
 			<div className="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
 				<div className="container">
 				<div className="row">
@@ -82,62 +82,6 @@ class Navbar extends Component {
 						<div className="ltn__main-menu go-top">
 							<ul>
 							<li className="menu-icon"><Link to="/">Home</Link>
-								<ul className="sub-menu menu-pages-img-show">
-								<li>
-									<Link to="/">Home Style 01</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-1.jpg"} alt="#" />
-								</li>
-								<li>
-									<Link to="/home-v2">Home Style 02</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-2.jpg"} alt="#" />
-								</li>
-								<li>
-									<Link to="/home-v3">Home Style 03</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-3.jpg"} alt="#" />
-								</li>
-								<li>
-									<Link to="/home-v4">Home Style 04</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-4.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v5">Home Style 05 <span className="menu-item-badge">video</span></Link>
-									<img src={publicUrl+"assets/img/home-demos/home-5.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v6">Home Style 06</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-6.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v7">Home Style 07</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-7.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v8">Home Style 08</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-8.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v9">Home Style 09</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-9.jpg" } alt="#" /> 
-								</li>
-								<li>
-									<Link to="/home-v10">Home Style 10</Link>
-									<img src={publicUrl+"assets/img/home-demos/home-11.jpg"}  alt="#" />
-								</li>
-								</ul>
-							</li>
-							<li className="menu-icon"><Link to="/about">Sobre</Link>
-								<ul>
-								<li><Link to="/about">Sobre</Link></li>
-								<li><Link to="/service">Serviços</Link></li>
-								<li><Link to="/service-details">Service Details</Link></li>
-								<li><Link to="/portfolio">Portfolio</Link></li>
-								<li><Link to="/portfolio-v2">Portfolio - 02</Link></li>
-								<li><Link to="/portfolio-details">Portfolio Details</Link></li>
-								<li><Link to="/team">Team</Link></li>
-								<li><Link to="/team-details">Team Details</Link></li>
-								<li><Link to="/faq">FAQ</Link></li>
-								<li><Link to="/location">Google Map Locations</Link></li>
-								</ul>
 							</li>
 							<li className="menu-icon"><Link to="/shop">Shop</Link>
 								<ul>
@@ -153,7 +97,22 @@ class Navbar extends Component {
 									<li><Link to="/register">Cadastrar</Link></li>
 								</ul>
 							</li>
-							<li className="menu-icon"><Link to="/blog-grid">News</Link>
+							<li className="menu-icon"><Link to="/about">Sobre</Link>
+								<ul>
+								<li><Link to="/about">Sobre</Link></li>
+								<li><Link to="/service">Serviços</Link></li>
+								{/* <li><Link to="/service-details">Service Details</Link></li>
+								<li><Link to="/portfolio">Portfolio</Link></li>
+								<li><Link to="/portfolio-v2">Portfolio - 02</Link></li>
+								<li><Link to="/portfolio-details">Portfolio Details</Link></li> */}
+								<li><Link to="/team">Team</Link></li>
+								{/* <li><Link to="/team-details">Team Details</Link></li> */}
+								{/* <li><Link to="/faq">FAQ</Link></li> */}
+								{/* <li><Link to="/location">Google Map Locations</Link></li> */}
+								</ul>
+							</li>
+						
+							{/* <li className="menu-icon"><Link to="/blog-grid">News</Link>
 								<ul>
 									<li><Link to="/blog">News</Link></li>
 									<li><Link to="/blog-grid">News Grid</Link></li>
@@ -161,7 +120,7 @@ class Navbar extends Component {
 									<li><Link to="/blog-right-sidebar">News Right sidebar</Link></li>
 									<li><Link to="/blog-details">News details</Link></li>
 								</ul>
-							</li>
+							</li> */}
 							<li className="menu-icon"><Link to="#">Pages</Link>
 								<ul className="mega-menu">
 									<li><a href="#">Inner Pages</a>
@@ -206,7 +165,7 @@ class Navbar extends Component {
 					</div>
 					<div className="col ltn__header-options ltn__header-options-2 mb-sm-20">
 					{/* header-search-1 */}
-					<div className="header-search-wrap">
+					{/* <div className="header-search-wrap">
 						<div className="header-search-1">
 						<div className="search-icon">
 							<i className="icon-search for-search-show" />
@@ -221,7 +180,7 @@ class Navbar extends Component {
 							</button>
 						</form>
 						</div>
-					</div>
+					</div> */}
 					{/* user-menu */}
 					<div className="ltn__drop-menu user-menu">
 						<ul>

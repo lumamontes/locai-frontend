@@ -56,7 +56,7 @@ class Root extends Component {
 	                <div>
 	                <Switch>
 	                    <Route exact path="/" component={HomeV1} />
-                        <Route path="/home-v2" component={HomeV2} />
+                        {/* <Route path="/home-v2" component={HomeV2} />
                         <Route path="/home-v3" component={HomeV3} />
                         <Route path="/home-v4" component={HomeV4} />
                         <Route path="/home-v5" component={HomeV5} />
@@ -64,7 +64,7 @@ class Root extends Component {
                         <Route path="/home-v7" component={HomeV7} />
                         <Route path="/home-v8" component={HomeV8} />
                         <Route path="/home-v9" component={HomeV9} />
-                        <Route path="/home-v10" component={HomeV10} />
+                        <Route path="/home-v10" component={HomeV10} /> */}
 
                         <Route path="/about" component={About} />
                         <Route path="/service" component={Service} />
@@ -96,7 +96,7 @@ class Root extends Component {
                         <Route path="/cart" component={ Cart } />
                         <Route path="/checkout" component={ Checkout } />
                         <Route path="/my-account" component={ MyAccount } />
-                        <Route path="/login" component={ Login } />
+                        <Route exact path="/login" component={ Login } />
                         <Route path="/register" component={ Register } />
                         <Route path="/add-listing" component={ AddListing } />
                         <Route path="/wishlist" component={ Wishlist } />

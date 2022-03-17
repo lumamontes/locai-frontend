@@ -5705,7 +5705,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .menu-icon > a {
   position: relative;
 }
-.menu-icon > a::before {
+/* .menu-icon > a::before {
   content: "\f067";
   font-size: 8px;
   position: absolute;
@@ -5716,7 +5716,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   transform: translateY(-50%);
   font-family: "Font Awesome\ 5 Free";
   font-weight: 900;
-}
+} */
 
 /* Menu Item Badge */
 .menu-item-badge {

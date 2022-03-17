@@ -29,12 +29,12 @@ class Banner extends Component {
 				                  <div className="slide-brief animated">
 				                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
 				                  </div>
-				                  <div className="btn-wrapper animated ">
+				                  {/* <div className="btn-wrapper animated ">
 				                    	<Link to="/about" className="theme-btn-1 btn btn-effect-1 go-top">Make An Enquiry</Link>
 				                    <a className="ltn__video-play-btn bg-white" href="https://www.youtube.com/embed/HnbMYzdjuBs?autoplay=1&showinfo=0" data-rel="lightcase">
 				                      <i className="icon-play  ltn__secondary-color" />
 				                    </a>
-				                  </div>
+				                  </div> */}
 				                </div>
 				              </div>
 				              <div className="slide-item-img">

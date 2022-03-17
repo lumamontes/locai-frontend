@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-
-class Login extends Component {
-
-    render() {
-
-        let publicUrl = process.env.PUBLIC_URL+'/'
-
-    return	<div>
+export default function Login () {
+	return (
+		<div>
 			 <div className="ltn__login-area pb-65">
 				<div className="container">
 				<div className="row">
 					<div className="col-lg-12">
 					<div className="section-title-area text-center">
-						<h1 className="section-title">Entrar <br />To  Your Account</h1>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
-						Sit aliquid,  Non distinctio vel iste.</p>
+						<h1 className="section-title">Entrar <br />Na sua conta</h1>
 					</div>
 					</div>
 				</div>
@@ -25,7 +18,7 @@ class Login extends Component {
 					<div className="account-login-inner">
 						<form  method="GET" className="ltn__form-box contact-form-box">
 						<input type="text" name="email" placeholder="Email*" />
-						<input type="password" name="password" placeholder="Password*" />
+						<input type="password" name="password" placeholder="Senha *" />
 						<div className="btn-wrapper mt-0">
 							<button className="theme-btn-1 btn btn-block" type="submit">Entrar</button>
 						</div>
@@ -37,11 +30,11 @@ class Login extends Component {
 					</div>
 					<div className="col-lg-6">
 					<div className="account-create text-center pt-50">
-						<h4>DON'T HAVE AN ACCOUNT?</h4>
-						<p>Add items to your wishlistget personalised recommendations <br />
-						check out more quickly track your orders register</p>
+						<h4>Não tem uma conta?</h4>
+						<p>Adicione itens à sua lista de desejos receba recomendações personalizadas
+confira mais rapidamente acompanhe seus pedidos cadastre-se</p>
 						<div className="btn-wrapper go-top">
-							<Link to="/register" className="theme-btn-1 btn black-btn">CREATE ACCOUNT</Link>
+							<Link to="/register" className="theme-btn-1 btn black-btn">CRIAR CONTA</Link>
 						</div>
 					</div>
 					</div>
@@ -76,7 +69,7 @@ class Login extends Component {
 							<div className="additional-info d-none">
 								<p>We want to give you <b>10% discount</b> for your first order, <br />  Use discount code at checkout</p>
 								<div className="payment-method">
-								<img src={publicUrl+"assets/img/icons/payment.png"} alt="#" />
+								<img src={"assets/img/icons/payment.png"} alt="#" />
 								</div>
 							</div>
 							</div>
@@ -90,7 +83,5 @@ class Login extends Component {
 			</div>
 
 			</div>
-        }
+	)
 }
-
-export default Login
