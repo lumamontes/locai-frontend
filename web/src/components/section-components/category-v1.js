@@ -14,8 +14,8 @@ class CategoryV1 extends Component {
 			    <div className="row">
 			      <div className="col-lg-12">
 			        <div className="section-title-area ltn__section-title-2--- text-center">
-			          <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Our Aminities</h6>
-			          <h1 className="section-title">Building Aminities</h1>
+			          <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Comodidades</h6>
+			          <h1 className="section-title">Comodidades disponíveis</h1>
 			        </div>
 			      </div>
 			    </div>
@@ -24,7 +24,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-car" /></span>
-			            <span className="category-title">Parking Space</span>
+			            <span className="category-title">Estacionamento</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -33,7 +33,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-swimming" /></span>
-			            <span className="category-title">Swimming Pool</span>
+			            <span className="category-title">Piscina</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -42,7 +42,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-secure-shield" /></span>
-			            <span className="category-title">Private Security</span>
+			            <span className="category-title">Segurança</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -51,7 +51,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-stethoscope" /></span>
-			            <span className="category-title">Medical Center</span>
+			            <span className="category-title">Hospital</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -60,7 +60,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-book" /></span>
-			            <span className="category-title">Library Area</span>
+			            <span className="category-title">Área de Biblioteca</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -69,7 +69,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-bed-1" /></span>
-			            <span className="category-title">King Size Beds</span>
+			            <span className="category-title">Camas King Size</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -78,7 +78,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-home-2" /></span>
-			            <span className="category-title">Smart Homes</span>
+			            <span className="category-title">Casas Smart</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>
@@ -87,7 +87,7 @@ class CategoryV1 extends Component {
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-slider" /></span>
-			            <span className="category-title">Kid’s Playland</span>
+			            <span className="category-title">Praça</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
 			          </Link>
 			        </div>

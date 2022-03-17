@@ -120,7 +120,7 @@ class Neighbour extends Component {
 			                        </div>
 			                      </div>
 			                      <div className="search-by-place-info go-top">
-			                        <h4><Link to="/product-details">Children Playland</Link></h4>
+			                        <h4><Link to="/product-details">Praça</Link></h4>
 			                        <label><span className="ltn__secondary-color">1,500m </span>/ 21 min. walk</label>
 			                        <div className="search-by-place-brief">
 			                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -211,7 +211,7 @@ class Neighbour extends Component {
 			                {/* card */}
 			                <div className="card">
 			                  <h6 className="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-3-6" aria-expanded="false">
-			                    <i className="flaticon-slider" /> Children Playland
+			                    <i className="flaticon-slider" /> Praça
 			                  </h6>
 			                  <div id="faq-item-3-6" className="collapse" data-bs-parent="#accordion_3">
 			                    <div className="card-body">

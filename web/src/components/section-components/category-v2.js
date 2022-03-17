@@ -25,7 +25,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-car" /></span>
 			            <span className="category-number">01</span>
-			            <span className="category-title">Parking Space</span>
+			            <span className="category-title">Estacionamento</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -38,7 +38,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-swimming" /></span>
 			            <span className="category-number">02</span>
-			            <span className="category-title">Swimming Pool</span>
+			            <span className="category-title">Piscina</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -51,7 +51,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-secure-shield" /></span>
 			            <span className="category-number">03</span>
-			            <span className="category-title">Private Security</span>
+			            <span className="category-title">Segurança</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -64,7 +64,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-stethoscope" /></span>
 			            <span className="category-number">04</span>
-			            <span className="category-title">Medical Center</span>
+			            <span className="category-title">Hospital</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -77,7 +77,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-book" /></span>
 			            <span className="category-number">05</span>
-			            <span className="category-title">Library Area</span>
+			            <span className="category-title">Área de Biblioteca</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -90,7 +90,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-bed-1" /></span>
 			            <span className="category-number">06</span>
-			            <span className="category-title">King Size Beds</span>
+			            <span className="category-title">Camas King Size</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -103,7 +103,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-home-2" /></span>
 			            <span className="category-number">07</span>
-			            <span className="category-title">Smart Homes</span>
+			            <span className="category-title">Casas Smart</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>
@@ -116,7 +116,7 @@ class CategoryV2 extends Component {
 			          <Link to="/shop">
 			            <span className="category-icon"><i className="flaticon-slider" /></span>
 			            <span className="category-number">08</span>
-			            <span className="category-title">Kid’s Playland</span>
+			            <span className="category-title">Praça</span>
 			            <span className="category-brief">
 			              Enimad minim veniam quis no exercitation ullamco lab
 			            </span>

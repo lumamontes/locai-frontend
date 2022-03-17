@@ -29,7 +29,6 @@ const Home_V1 = () => {
         <VideoV1 />
         <Category />
         <Testimonial />
-        <BlogSlider customClass="section-subtitle-2"/>
         <CallToActionV1 />
         <Footer />
     </div>

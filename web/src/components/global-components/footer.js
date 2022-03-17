@@ -54,7 +54,7 @@ class Footer_v1 extends Component {
 				                <img src={publicUrl+"assets/img/logo-2.png"} alt="Logo" />
 				              </div>
 				            </div>
-				            <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
+				            <p>Sistema para anúncio e aluguel de imóveis</p>
 				            <div className="footer-address">
 				              <ul>
 				                <li>
@@ -62,7 +62,7 @@ class Footer_v1 extends Component {
 				                    <i className="icon-placeholder" />
 				                  </div>
 				                  <div className="footer-address-info">
-				                    <p>Brooklyn, New York, United States</p>
+				                    <p>Macapá, Amapá, Brasil</p>
 				                  </div>
 				                </li>
 				                <li>

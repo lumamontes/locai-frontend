@@ -175,7 +175,7 @@ class ShopDetails extends Component {
 									</label>
 								</li>
 								<li>
-									<label className="checkbox-item">Swimming Pool
+									<label className="checkbox-item">Piscina
 									<input type="checkbox" defaultChecked="checked" />
 									<span className="checkmark" />
 									</label>
