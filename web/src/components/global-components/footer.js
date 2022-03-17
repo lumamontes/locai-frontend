@@ -47,7 +47,7 @@ class Footer_v1 extends Component {
 				  <div className="footer-top-area  section-bg-2 plr--5">
 				    <div className="container-fluid">
 				      <div className="row">
-				        <div className="col-xl-3 col-md-6 col-sm-6 col-12">
+				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-about-widget">
 				            <div className="footer-logo">
 				              <div className="site-logo">
@@ -88,65 +88,41 @@ class Footer_v1 extends Component {
 				            </div>
 				          </div>
 				        </div>
-				        <div className="col-xl-2 col-md-6 col-sm-6 col-12">
+				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-menu-widget clearfix">
-				            <h4 className="footer-title">Company</h4>
+				            <h4 className="footer-title">Empresa</h4>
 				            <div className="footer-menu go-top">
 				              <ul>
 				                <li><Link to="/about">Sobre</Link></li>
-				                <li><Link to="/blog-grid">Blog</Link></li>
-				                <li><Link to="/shop">All Products</Link></li>
+				                <li><Link to="/shop">Imóveis</Link></li>
 				                <li><Link to="/contact">Contatos</Link></li>
-				                <li><Link to="/faq">FAQ</Link></li>
-				                <li><Link to="/contact">Contatos us</Link></li>
 				              </ul>
 				            </div>
 				          </div>
 				        </div>
-				        <div className="col-xl-2 col-md-6 col-sm-6 col-12">
+				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-menu-widget clearfix">
 				            <h4 className="footer-title">Serviços</h4>
 				            <div className="footer-menu go-top">
 				              <ul>
-				                <li><Link to="/cart">Cart</Link></li>
-				                <li><Link to="/wishlist">Wish List</Link></li>
-				                <li><Link to="/login">Login</Link></li>
+				                <li><Link to="/cart">Carrinho</Link></li>
 				                <li><Link to="/checkout">Checkout</Link></li>
-				                <li><Link to="/about">Terms &amp; Conditions</Link></li>
-				                <li><Link to="/shop">Promotional Offers</Link></li>
+				                <li><Link to="/about">Termos &amp; Condições</Link></li>
 				              </ul>
 				            </div>
 				          </div>
 				        </div>
-				        <div className="col-xl-2 col-md-6 col-sm-6 col-12">
+				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-menu-widget clearfix">
-				            <h4 className="footer-title">Customer Care</h4>
+				            <h4 className="footer-title">Atendimento ao Consumidor</h4>
 				            <div className="footer-menu go-top">
 				              <ul>
 				                <li><Link to="/login">Login</Link></li>
 				                <li><Link to="/my-account">Minha conta</Link></li>
-				                <li><Link to="/wishlist">Wish List</Link></li>
-				                <li><Link to="/add-listing">Add listing</Link></li>
-				                <li><Link to="/faq">FAQ</Link></li>
-				                <li><Link to="/contact">Contatos us</Link></li>
+				                <li><Link to="/wishlist">Lista de desejos</Link></li>
+				                <li><Link to="/add-listing">Anunciar</Link></li>
 				              </ul>
 				            </div>
-				          </div>
-				        </div>
-				        <div className="col-xl-3 col-md-6 col-sm-12 col-12">
-				          <div className="footer-widget footer-newsletter-widget">
-				            <h4 className="footer-title">Newsletter</h4>
-				            <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-				            <div className="footer-newsletter">
-				              <form action="#">
-				                <input type="email" name="email" placeholder="Email*" />
-				                <div className="btn-wrapper">
-				                  <button className="theme-btn-1 btn" type="submit"><i className="fas fa-location-arrow" /></button>
-				                </div>
-				              </form>
-				            </div>
-				            <h5 className="mt-30">We Accept</h5>
-				            <img src={publicUrl+"assets/img/icons/payment-4.png"} alt="Payment Image" />
 				          </div>
 				        </div>
 				      </div>
