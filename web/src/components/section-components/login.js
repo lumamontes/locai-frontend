@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
+import axios from 'axios';
 export default function Login () {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
 	return (
 		<div>
 			 <div className="ltn__login-area pb-65">
@@ -17,8 +21,8 @@ export default function Login () {
 					<div className="col-lg-6">
 					<div className="account-login-inner">
 						<form  method="GET" className="ltn__form-box contact-form-box">
-						<input type="text" name="email" placeholder="Email*" />
-						<input type="password" name="password" placeholder="Senha *" />
+						<input type="text" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email*" />
+						<input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Senha *" />
 						<div className="btn-wrapper mt-0">
 							<button className="theme-btn-1 btn btn-block" type="submit">Entrar</button>
 						</div>
