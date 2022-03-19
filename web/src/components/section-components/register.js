@@ -1,14 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState }  from 'react';
 import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
-
-class Register extends Component {
-
-    render() {
-
-        let publicUrl = process.env.PUBLIC_URL+'/'
-
-    return  <div className="ltn__login-area pb-50">
+import { api } from '../../services/api';
+import moment  from 'moment';
+export default function Register() {
+	const [valuesForm, setValuesForm] = useState({
+		name:"",
+		email:"",
+		telephone:"",
+		city:"",
+		state:"",
+		password:""
+	})
+	const [date, setDate] = useState()
+	function handleRegister() {
+		api.post("/users", {
+			...valuesForm,
+			birth_date:moment(date).format('YYYY-MM-DD')
+		}).then((response) => {
+			console.log(response.data)
+		})
+	}
+	const handleChange = (e) => {
+    const { name, value } = e.target
+    setValuesForm({
+      ...valuesForm,
+      [name]: value,
+    })
+  }
+	return (
+		<div className="ltn__login-area pb-50">
 				<div className="container">
 				<div className="row">
 					<div className="col-lg-12">
@@ -22,37 +42,30 @@ class Register extends Component {
 				<div className="row">
 					<div className="col-lg-6 offset-lg-3">
 					<div className="account-login-inner">
-						<form action="#" className="ltn__form-box contact-form-box">
-						<input type="text" name="firstname" placeholder="Nome" />
-						<input type="text" name="email" placeholder="Email*" />
-						<input type="text" name="firstname" placeholder="Telefone" />
-						<input type="password" name="password" placeholder="Password*" />
+						<form onSubmit={(e) => e.preventDefault()} className="ltn__form-box contact-form-box">
+						<input type="text" name="name" placeholder="Nome" value={valuesForm.name}  onChange={handleChange}/>
+						<input type="text" name="email" placeholder="Email*" value={valuesForm.email}  onChange={handleChange} />
+						<input type="text" name="telephone" placeholder="Telefone" value={valuesForm.telephone}  onChange={handleChange}/>
+						<input type="text" name="birth_date" placeholder="Coloque sua data de nascimento" onChange={(e) => setDate(e.target.value)} />
+						<input type="text" name="state" placeholder="Estado" value={valuesForm.state}  onChange={handleChange}/>
+						<input type="text" name="city" placeholder="Cidade" value={valuesForm.city}  onChange={handleChange}/>
+						<input type="password" name="password" placeholder="Password*" value={valuesForm.password}  onChange={handleChange}/>
 						<input type="password" name="confirmpassword" placeholder="Confirm Password*" />
 						<label className="checkbox-inline">
-							<input type="checkbox" defaultValue />&nbsp;
-							I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.
-						</label>
-						<label className="checkbox-inline">
 							<input type="checkbox" defaultValue /> &nbsp;
-							By clicking "create account", I consent to the privacy policy.
+							Ao Clicar você irá concordar com os Termos &amp; Condições
 						</label>
 						<div className="btn-wrapper">
-							<button className="theme-btn-1 btn reverse-color btn-block" type="submit">CREATE ACCOUNT</button>
+							<button className="theme-btn-1 btn reverse-color btn-block" onClick={handleRegister}>CRIAR CONTA</button>
+						</div>
+						<div className="go-to-btn mt-50 go-top">
+							<Link to="/login">Você ja tem uma conta?</Link>
 						</div>
 						</form>
-						<div className="by-agree text-center">
-						<p>By creating an account, you agree to our:</p>
-						<p><a href="#">TERMS OF CONDITIONS  &nbsp; &nbsp; | &nbsp; &nbsp;  PRIVACY POLICY</a></p>
-						<div className="go-to-btn mt-50 go-top">
-							<Link to="/login">ALREADY HAVE AN ACCOUNT ?</Link>
-						</div>
-						</div>
 					</div>
 					</div>
 				</div>
 				</div>
 			</div>
-        }
+	)
 }
-
-export default Register
