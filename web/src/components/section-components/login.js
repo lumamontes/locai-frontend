@@ -2,10 +2,20 @@ import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
 import axios from 'axios';
+import { api } from '../../services/api';
 export default function Login () {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+ 
 
+	function handleLogin() {
+		api.post('/login', {
+			email:email,
+			password:password
+		}).then((response) => {
+			console.log(response.data)
+		})
+	}
 	return (
 		<div>
 			 <div className="ltn__login-area pb-65">
@@ -20,11 +30,11 @@ export default function Login () {
 				<div className="row">
 					<div className="col-lg-6">
 					<div className="account-login-inner">
-						<form  method="GET" className="ltn__form-box contact-form-box">
+						<form  onSubmit={(e) => e.preventDefault()} className="ltn__form-box contact-form-box">
 						<input type="text" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email*" />
 						<input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Senha *" />
 						<div className="btn-wrapper mt-0">
-							<button className="theme-btn-1 btn btn-block" type="submit">Entrar</button>
+							<button className="theme-btn-1 btn btn-block" onClick={handleLogin}>Entrar</button>
 						</div>
 						<div className="go-to-btn mt-20">
 						<a href="#" title="Forgot Password?" data-bs-toggle="modal" data-bs-target="#ltn_forget_password_modal"><small>FORGOTTEN YOUR PASSWORD?</small></a>
