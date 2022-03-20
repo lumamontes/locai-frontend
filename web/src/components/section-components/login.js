@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
 import axios from 'axios';
 import { api } from '../../services/api';
+import { useAuth } from '../../hooks/useAuth';
 export default function Login () {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
- 
+	const {handleLogin, user} = useAuth()
 
-	function handleLogin() {
+	function login() {
 		api.post('/login', {
 			email:email,
 			password:password
 		}).then((response) => {
-			console.log(response.data)
+			handleLogin(response.data)
 		})
 	}
+	console.log(user)
 	return (
 		<div>
 			 <div className="ltn__login-area pb-65">
@@ -34,7 +36,7 @@ export default function Login () {
 						<input type="text" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email*" />
 						<input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Senha *" />
 						<div className="btn-wrapper mt-0">
-							<button className="theme-btn-1 btn btn-block" onClick={handleLogin}>Entrar</button>
+							<button className="theme-btn-1 btn btn-block" onClick={login}>Entrar</button>
 						</div>
 						<div className="go-to-btn mt-20">
 						<a href="#" title="Forgot Password?" data-bs-toggle="modal" data-bs-target="#ltn_forget_password_modal"><small>FORGOTTEN YOUR PASSWORD?</small></a>

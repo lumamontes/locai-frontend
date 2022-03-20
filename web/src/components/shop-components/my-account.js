@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
+import { useAuth } from '../../hooks/useAuth';
 
-class MyAccount extends Component {
+export default function MyAccount () {
 
-    render() {
-
-        let publicUrl = process.env.PUBLIC_URL+'/'
-
-    return <div className="liton__wishlist-area pb-70">
+	const {user} = useAuth()
+	
+	return (
+		user !== null ? <div className="liton__wishlist-area pb-70">
 	  <div className="container">
 		<div className="row">
 		  <div className="col-lg-12">
@@ -36,7 +36,7 @@ class MyAccount extends Component {
 					<div className="tab-content">
 					  <div className="tab-pane fade active show" id="ltn_tab_1_1">
 						<div className="ltn__myaccount-tab-content-inner">
-						  <p>Hello <strong>UserName</strong> (not <strong>UserName</strong>? <small><a href="login.html">Log out</a></small> )</p>
+						  <p>Olá <strong>{user.name}</strong></p>
 						  <p>From your account dashboard you can view your <span>recent orders</span>, manage your <span>shipping and billing addresses</span>, and <span>edit your password and account details</span>.</p>
 						</div>
 					  </div>
@@ -46,7 +46,7 @@ class MyAccount extends Component {
 						  <div className="ltn__comment-area mb-50">
 							<div className="ltn-author-introducing clearfix">
 							  <div className="author-img">
-								<img src={publicUrl+"assets/img/blog/author.jpg"} alt="Author Image" />
+								<img src={"assets/img/blog/author.jpg"} alt="Author Image" />
 							  </div>
 							  <div className="author-info">
 								<h6>Agent of Property</h6>
@@ -211,7 +211,7 @@ class MyAccount extends Component {
 							  <tbody>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/2.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/2.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -235,7 +235,7 @@ class MyAccount extends Component {
 								</tr>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/3.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/3.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -259,7 +259,7 @@ class MyAccount extends Component {
 								</tr>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/7.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/7.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -315,7 +315,7 @@ class MyAccount extends Component {
 							  <tbody>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/2.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/2.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -339,7 +339,7 @@ class MyAccount extends Component {
 								</tr>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/3.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/3.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -363,7 +363,7 @@ class MyAccount extends Component {
 								</tr>
 								<tr>
 								  <td className="ltn__my-properties-img go-top">
-									<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/7.jpg"} alt="#" /></Link>
+									<Link to="/product-details"><img src={"assets/img/product-3/7.jpg"} alt="#" /></Link>
 								  </td>
 								  <td>
 									<div className="ltn__my-properties-info">
@@ -1015,7 +1015,7 @@ class MyAccount extends Component {
 								  {/* card */}
 								  <div className="card">
 									<h5 className="collapsed ltn__card-title" data-toggle="collapse" data-target="#faq-item-2-3" aria-expanded="false">
-									  PayPal <img src={publicUrl+"assets/img/icons/payment-3.png"} alt="#" />
+									  PayPal <img src={"assets/img/icons/payment-3.png"} alt="#" />
 									</h5>
 									<div id="faq-item-2-3" className="collapse" data-parent="#checkout_accordion_1">
 									  <div className="card-body">
@@ -1090,9 +1090,6 @@ class MyAccount extends Component {
 		  </div>
 		</div>
 	  </div>
-	</div>
-	
-        }
-}
-
-export default MyAccount
+	</div> : null
+	)
+} 
