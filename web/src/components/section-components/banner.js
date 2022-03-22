@@ -25,7 +25,7 @@ class Banner extends Component {
 				                    </a>
 				                  </div>
 				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> Real Estate Agency</h6>
-				                  <h1 className="slide-title animated ">Encontre a casa <br /> Perfeita para você</h1>
+				                  <h1 className="slide-title animated ">Encontre o lar <br /> Perfeito para você</h1>
 				                  <div className="slide-brief animated">
 				                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
 				                  </div>
@@ -54,9 +54,9 @@ class Banner extends Component {
 				              <div className="slide-item-info">
 				                <div className="slide-item-info-inner ltn__slide-animation">
 				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> Real Estate Agency</h6>
-				                  <h1 className="slide-title animated ">The Right Place <br />of House Finding</h1>
+				                  <h1 className="slide-title animated ">Facilite a sua vida  <br />e de outras pessoas</h1>
 				                  <div className="slide-brief animated">
-				                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+				                    <p>Anuncie apartamentos na melhor plataforma do estado.</p>
 				                  </div>
 				                  <div className="btn-wrapper animated">
 				                    <Link to="/service" className="theme-btn-1 btn btn-effect-1">OUR SERVICES</Link>
