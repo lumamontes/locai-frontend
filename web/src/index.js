@@ -49,7 +49,6 @@ import OrderTracking from './components/order-tracking';
 import History from './components/history';
 import { AuthProvider } from './contexts/AuthContext';
 
-
 export default function Root() {
    return (
     <HashRouter basename="/">
@@ -65,7 +64,6 @@ export default function Root() {
         <Route path="/home-v8" component={HomeV8} />
         <Route path="/home-v9" component={HomeV9} />
         <Route path="/home-v10" component={HomeV10} /> */}
-
         <Route path="/about" component={About} />
         <Route path="/service" component={Service} />
         <Route path="/service-details" component={ ServiceDetails } />
@@ -82,15 +80,12 @@ export default function Root() {
         <Route path="/shop-grid" component={ ShopGrid } />
         <Route path="/shop-left-sidebar" component={ ShopLeftSidebar } />
         <Route path="/shop-right-sidebar" component={ ShopRightSidebar } />
-
-        <Route path="/product-details" component={ ProdductDetails } />
+        <Route path="/product-details/:property_id" component={ ProdductDetails } />
         {/* blog */}
         <Route path="/blog-grid" component={ BlogGrid } />
         <Route path="/blog-left-sidebar" component={ BlogLeftSidebar } />
         <Route path="/blog-right-sidebar" component={ BlogRightSidebar } />
         <Route path="/blog" component={ Blog } />
-
-
         <Route path="/blog-details" component={ BlogDetails } />
         <Route path="/contact" component={ Contact } />
         <Route path="/cart" component={ Cart } />

@@ -12,7 +12,6 @@ const ContactV1 = () => {
         <Navbar />
         <PageHeader headertitle="Entre em contato" subheader="Contatos" />
         <ContactInfo />
-        <ContactForm />
         <Map />
         <CallToActionV1 />
         <Footer />
