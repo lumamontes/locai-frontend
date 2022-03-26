@@ -1,23 +1,23 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import parse from 'html-react-parser';
 import axios from 'axios';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
 export default function Login () {
+	const history = useHistory();
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const {handleLogin, user} = useAuth()
 
-	function login() {
-		api.post('/login', {
+	async function login() {
+		const response = await api.post('/login', {
 			email:email,
 			password:password
-		}).then((response) => {
-			handleLogin(response.data)
-		})
+		});
+		await handleLogin(response.data);
+		history.push('my-account')
 	}
-	console.log(user)
 	return (
 		<div>
 			 <div className="ltn__login-area pb-65">
