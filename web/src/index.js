@@ -48,6 +48,7 @@ import Wishlist from './components/wishlist';
 import OrderTracking from './components/order-tracking';
 import History from './components/history';
 import { AuthProvider } from './contexts/AuthContext';
+import CadastrarImovel from './components/Custom-components/CadastrarImovel';
 
 export default function Root() {
    return (
@@ -97,6 +98,8 @@ export default function Root() {
         <Route path="/wishlist" component={ Wishlist } />
         <Route path="/order-tracking" component={ OrderTracking } />
         <Route path="/history" component={ History } />
+
+        <Route path="/cadastrar-imovel" component={CadastrarImovel}/>
     </Switch>
     </div>
 </HashRouter>

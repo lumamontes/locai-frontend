@@ -1,0 +1,10 @@
+.moving-tab{
+  display: none;
+}
+
+.active.checked.nav-link {
+  background: #810606;
+}
+.nav-link {
+  color: var(--ltn__primary-color-2) ;
+}

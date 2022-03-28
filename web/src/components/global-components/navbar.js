@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Social from '../section-components/social';
 
 export default function Navbar () {
 	const {user, handleLogout} = useAuth()
+	const history = useHistory()
 	return (
 		<div>
 		<header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
@@ -181,6 +183,11 @@ export default function Navbar () {
 		 </div>
 	 </div> */}
 	 {/* user-menu */}
+	 <div>
+		 <button onClick={() => history.push("/cadastrar-imovel")} className='ltn__secondary-bg text-white rounded pt-10 pb-10'>
+			 Anunciar
+		 </button>
+	 </div>
 	 <div className="ltn__drop-menu user-menu">
 		 <ul>
 		 <li>
