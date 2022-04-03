@@ -37,9 +37,9 @@ export default function InfoImovel() {
           <label>Garagem</label>
           <Input type="number" />
         </div>
-        <div className="d-flex flex-column w-75">
+        <div  className="d-flex flex-column w-75">
           <label>o Imovél é mobiliado?</label>
-          <Input />
+          <Input value={valuesForm.garage_quantity} type="number" name="garage_quantity"  onChange={handleChange}/>
         </div>
         <div className="border d-flex justify-content-center pt-5 pb-5 w-75">
           <div {...getRootProps({ className: "dropzone" })}>

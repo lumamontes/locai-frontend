@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
+import { api } from '../../services/api';
 
-class ShopGridV1 extends Component {
-
-    render() {
-
-        let publicUrl = process.env.PUBLIC_URL+'/'
-
-    return <div>
+export default function ShogGridV1 () {
+	const [loading, setLoading] = useState(false)
+	const [properties, setProperties] = useState([])
+	useEffect(() => {
+  api.get('/properties').then((response) => {
+		setProperties(response.data)
+		setLoading(true)
+	})
+	}, [])
+	return (
+<div>
 			<div className="ltn__product-area ltn__product-gutter mb-100">
 				<div className="container">
 						<div className="row">
@@ -41,7 +46,7 @@ class ShopGridV1 extends Component {
 								</li>
 								</ul>
 							</div>
-							<div className="tab-content ">
+							{loading ? 		<div className="tab-content ">
 								<div className="tab-pane fade active show" id="liton_product_grid">
 								<div className="ltn__product-tab-content-inner ltn__product-grid-view">
 									<div className="row">
@@ -55,390 +60,76 @@ class ShopGridV1 extends Component {
 										</div>
 									</div>
 									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/1.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+									{properties.length > 0 ? 	properties.map((item) => {
+										console.log(item)
+										return (
+											<div className="col-lg-4 col-sm-6 col-12">
+											<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+											<div className="product-img">
+												<Link to="/product-details"><img src={"assets/img/product-3/1.jpg"} alt="#" /></Link>
+												<div className="real-estate-agent">
+												<div className="agent-img">
+													<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
+												</div>
+												</div>
+											</div>
+											<div className="product-info">
+												<div className="product-badge">
+												<ul>
+													<li className="sale-badg">{item.category_id === "3dc72c89-8ea4-459d-92b1-ef97de24c005" ? "Temporada" : "Aluguel"}</li>
+												</ul>
+												</div>
+												<h2 className="product-title go-top"><Link to="/product-details">{item.ad_title}</Link></h2>
+												<div className="product-img-location">
+												<ul>
+													<li className="go-top">
+													<Link to="/contact"><i className="flaticon-pin" /> {item.property_neighborhood}</Link>
+													</li>
+												</ul>
+												</div>
+												<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+												<li><span>{item.room_quantity} </span>
+													Quartos
+												</li>
+												<li><span>{item.bathroom_quantity} </span>
+													Banheiros
+												</li>
+												<li><span>{item.garage_quantity} </span>
+													Garagens
+												</li>
+												</ul>
+												<div className="product-hover-action">
+												<ul>
+													<li>
+													<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+														<i className="flaticon-expand" />
+													</a>
+													</li>
+													<li>
+													<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+														<i className="flaticon-heart-1" /></a>
+													</li>
+													<li>
+													<span className="go-top">
+													<Link to="/product-details" title="Product Details">
+														<i className="flaticon-add" />
+													</Link>
+													</span>
+													</li>
+												</ul>
+												</div>
+											</div>
+											<div className="product-info-bottom">
+												<div className="product-price">
+												<span>{item.ad_value.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}<label>/{item.category_id === "3dc72c89-8ea4-459d-92b1-ef97de24c005" ? "dia" : "Mês"}</label></span>
+												</div>
 											</div>
 											</div>
 										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Rent</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
+										)
+									}) : <p>Sem imóveis</p>}
 									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/2.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
-											</div>
-											</div>
-										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Sale</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
-									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/3.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
-											</div>
-											</div>
-										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Rent</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
-									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/4.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
-											</div>
-											</div>
-										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Rent</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
-									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/5.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
-											</div>
-											</div>
-										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Rent</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
-									{/* ltn__product-item */}
-									<div className="col-lg-4 col-sm-6 col-12">
-										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/6.jpg"} alt="#" /></Link>
-											<div className="real-estate-agent">
-											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
-											</div>
-											</div>
-										</div>
-										<div className="product-info">
-											<div className="product-badge">
-											<ul>
-												<li className="sale-badg">For Rent</li>
-											</ul>
-											</div>
-											<h2 className="product-title go-top"><Link to="/product-details">New Apartment Nice View</Link></h2>
-											<div className="product-img-location">
-											<ul>
-												<li className="go-top">
-												<Link to="/contact"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
-												</li>
-											</ul>
-											</div>
-											<ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-											<li><span>3 </span>
-												Bedrooms
-											</li>
-											<li><span>2 </span>
-												Bathrooms
-											</li>
-											<li><span>3450 </span>
-												square Ft
-											</li>
-											</ul>
-											<div className="product-hover-action">
-											<ul>
-												<li>
-												<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-													<i className="flaticon-expand" />
-												</a>
-												</li>
-												<li>
-												<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-													<i className="flaticon-heart-1" /></a>
-												</li>
-												<li>
-												<span className="go-top">
-												<Link to="/product-details" title="Product Details">
-													<i className="flaticon-add" />
-												</Link>
-												</span>
-												</li>
-											</ul>
-											</div>
-										</div>
-										<div className="product-info-bottom">
-											<div className="product-price">
-											<span>$34,900<label>/Month</label></span>
-											</div>
-										</div>
-										</div>
-									</div>
-									{/*  */}
+							
 									</div>
 								</div>
 								</div>
@@ -458,7 +149,7 @@ class ShopGridV1 extends Component {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
 										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/1.jpg"} alt="#" /></Link>
+											<Link to="/product-details"><img src={"assets/img/product-3/1.jpg"} alt="#" /></Link>
 										</div>
 										<div className="product-info">
 											<div className="product-badge-price">
@@ -494,7 +185,7 @@ class ShopGridV1 extends Component {
 										<div className="product-info-bottom">
 											<div className="real-estate-agent">
 											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+												<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
 											</div>
 											<div className="agent-brief go-top">
 												<h6><Link to="/team-details">William Seklo</Link></h6>
@@ -528,7 +219,7 @@ class ShopGridV1 extends Component {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
 										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/2.jpg"} alt="#" /></Link>
+											<Link to="/product-details"><img src={"assets/img/product-3/2.jpg"} alt="#" /></Link>
 										</div>
 										<div className="product-info">
 											<div className="product-badge-price">
@@ -564,7 +255,7 @@ class ShopGridV1 extends Component {
 										<div className="product-info-bottom">
 											<div className="real-estate-agent">
 											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+												<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
 											</div>
 											<div className="agent-brief go-top">
 												<h6><Link to="/team-details">William Seklo</Link></h6>
@@ -598,7 +289,7 @@ class ShopGridV1 extends Component {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
 										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/3.jpg"} alt="#" /></Link>
+											<Link to="/product-details"><img src={"assets/img/product-3/3.jpg"} alt="#" /></Link>
 										</div>
 										<div className="product-info">
 											<div className="product-badge-price">
@@ -634,7 +325,7 @@ class ShopGridV1 extends Component {
 										<div className="product-info-bottom">
 											<div className="real-estate-agent">
 											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+												<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
 											</div>
 											<div className="agent-brief go-top">
 												<h6><Link to="/team-details">William Seklo</Link></h6>
@@ -668,7 +359,7 @@ class ShopGridV1 extends Component {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
 										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/4.jpg"} alt="#" /></Link>
+											<Link to="/product-details"><img src={"assets/img/product-3/4.jpg"} alt="#" /></Link>
 										</div>
 										<div className="product-info">
 											<div className="product-badge-price">
@@ -704,7 +395,7 @@ class ShopGridV1 extends Component {
 										<div className="product-info-bottom">
 											<div className="real-estate-agent">
 											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+												<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
 											</div>
 											<div className="agent-brief go-top">
 												<h6><Link to="/team-details">William Seklo</Link></h6>
@@ -738,7 +429,7 @@ class ShopGridV1 extends Component {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
 										<div className="product-img">
-											<Link to="/product-details"><img src={publicUrl+"assets/img/product-3/5.jpg"} alt="#" /></Link>
+											<Link to="/product-details"><img src={"assets/img/product-3/5.jpg"} alt="#" /></Link>
 										</div>
 										<div className="product-info">
 											<div className="product-badge-price">
@@ -774,7 +465,7 @@ class ShopGridV1 extends Component {
 										<div className="product-info-bottom">
 											<div className="real-estate-agent">
 											<div className="agent-img">
-												<Link to="/team-details"><img src={publicUrl+"assets/img/blog/author.jpg"} alt="#" /></Link>
+												<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
 											</div>
 											<div className="agent-brief go-top">
 												<h6><Link to="/team-details">William Seklo</Link></h6>
@@ -808,7 +499,7 @@ class ShopGridV1 extends Component {
 									</div>
 								</div>
 								</div>
-							</div>
+							</div> : <p className='text-center'>Carregando...</p>}
 							<div className="ltn__pagination-area text-center">
 								<div className="ltn__pagination">
 								<ul>
@@ -842,7 +533,7 @@ class ShopGridV1 extends Component {
 							<div className="row">
 								<div className="col-12">
 								<div className="modal-product-img">
-									<img src={publicUrl+"assets/img/product/7.png"} alt="#" />
+									<img src={"assets/img/product/7.png"} alt="#" />
 								</div>
 								<div className="modal-product-info go-top">
 									<h5><Link to="/product-details">Brake Conversion Kit</Link></h5>
@@ -855,7 +546,7 @@ class ShopGridV1 extends Component {
 								<div className="additional-info d-none">
 									<p>We want to give you <b>10% discount</b> for your first order, <br />  Use discount code at checkout</p>
 									<div className="payment-method">
-									<img src={publicUrl+"assets/img/icons/payment.png"} alt="#" />
+									<img src={"assets/img/icons/payment.png"} alt="#" />
 									</div>
 								</div>
 								</div>
@@ -884,7 +575,7 @@ class ShopGridV1 extends Component {
 							<div className="row">
 								<div className="col-lg-6 col-12">
 								<div className="modal-product-img">
-									<img src={publicUrl+"assets/img/product/4.png"} alt="#" />
+									<img src={"assets/img/product/4.png"} alt="#" />
 								</div>
 								</div>
 								<div className="col-lg-6 col-12">
@@ -968,7 +659,7 @@ class ShopGridV1 extends Component {
 							<div className="row">
 								<div className="col-12">
 								<div className="modal-product-img">
-									<img src={publicUrl+"assets/img/product/1.png"} alt="#" />
+									<img src={"assets/img/product/1.png"} alt="#" />
 								</div>
 								<div className="modal-product-info go-top">
 									<h5 className="go-top"><Link to="/product-details">Brake Conversion Kit</Link></h5>
@@ -982,7 +673,7 @@ class ShopGridV1 extends Component {
 								<div className="additional-info d-none">
 									<p>We want to give you <b>10% discount</b> for your first order, <br />  Use discount code at checkout</p>
 									<div className="payment-method">
-									<img src={publicUrl+"assets/img/icons/payment.png"} alt="#" />
+									<img src={"assets/img/icons/payment.png"} alt="#" />
 									</div>
 								</div>
 								</div>
@@ -998,7 +689,5 @@ class ShopGridV1 extends Component {
 
 			</div>
 
-        }
+	)
 }
-
-export default ShopGridV1

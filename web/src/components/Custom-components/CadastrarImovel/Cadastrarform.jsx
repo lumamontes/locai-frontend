@@ -67,16 +67,18 @@ const steps = [
 export default function CadastrarImovelForm() {
   const { user } = useAuth()
   const { valuesForm, images } = useAnuncio()
-  const finishButtonClick = async (allStates) => {
+  const finishButtonClick = async () => {
     const formData = new FormData()
-    formData.append('file', images)
     await api.post('/properties', {
       user_id: user.id,
       ...valuesForm
     }).then((response) => {
       if (response.status === 201) {
+        const {property_id} =  response.data
+        // formData.append('property_id', property_id[0])
+        formData.append('file', images)
        api.post('/posts', formData).then((response) => {
-          console.log(response.data)
+
         })
       }
     })

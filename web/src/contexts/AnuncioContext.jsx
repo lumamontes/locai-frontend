@@ -17,6 +17,7 @@ export function AnuncioProvider(props) {
     property_neighborhood: "",
     room_quantity:0,
     bathroom_quantity:0,
+    garage_quantity:0
   })
   const handleChange = (e) => {
     const { name, value } = e.target
