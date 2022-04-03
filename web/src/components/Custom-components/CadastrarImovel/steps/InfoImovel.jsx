@@ -1,27 +1,41 @@
 import { Input } from "reactstrap"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
+import { useAnuncio } from "../../../../hooks/useAnuncio"
 export default function InfoImovel() {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone()
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ))
+  const { handleChange, valuesForm, handleImage } = useAnuncio()
+  const [files, setFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: 'image/jpeg,image/png',
+    maxFiles: 1,
+    onDrop: acceptedFiles => {
+      setFiles(acceptedFiles.map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      })))
+    },
+    onDropAccepted: (acceptedFiles) => acceptedFiles.map((item) => {
+      handleImage(item)
+    }),
+  })
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks
+    files.forEach(file => URL.revokeObjectURL(file.preview));
+  }, [files]);
   return (
     <div>
       <form className="d-flex flex-column gap-1 w-100 align-items-center">
         <div className="d-flex flex-column w-75">
           <label>Quantos quartos o seu imóvel possui?</label>
-          <Input />
+          <Input value={valuesForm.room_quantity} type="number" name="room_quantity" onChange={handleChange} />
         </div>
         <div className="d-flex flex-column w-75">
           <label>Quantos banheiros o seu imóvel possui?</label>
-          <Input />
+          <Input value={valuesForm.bathroom_quantity} type="number" name="bathroom_quantity" onChange={handleChange} />
         </div>
         <div className="d-flex flex-column w-75">
           <label>Garagem</label>
-          <Input />
+          <Input type="number" />
         </div>
         <div className="d-flex flex-column w-75">
           <label>o Imovél é mobiliado?</label>
@@ -32,8 +46,16 @@ export default function InfoImovel() {
             <input {...getInputProps()} />
             <h4>Solte as imagens ou clique aqui</h4>
           </div>
-          <div>{files}</div>
         </div>
+        <div>{files.map(file => (
+          <div key={file.name}>
+            <div>
+              <img className="img-logo mb-1"
+                src={file.preview}
+              />
+            </div>
+          </div>
+        ))}</div>
       </form>
     </div>
   )

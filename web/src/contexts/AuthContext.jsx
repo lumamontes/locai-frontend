@@ -10,7 +10,7 @@ export function AuthProvider(props) {
     const item = window.localStorage.getItem('user')
     return item ? JSON.parse(item) : null
   }
-  const [user, setUser] = useState(initialUser) 
+  const [user, setUser] = useState(initialUser()) 
 
   function handleLogin (user) {
     setUser(user)

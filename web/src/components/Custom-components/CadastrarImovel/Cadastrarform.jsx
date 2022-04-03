@@ -5,6 +5,9 @@ import Anuncio from "./steps/Anuncio";
 import InfoImovel from "./steps/InfoImovel";
 import Endereco from "./steps/EnderecoImovel";
 import './CadastrarImovel.css'
+import { api } from "../../../services/api";
+import { useAuth } from "../../../hooks/useAuth";
+import { useAnuncio } from "../../../hooks/useAnuncio";
 const FirstStep = React.forwardRef((props, ref) => {
   const [randomState, setRandomState] = React.useState(
     "1. This is a random state for first step."
@@ -15,7 +18,7 @@ const FirstStep = React.forwardRef((props, ref) => {
       randomState,
     },
   }));
-  return <Anuncio/>;
+  return <Anuncio />;
 });
 
 const SecondStep = React.forwardRef((props, ref) => {
@@ -37,7 +40,7 @@ const SecondStep = React.forwardRef((props, ref) => {
       randomState,
     },
   }));
-  return <InfoImovel/>;
+  return <InfoImovel />;
 });
 
 const ThirdStep = React.forwardRef((props, ref) => {
@@ -50,8 +53,8 @@ const ThirdStep = React.forwardRef((props, ref) => {
       randomState,
     },
   }));
-  return <Endereco/>;
-}); 
+  return <Endereco />;
+});
 
 const steps = [
   // this step hasn't got a isValidated() function, so it will be considered to be true
@@ -62,27 +65,42 @@ const steps = [
   { stepName: "Informações sobre o imóvel", component: SecondStep },
 ]
 export default function CadastrarImovelForm() {
-  const finishButtonClick = (allStates) => {
-    console.log(allStates);
+  const { user } = useAuth()
+  const { valuesForm, images } = useAnuncio()
+  const finishButtonClick = async (allStates) => {
+    const formData = new FormData()
+    formData.append('file', images)
+    await api.post('/properties', {
+      user_id: user.id,
+      ...valuesForm
+    }).then((response) => {
+      if (response.status === 201) {
+       api.post('/posts', formData).then((response) => {
+          console.log(response.data)
+        })
+      }
+    })
+
   };
+
   return (
-      <div>
-          <ReactWizard
-          steps={steps}
-          navSteps
-          title="Anunciar um imóvel"
-          // description="This will help you split a complicated flow or a complicated form in multiple steps."
-          headerTextCenter
-          validate
-          finishButtonClick={finishButtonClick}
-          previousButtonText="Voltar"
-          nextButtonText="Avançar"
-          finishButtonText="Anunciar"
-          previousButtonClasses="theme-btn-1"
-          nextButtonClasses="theme-btn-1"
-          finishButtonClasses="theme-btn-1"
-          progressbar={false}
-          />
-      </div>
+    <div>
+      <ReactWizard
+        steps={steps}
+        navSteps
+        title="Anunciar um imóvel"
+        // description="This will help you split a complicated flow or a complicated form in multiple steps."
+        headerTextCenter
+        validate={false}
+        finishButtonClick={finishButtonClick}
+        previousButtonText="Voltar"
+        nextButtonText="Avançar"
+        finishButtonText="Anunciar"
+        previousButtonClasses="theme-btn-1"
+        nextButtonClasses="theme-btn-1"
+        finishButtonClasses="theme-btn-1"
+        progressbar={false}
+      />
+    </div>
   )
 }

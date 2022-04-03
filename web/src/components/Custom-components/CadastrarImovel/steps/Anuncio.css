@@ -1,0 +1,15 @@
+.radio-button{
+  width: 30rem;
+  padding: 1rem;
+}
+
+.radio-button label{
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1rem;
+}
+
+.radio-button-active{
+  background: #B92323;
+  color: #fff;
+}
