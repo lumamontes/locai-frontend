@@ -1,8 +1,12 @@
 import React, { useState }  from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { api } from '../../services/api';
+import { useAuth } from '../../hooks/useAuth';
 import moment  from 'moment';
 export default function Register() {
+	const history = useHistory();
+	const {handleLogin, user} = useAuth()
+
 	const [valuesForm, setValuesForm] = useState({
 		name:"",
 		email:"",
@@ -12,13 +16,24 @@ export default function Register() {
 		password:""
 	})
 	const [date, setDate] = useState()
-	function handleRegister() {
-		api.post("/users", {
-			...valuesForm,
-			birth_date:moment(date).format('YYYY-MM-DD')
-		}).then((response) => {
-			console.log(response.data)
-		})
+	async function handleRegister() {
+		try {
+			const response = await api.post("/users", {
+				...valuesForm,
+				birth_date: moment(date).format('YYYY-MM-DD')
+			});
+			if(response){
+				const responseLogin = await api.post('/login', {
+					email:response.data.email,
+					password:response.data.password
+				});
+				await handleLogin(responseLogin.data);
+				history.push('my-account')
+			}
+		} catch (error) {
+			console.log(error);
+		}
+		
 	}
 	const handleChange = (e) => {
     const { name, value } = e.target
