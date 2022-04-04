@@ -28,10 +28,9 @@ class AboutV1 extends Component {
 			        <div className="about-us-info-wrap">
 			          <div className="section-title-area ltn__section-title-2--- mb-20">
 			            <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Sobre nós</h6>
-			            <h1 className="section-title">The Leading Real Estate
-			              Rental Marketplace<span>.</span></h1>
-			            <p>Over 39,000 people work for us in more than 70 countries all over the
-			              This breadth of global coverage, combined with specialist services</p>
+			            <h1 className="section-title">NOMEDOSIS:
+			              Facilidade e Autonomia<span>.</span></h1>
+			            <p>O site NOMEDOSIS foi feito para você que procura um lugar confortável e acessível para o seu bolso. Onde visamos a segurança e o bem estar dos nossos clientes que desejam se sentir em casa.</p>
 			          </div>
 			          <ul className="ltn__list-item-half clearfix">
 			            <li>
