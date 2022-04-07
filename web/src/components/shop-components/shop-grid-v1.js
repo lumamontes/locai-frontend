@@ -61,12 +61,11 @@ export default function ShogGridV1 () {
 									</div>
 									{/* ltn__product-item */}
 									{properties.length > 0 ? 	properties.map((item) => {
-										console.log(item)
 										return (
 											<div className="col-lg-4 col-sm-6 col-12">
 											<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
 											<div className="product-img">
-												<Link to="/product-details"><img src={"assets/img/product-3/1.jpg"} alt="#" /></Link>
+												<Link to="/product-details"><img src={item.ad_image != ''? item.ad_image : "assets/img/product-3/1.jpg"} alt="#" /></Link>
 												<div className="real-estate-agent">
 												<div className="agent-img">
 													<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
