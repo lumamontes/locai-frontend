@@ -65,7 +65,7 @@ export default function ShogGridV1 () {
 											<div className="col-lg-4 col-sm-6 col-12">
 											<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
 											<div className="product-img">
-												<Link to="/product-details"><img src={item.ad_image != ''? item.ad_image : "assets/img/product-3/1.jpg"} alt="#" /></Link>
+												<Link to={`/product-details/${item.id}`}>    <img src={item.ad_image != ''? item.ad_image : "assets/img/product-3/1.jpg"} alt="#" /></Link>
 												<div className="real-estate-agent">
 												<div className="agent-img">
 													<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
@@ -78,7 +78,7 @@ export default function ShogGridV1 () {
 													<li className="sale-badg">{item.category_id === "3dc72c89-8ea4-459d-92b1-ef97de24c005" ? "Temporada" : "Aluguel"}</li>
 												</ul>
 												</div>
-												<h2 className="product-title go-top"><Link to="/product-details">{item.ad_title}</Link></h2>
+												<h2 className="product-title go-top"><Link to={`/product-details/${item.id}`}>{item.ad_title}</Link></h2>
 												<div className="product-img-location">
 												<ul>
 													<li className="go-top">
@@ -110,7 +110,7 @@ export default function ShogGridV1 () {
 													</li>
 													<li>
 													<span className="go-top">
-													<Link to="/product-details" title="Product Details">
+													<Link to={`/product-details/${item.id}`} title="Product Details">
 														<i className="flaticon-add" />
 													</Link>
 													</span>
