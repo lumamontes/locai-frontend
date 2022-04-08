@@ -1,8 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
 import { api } from '../../services/api';
-
 export default function ShogGridV1 () {
 	const [loading, setLoading] = useState(false)
 	const [properties, setProperties] = useState([])
@@ -13,7 +11,7 @@ export default function ShogGridV1 () {
 	})
 	}, [])
 	return (
-<div>
+		<div>
 			<div className="ltn__product-area ltn__product-gutter mb-100">
 				<div className="container">
 						<div className="row">

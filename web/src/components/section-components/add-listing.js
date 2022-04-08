@@ -308,8 +308,8 @@ class AddListing extends Component {
                             </div>
                             </div>
                         </div>
-                        <h2>5. Amenities</h2>
-                        <h6>Amenities and Features</h6>  
+                        <h2>5. Comodidades</h2>
+                        <h6>Comodidades and Features</h6>  
                         <h6>Interior Details</h6>                      
                         <div className="row">                                
                             <div className="col-lg-4 col-md-6">

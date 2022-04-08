@@ -61,7 +61,7 @@ class Sidebar extends Component {
 				</li>
 				</ul>
 				<hr />
-				<h4 className="ltn__widget-title">Amenities</h4>
+				<h4 className="ltn__widget-title">Comodidades</h4>
 				<ul>
 				<li>
 					<label className="checkbox-item">Dishwasher

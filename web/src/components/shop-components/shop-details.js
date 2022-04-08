@@ -29,7 +29,7 @@ export default function ShopDetails (props) {
 									</ul>
 								</div>
 								<h1>{property.ad_title}</h1>
-								<label><span className="ltn__secondary-color"><i className="flaticon-pin" /></span> Belmont Gardens, Chicago</label>
+								<label><span className="ltn__secondary-color"><i className="flaticon-pin" /></span> {property.property_neighborhood}, {property.property_city}</label>
 								<h4 className="title-2">Descrição</h4>
 								<p>{property.ad_description}.</p>
 								<h4 className="title-2">Detalhes</h4>
@@ -39,17 +39,17 @@ export default function ShopDetails (props) {
 										<li><label>Área: </label> <span>120 sqft</span></li>
 										<li><label>Quartos:</label> <span> {property.room_quantity}</span></li>
 										<li><label>Banheiros:</label> <span>{property.bathroom_quantity} </span></li>
-										<li><label>Ano de construção:</label> <span>1992</span></li>
+										<li><label>Ano de construção:</label> <span>{property.year_constructed}</span></li>
 									</ul>
 									<ul>
-										<li><label>Área Terreno:</label> <span>HZ29 </span></li>
-										<li><label>Dimensões</label> <span>120 sqft</span></li>
+										<li><label>Área Terreno:</label> <span> {property.land_area} </span></li>
+										<li><label>Dimensões</label> <span>{property.property_area} M²</span> </li>
 										<li><label>Camas:</label> <span>7</span></li>
 										<li><label>Valor:</label> <span>{property.ad_value}</span></li>
-										<li><label>Bairro:</label> <span>For Sale</span></li>
+										<li><label>Bairro:</label> <span>{property.property_neighborhood}</span></li>
 									</ul>
 								</div>
-								<h4 className="title-2">Facts and Features</h4>
+								<h4 className="title-2">Características</h4>
 								<div className="property-detail-feature-list clearfix mb-45">
 									<ul>
 										<li>
@@ -126,7 +126,7 @@ export default function ShopDetails (props) {
 										</li>
 									</ul>
 								</div>
-								<h4 className="title-2">From Our Gallery</h4>
+								<h4 className="title-2">Galeria</h4>
 								<div className="ltn__property-details-gallery mb-30">
 									<div className="row">
 										<div className="col-md-6">
@@ -156,8 +156,8 @@ export default function ShopDetails (props) {
 										</div>
 									</div>
 								</div>
-								<h4 className="title-2 mb-10">Amenities</h4>
-								<div className="property-details-amenities mb-60">
+								<h4 className="title-2 mb-10">Comodidades</h4>
+								<div className="property-details-Comodidades mb-60">
 									<div className="row">
 										<div className="col-lg-4 col-md-6">
 											<div className="ltn__menu-widget">
@@ -273,188 +273,7 @@ export default function ShopDetails (props) {
 								<div className="property-details-google-map mb-60">
 									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd" width="100%" height="100%" frameBorder={0} allowFullScreen aria-hidden="false" tabIndex={0} />
 								</div>
-								<h4 className="title-2">Floor Plans</h4>
-								{/* APARTMENTS PLAN AREA START */}
-								<div className="ltn__apartments-plan-area product-details-apartments-plan mb-60">
-									<div className="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center---">
-										<div className="nav">
-											<a data-bs-toggle="tab" href="#liton_tab_3_1">First Floor</a>
-											<a className="active show" data-bs-toggle="tab" href="#liton_tab_3_2">Second Floor</a>
-											<a data-bs-toggle="tab" href="#liton_tab_3_3" >Third Floor</a>
-											<a data-bs-toggle="tab" href="#liton_tab_3_4" >Top Garden</a>
-										</div>
-									</div>
-									<div className="tab-content">
-										<div className="tab-pane fade" id="liton_tab_3_1">
-											<div className="ltn__apartments-tab-content-inner">
-												<div className="row">
-													<div className="col-lg-7">
-														<div className="apartments-plan-img">
-															<img src={publicUrl + "assets/img/others/10.png"} alt="#" />
-														</div>
-													</div>
-													<div className="col-lg-5">
-														<div className="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-															<h2>First Floor</h2>
-															<p>Enimad minim veniam quis nostrud exercitation ullamco laboris.
-																Lorem ipsum dolor sit amet cons aetetur adipisicing elit sedo
-																eiusmod tempor.Incididunt labore et dolore magna aliqua.
-																sed ayd minim veniam.</p>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="product-details-apartments-info-list  section-bg-1">
-															<div className="row">
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Total Area</label> <span>2800 Sq. Ft</span></li>
-																			<li><label>Bedroom</label> <span>150 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Belcony/Pets</label> <span>Allowed</span></li>
-																			<li><label>Lounge</label> <span>650 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div className="tab-pane fade active show" id="liton_tab_3_2">
-											<div className="ltn__product-tab-content-inner">
-												<div className="row">
-													<div className="col-lg-7">
-														<div className="apartments-plan-img">
-															<img src={publicUrl + "assets/img/others/10.png"} alt="#" />
-														</div>
-													</div>
-													<div className="col-lg-5">
-														<div className="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-															<h2>Second Floor</h2>
-															<p>Enimad minim veniam quis nostrud exercitation ullamco laboris.
-																Lorem ipsum dolor sit amet cons aetetur adipisicing elit sedo
-																eiusmod tempor.Incididunt labore et dolore magna aliqua.
-																sed ayd minim veniam.</p>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="product-details-apartments-info-list  section-bg-1">
-															<div className="row">
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Total Area</label> <span>2800 Sq. Ft</span></li>
-																			<li><label>Bedroom</label> <span>150 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Belcony/Pets</label> <span>Allowed</span></li>
-																			<li><label>Lounge</label> <span>650 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div className="tab-pane fade" id="liton_tab_3_3">
-											<div className="ltn__product-tab-content-inner">
-												<div className="row">
-													<div className="col-lg-7">
-														<div className="apartments-plan-img">
-															<img src={publicUrl + "assets/img/others/10.png"} alt="#" />
-														</div>
-													</div>
-													<div className="col-lg-5">
-														<div className="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-															<h2>Third Floor</h2>
-															<p>Enimad minim veniam quis nostrud exercitation ullamco laboris.
-																Lorem ipsum dolor sit amet cons aetetur adipisicing elit sedo
-																eiusmod tempor.Incididunt labore et dolore magna aliqua.
-																sed ayd minim veniam.</p>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="product-details-apartments-info-list  section-bg-1">
-															<div className="row">
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Total Area</label> <span>2800 Sq. Ft</span></li>
-																			<li><label>Bedroom</label> <span>150 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Belcony/Pets</label> <span>Allowed</span></li>
-																			<li><label>Lounge</label> <span>650 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div className="tab-pane fade" id="liton_tab_3_4">
-											<div className="ltn__product-tab-content-inner">
-												<div className="row">
-													<div className="col-lg-7">
-														<div className="apartments-plan-img">
-															<img src={publicUrl + "assets/img/others/10.png"} alt="#" />
-														</div>
-													</div>
-													<div className="col-lg-5">
-														<div className="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-															<h2>Top Garden</h2>
-															<p>Enimad minim veniam quis nostrud exercitation ullamco laboris.
-																Lorem ipsum dolor sit amet cons aetetur adipisicing elit sedo
-																eiusmod tempor.Incididunt labore et dolore magna aliqua.
-																sed ayd minim veniam.</p>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="product-details-apartments-info-list  section-bg-1">
-															<div className="row">
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Total Area</label> <span>2800 Sq. Ft</span></li>
-																			<li><label>Bedroom</label> <span>150 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-																<div className="col-lg-6">
-																	<div className="apartments-info-list apartments-info-list-color mt-40---">
-																		<ul>
-																			<li><label>Belcony/Pets</label> <span>Allowed</span></li>
-																			<li><label>Lounge</label> <span>650 Sq. Ft</span></li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								
 								{/* APARTMENTS PLAN AREA END */}
 								<h4 className="title-2">Property Video</h4>
 								<div className="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bs-bg={publicUrl + "assets/img/others/5.jpg"}>
@@ -605,7 +424,7 @@ export default function ShopDetails (props) {
 												<div className="product-img-location">
 													<ul>
 														<li>
-															<Link to="/shop"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
+															<Link to="/shop"><i className="flaticon-pin" /> {property.property_neighborhood}, {property.property_city} </Link>
 														</li>
 													</ul>
 												</div>
@@ -667,7 +486,7 @@ export default function ShopDetails (props) {
 												<div className="product-img-location">
 													<ul>
 														<li>
-															<Link to="/shop"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
+															<Link to="/shop"><i className="flaticon-pin" /> {property.property_neighborhood}, {property.property_city} </Link>
 														</li>
 													</ul>
 												</div>
@@ -718,8 +537,7 @@ export default function ShopDetails (props) {
 									<div className="ltn__author-widget-inner text-center">
 										<img src={props.user.profile_picture!=null? props.user.profile_picture : publicUrl + "assets/img/team/4.jpg"} alt="Image" />
 										<h5>{props.user.name}</h5>
-										{/* TODO: adicionar campos de profissão e biografia em users */}
-										{/* <small>{props.user.profession}</small> */}
+										<small>{props.user.profession}</small>
 										<div className="product-ratting">
 											<ul>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
@@ -730,7 +548,7 @@ export default function ShopDetails (props) {
 												<li className="review-total"> <a href="#"> ( 1 Reviews )</a></li>
 											</ul>
 										</div>
-										{/* <p>{props.user.biography?}</p> */}
+										<p>{props.user.biography}</p>
 										<div className="ltn__social-media">
 											<ul>
 												<li><a href="#" title="Facebook"><i className="fab fa-facebook-f" /></a></li>
@@ -868,7 +686,7 @@ export default function ShopDetails (props) {
 													<div className="product-img-location">
 														<ul>
 															<li>
-																<Link to="/shop"><i className="flaticon-pin" /> Belmont Gardens, Chicago</Link>
+																<Link to="/shop"><i className="flaticon-pin" /> {property.property_neighborhood}, {property.property_city} </Link>
 															</li>
 														</ul>
 													</div>
@@ -905,7 +723,7 @@ export default function ShopDetails (props) {
 													<div className="product-img-location">
 														<ul>
 															<li>
-																<a href="product-details.html"><i className="flaticon-pin" /> Belmont Gardens, Chicago</a>
+																<Link to="/shop"><i className="flaticon-pin" /> {property.property_neighborhood}, {property.property_city} </Link>
 															</li>
 														</ul>
 													</div>
@@ -942,7 +760,7 @@ export default function ShopDetails (props) {
 													<div className="product-img-location">
 														<ul>
 															<li>
-																<a href="product-details.html"><i className="flaticon-pin" /> Belmont Gardens, Chicago</a>
+																<Link to="/shop"><i className="flaticon-pin" /> {property.property_neighborhood}, {property.property_city} </Link>
 															</li>
 														</ul>
 													</div>

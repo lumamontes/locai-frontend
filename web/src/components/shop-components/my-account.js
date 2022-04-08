@@ -679,7 +679,7 @@ export default function MyAccount() {
 															</div>
 														</div>
 													</div>
-													<h6>Amenities and Features</h6>
+													<h6>Comodidades and Features</h6>
 													<h6>Interior Details</h6>
 													<div className="row">
 														<div className="col-lg-4 col-md-6">

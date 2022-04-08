@@ -28,7 +28,7 @@ class VideoV2 extends Component {
 			            </li>
 			            <li>
 			              <i className="icon-done" />
-			              Luxurious interior design and amenities
+			              Luxurious interior design and Comodidades
 			            </li>
 			            <li>
 			              <i className="icon-done" />
