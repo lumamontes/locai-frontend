@@ -716,9 +716,10 @@ export default function ShopDetails (props) {
 								{/* Author Widget */}
 								<div className="widget ltn__author-widget">
 									<div className="ltn__author-widget-inner text-center">
-										<img src={publicUrl + "assets/img/team/4.jpg"} alt="Image" />
-										<h5>Rosalina D. Willaimson</h5>
-										<small>Traveller/Photographer</small>
+										<img src={props.user.profile_picture!=null? props.user.profile_picture : publicUrl + "assets/img/team/4.jpg"} alt="Image" />
+										<h5>{props.user.name}</h5>
+										{/* TODO: adicionar campos de profissão e biografia em users */}
+										{/* <small>{props.user.profession}</small> */}
 										<div className="product-ratting">
 											<ul>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
@@ -729,7 +730,7 @@ export default function ShopDetails (props) {
 												<li className="review-total"> <a href="#"> ( 1 Reviews )</a></li>
 											</ul>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio, odio, eligendi suscipit reprehenderit atque.</p>
+										{/* <p>{props.user.biography?}</p> */}
 										<div className="ltn__social-media">
 											<ul>
 												<li><a href="#" title="Facebook"><i className="fab fa-facebook-f" /></a></li>

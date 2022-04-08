@@ -7,8 +7,10 @@ import CallToActionV1 from './section-components/call-to-action-v1';
 import Footer from './global-components/footer';
 import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
+import { useUser } from "../hooks/useUser"
 
 const Product_Details = () => {
+    const { UserData, loadingUserData } = useUser()
     const { property_id } = useParams();
     const [loading, setLoading] = useState(false)
     const [property, setProperty] = useState([])
@@ -24,12 +26,14 @@ const Product_Details = () => {
         <Navbar />
         {/* <PageHeader headertitle="Product Details" customclass="mb-0" /> */}
         {
-            loading  ?
+            loading && loadingUserData ?
                 <div>
                     <ProductSlider data={images} />
-                    <ProductDetails data={property} loading={loading} />
+                    <ProductDetails data={property} loading={loading} user={UserData}/>
                 </div>
-                : <h1>Não foi possível visualizar</h1>
+                : 
+                //TODO: criar componente para animação de loading
+                <h1>Carregando</h1>
         }
         <CallToActionV1 />
         <Footer />

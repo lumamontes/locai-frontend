@@ -55,6 +55,7 @@ import History from "./components/history"
 import { AuthProvider } from "./contexts/AuthContext"
 import CadastrarImovel from "./components/Custom-components/CadastrarImovel"
 import { AnuncioProvider } from "./contexts/AnuncioContext"
+import { UserProvider } from "./contexts/UserContext"
 import { BrowserRouter } from "react-router-dom"
 
 export default function Root() {
@@ -118,9 +119,11 @@ export default function Root() {
 
 ReactDOM.render(
   <AuthProvider>
+    <UserProvider>
     <AnuncioProvider>
       <Root />
     </AnuncioProvider>
+    </UserProvider>
   </AuthProvider>,
   document.getElementById("quarter")
 )
