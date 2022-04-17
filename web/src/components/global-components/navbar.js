@@ -84,19 +84,7 @@ export default function Navbar () {
 			 <ul>
 			 <li className="menu-icon"><Link to="/">Home</Link>
 			 </li>
-			 <li className="menu-icon"><Link to="/shop">Shop</Link>
-				 <ul>
-					 <li><Link to="/shop">Shop</Link></li>
-					 <li><Link to="/shop-grid">Shop Grid</Link></li>
-					 <li><Link to="/shop-left-sidebar">Shop Left sidebar</Link></li>
-					 <li><Link to="/shop-right-sidebar">Shop Right sidebar</Link></li>
-					 <li><Link to="/product-details">Shop Details</Link></li>
-					 <li><Link to="/cart">Cart</Link></li>
-					 <li><Link to="/checkout">Checkout</Link></li>
-					 <li><Link to="/my-account">Minha conta</Link></li>
-					 <li><Link to="/login">Entrar</Link></li>
-					 <li><Link to="/register">Cadastrar</Link></li>
-				 </ul>
+			 <li className="menu-icon"><Link to="/imoveis">Imóveis</Link>
 			 </li>
 			 <li className="menu-icon"><Link to="/about">Sobre</Link>
 				 <ul>
@@ -122,7 +110,7 @@ export default function Navbar () {
 					 <li><Link to="/blog-details">News details</Link></li>
 				 </ul>
 			 </li> */}
-			 <li className="menu-icon"><Link to="#">Pages</Link>
+			 {/* <li className="menu-icon"><Link to="#">Pages</Link>
 				 <ul className="mega-menu">
 					 <li><a href="#">Inner Pages</a>
 						 <ul>
@@ -157,7 +145,7 @@ export default function Navbar () {
 					 <li><Link to="/shop"><img src={"assets/img/banner/menu-banner-1.jpg"} alt="#" /></Link>
 					 </li>
 				 </ul>
-			 </li>
+			 </li> */}
 			 <li><Link to="/contact">Contatos</Link></li>
 			 </ul>
 		 </div>

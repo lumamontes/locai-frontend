@@ -1,7 +1,9 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
 export default function ShogGridV1 () {
+	const {user} = useAuth()
 	const [loading, setLoading] = useState(false)
 	const [properties, setProperties] = useState([])
 	useEffect(() => {
@@ -10,6 +12,14 @@ export default function ShogGridV1 () {
 		setLoading(true)
 	})
 	}, [])
+
+	function handleFavorite(property_id) {
+		api.post(`/user_favorites/${property_id}`, {
+			user_id:user.id,
+		}).then((response) => {
+			console.log(response.data)
+		})
+	}
 	return (
 		<div>
 			<div className="ltn__product-area ltn__product-gutter mb-100">
@@ -102,9 +112,8 @@ export default function ShogGridV1 () {
 														<i className="flaticon-expand" />
 													</a>
 													</li>
-													<li>
-													<a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-														<i className="flaticon-heart-1" /></a>
+													<li className='cursor-pointer' onClick={() => handleFavorite(item.id)}>
+													<i className="flaticon-heart-1" />
 													</li>
 													<li>
 													<span className="go-top">
