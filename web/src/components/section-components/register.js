@@ -3,26 +3,38 @@ import { Link,useHistory } from 'react-router-dom';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
 import moment  from 'moment';
+import * as yup from 'yup'
 export default function Register() {
 	const history = useHistory();
 	const {handleLogin, user} = useAuth()
-
+	const [errorMsg, setErrorMsg] = useState({});
 	const [valuesForm, setValuesForm] = useState({
 		name:"",
 		email:"",
-		telephone:"",
+		telephone:null,
 		city:"",
 		state:"",
 		password:""
 	})
-	const [date, setDate] = useState()
+	const [date, setDate] = useState('')
 	async function handleRegister() {
 		try {
+			const schema = yup.object({
+				name:yup.string().required('O campo nome é obrigatorio e não pode está em branco'),
+				email:yup.string().email().required("O campo email é obrigatorio e não pode está em branco"),
+				telephone:yup.number().required('O campo telefone é obrigatorio e não pode está em branco'),
+				estado:yup.string().required('O campo estado é obrigatorio e não pode está em branco'),
+				cidade:yup.string().required('O campo cidade é obrigatorio e não pode está em branco'),
+				password:yup.string().required('O campo senha é obrigatorio e não pode está em branco')
+			})
+		await	schema.validate(valuesForm, {
+				abortEarly:false
+			})
 			const response = await api.post("/users", {
 				...valuesForm,
 				birth_date: moment(date).format('YYYY-MM-DD')
 			});
-			if(response){
+			if(response.status !== 500){
 				const responseLogin = await api.post('/login', {
 					email:response.data.email,
 					password:response.data.password
@@ -31,10 +43,19 @@ export default function Register() {
 				history.push('my-account')
 			}
 		} catch (error) {
-			console.log(error);
+			if (error instanceof yup.ValidationError) {
+				const errorMessages = {};
+	
+				error.inner.forEach((error) => {
+					errorMessages[error.path] = error.message;
+				});
+				console.log(errorMessages)
+				setErrorMsg(errorMessages);
+			}
 		}
 		
 	}
+	console.log(errorMsg)
 	const handleChange = (e) => {
     const { name, value } = e.target
     setValuesForm({
@@ -60,7 +81,7 @@ export default function Register() {
 						<form onSubmit={(e) => e.preventDefault()} className="ltn__form-box contact-form-box">
 						<input type="text" name="name" placeholder="Nome" value={valuesForm.name}  onChange={handleChange}/>
 						<input type="text" name="email" placeholder="Email*" value={valuesForm.email}  onChange={handleChange} />
-						<input type="text" name="telephone" placeholder="Telefone" value={valuesForm.telephone}  onChange={handleChange}/>
+						<input type="number" name="telephone" placeholder="Telefone" value={valuesForm.telephone}  onChange={handleChange}/>
 						<input type="text" name="birth_date" placeholder="Coloque sua data de nascimento" onChange={(e) => setDate(e.target.value)} />
 						<input type="text" name="state" placeholder="Estado" value={valuesForm.state}  onChange={handleChange}/>
 						<input type="text" name="city" placeholder="Cidade" value={valuesForm.city}  onChange={handleChange}/>

@@ -1016,7 +1016,13 @@ code {
 /* ----------------------------------------------------
     Form input box
 ---------------------------------------------------- */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
