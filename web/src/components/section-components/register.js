@@ -49,7 +49,6 @@ export default function Register() {
 				error.inner.forEach((error) => {
 					errorMessages[error.path] = error.message;
 				});
-				console.log(errorMessages)
 				setErrorMsg(errorMessages);
 			}
 		}
@@ -64,7 +63,7 @@ export default function Register() {
     })
   }
 	return (
-		<div className="ltn__login-area pb-50">
+		<div className="ltn__login-area pb-50"> 
 				<div className="container">
 				<div className="row">
 					<div className="col-lg-12">

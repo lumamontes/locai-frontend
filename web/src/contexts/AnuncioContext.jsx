@@ -5,6 +5,7 @@ export const AnuncioContext = createContext({})
 export function AnuncioProvider(props) {
   const [anuncio, setAnuncio] = useState()
   const [images, setImages] = useState()
+  const [params, setParams] = useState() 
   const [valuesForm, setValuesForm] = useState({
     ad_title: "",
     ad_description: "",
@@ -31,8 +32,12 @@ export function AnuncioProvider(props) {
      setImages(image)
    }
 
+
+  function handleFilter(values) {
+setParams(values)
+  } 
   return (
-    <AnuncioContext.Provider value={{anuncio, handleChange, valuesForm, images, handleImage}}>
+    <AnuncioContext.Provider value={{anuncio, handleChange, valuesForm, images, handleImage, handleFilter, params}}>
       {props.children}
     </AnuncioContext.Provider>
   )

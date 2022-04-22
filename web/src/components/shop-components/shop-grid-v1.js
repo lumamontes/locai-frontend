@@ -1,13 +1,15 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import {useAnuncio} from '../../hooks/useAnuncio'
 import { api } from '../../services/api';
 export default function ShogGridV1 () {
 	const {user} = useAuth()
 	const [loading, setLoading] = useState(false)
 	const [properties, setProperties] = useState([])
+	const {params} = useAnuncio()
 	useEffect(() => {
-  api.get('/properties').then((response) => {
+  api.get('/properties', {params}).then((response) => {
 		setProperties(response.data)
 		setLoading(true)
 	})
