@@ -23,8 +23,8 @@ export default function Register() {
 				name:yup.string().required('O campo nome é obrigatorio e não pode está em branco'),
 				email:yup.string().email().required("O campo email é obrigatorio e não pode está em branco"),
 				telephone:yup.number().required('O campo telefone é obrigatorio e não pode está em branco'),
-				estado:yup.string().required('O campo estado é obrigatorio e não pode está em branco'),
-				cidade:yup.string().required('O campo cidade é obrigatorio e não pode está em branco'),
+				state:yup.string().required('O campo estado é obrigatorio e não pode está em branco'),
+				city:yup.string().required('O campo cidade é obrigatorio e não pode está em branco'),
 				password:yup.string().required('O campo senha é obrigatorio e não pode está em branco')
 			})
 		await	schema.validate(valuesForm, {

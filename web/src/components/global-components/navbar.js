@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Social from '../section-components/social';
-
+import {useEffect} from 'react'
+import { api } from '../../services/api';
 export default function Navbar () {
-	const {user, handleLogout} = useAuth()
+	const {user, handleLogout} = useAuth()	
+	const  [favorites, setFavorites] = useState([])
+	const [loading, setLoading] = useState(false)
 	const history = useHistory()
+	useEffect(() => {
+		if (user !== null) {
+			api.get(`/user_favorites/${user.id}`).then((response) => {
+				setFavorites(response.data)
+				setLoading(true)
+				console.log(response.data)
+			})
+		}
+	}, [])
 	return (
 		<div>
 		<header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
@@ -183,7 +195,7 @@ export default function Navbar () {
 			 <ul className="go-top">
 			 {user === null ?  <li><Link to="/login">Entrar</Link></li> : null}
 			 {user === null ?  <li><Link to="/register">Cadastrar</Link></li> : null}
-			 <li><Link to="/my-account">Minha conta</Link></li>
+			 {user ?	 <li><Link to="/my-account">Minha conta</Link></li> : null}
 			 {user ?  <li><Link onClick={handleLogout} >Sair</Link></li> : null}
 			 </ul>
 		 </li>
@@ -192,8 +204,7 @@ export default function Navbar () {
 	 {/* mini-cart */}
 	 <div className="mini-cart-icon">
 										 <a href="#ltn__utilize-cart-menu" className="ltn__utilize-toggle">
-												 <i className="icon-shopping-cart"></i>
-												 <sup>2</sup>
+												 <i className="flaticon-heart-1"></i>
 										 </a>
 						 </div>
 	 {/* mini-cart */}
@@ -346,15 +357,26 @@ export default function Navbar () {
 	 <div id="ltn__utilize-cart-menu" className="ltn__utilize ltn__utilize-cart-menu">
  <div className="ltn__utilize-menu-inner ltn__scrollbar">
  <div className="ltn__utilize-menu-head">
-	 <span className="ltn__utilize-menu-title">Cart</span>
+	 <span className="ltn__utilize-menu-title">Favoritos</span>
 	 <button className="ltn__utilize-close">×</button>
  </div>
  <div className="mini-cart-product-area ltn__scrollbar">
-	 <div className="mini-cart-item clearfix">
-	 <div className="mini-cart-img go-top">
-		 <Link to="/product-details"><img src={"assets/img/product/1.png"} alt="Image" /></Link>
-		 <span className="mini-cart-item-delete"><i className="icon-cancel" /></span>
-	 </div>
+						{loading ? favorites.map((item) => {
+							return (
+								<div className="mini-cart-item clearfix">
+									<div className="mini-cart-img go-top">
+										<Link to="/product-details"><img src={"assets/img/product/1.png"} alt="Image" /></Link>
+										<span className="mini-cart-item-delete"><i className="icon-cancel" /></span>
+									</div>
+										<div className="mini-cart-info go-top">
+											<h6><Link to="/product-details">{item.ad_title}</Link></h6>
+											<span className="mini-cart-quantity">{item.ad_value.toLocaleString('pt-BR', {style : 'currency', currency : 'BRL'})}</span>
+										</div>
+
+								</div>
+							)
+						}) : null}
+	 {/* <div className="mini-cart-item clearfix">
 	 <div className="mini-cart-info go-top">
 		 <h6><Link to="/product-details">Wheel Bearing Retainer</Link></h6>
 		 <span className="mini-cart-quantity">1 x $65.00</span>
@@ -389,9 +411,9 @@ export default function Navbar () {
 		 <h6><Link to="/product-details">Shock Mount Insulator</Link></h6>
 		 <span className="mini-cart-quantity">1 x $68.00</span>
 	 </div>
-	 </div>
+	 </div> */}
  </div>
- <div className="mini-cart-footer">
+ {/* <div className="mini-cart-footer">
 	 <div className="mini-cart-sub-total">
 	 <h5>Subtotal: <span>$310.00</span></h5>
 	 </div>
@@ -400,7 +422,7 @@ export default function Navbar () {
 	 <Link to="/cart" className="theme-btn-2 btn btn-effect-2">Checkout</Link>
 	 </div>
 	 <p>Free Shipping on All Orders Over $100!</p>
- </div>
+ </div> */}
  </div>
 </div>
 {/* Utilize Cart Menu End */}

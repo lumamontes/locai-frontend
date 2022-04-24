@@ -69,21 +69,18 @@ export default function CadastrarImovelForm() {
   const { valuesForm, images } = useAnuncio()
   const finishButtonClick = async () => {
     const formData = new FormData()
-    await api.post('/properties', {
-      user_id: user.id,
-      ...valuesForm
-    }).then((response) => {
-      if (response.status === 201) {
-        const {property_id} =  response.data
-        // formData.append('property_id', property_id[0])
-        formData.append('file', images)
-       api.post('/posts', formData).then((response) => {
+    formData.append('user_id', user.id)
+    Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
+    for (let index = 0; index < images.length; index++) {
+      const element = images[index];
 
-        })
-      }
+      formData.append('files', element)
+    }
+    await api.post('/properties', formData).then((response) => {
+      console.log(response.data)
     })
 
-  };
+  }
 
   return (
     <div>

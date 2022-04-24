@@ -7,15 +7,13 @@ export default function InfoImovel() {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/jpeg,image/png',
-    maxFiles: 1,
+    maxFiles: 5,
     onDrop: acceptedFiles => {
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })))
     },
-    onDropAccepted: (acceptedFiles) => acceptedFiles.map((item) => {
-      handleImage(item)
-    }),
+    onDropAccepted: (acceptedFiles) => handleImage(acceptedFiles)
   })
 
   useEffect(() => {
