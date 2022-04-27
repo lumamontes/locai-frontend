@@ -213,7 +213,7 @@ async function fetchProperties () {
 																	return (
 																		<tr>
 																		<td className="ltn__my-properties-img go-top">
-																			<Link to="/product-details"><img src={"assets/img/product-3/2.jpg"} alt="#" /></Link>
+																			<Link to="/product-details"><img src={item.ad_image} alt="#" /></Link>
 																		</td>
 																		<td>
 																			<div className="ltn__my-properties-info">
@@ -230,7 +230,7 @@ async function fetchProperties () {
 															</tbody>
 														</table>
 													</div>
-													<div className="ltn__pagination-area text-center">
+													{/* <div className="ltn__pagination-area text-center">
 														<div className="ltn__pagination">
 															<ul>
 																<li><Link to="#"><i className="fas fa-angle-double-left" /></Link></li>
@@ -242,7 +242,7 @@ async function fetchProperties () {
 																<li><Link to="#"><i className="fas fa-angle-double-right" /></Link></li>
 															</ul>
 														</div>
-													</div>
+													</div> */}
 												</div>
 											</div>
 											<div className="tab-pane fade" id="ltn_tab_1_6">

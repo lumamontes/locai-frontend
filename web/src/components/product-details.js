@@ -8,6 +8,7 @@ import Footer from './global-components/footer';
 import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
 import { useUser } from "../hooks/useUser"
+import { Spinner } from 'reactstrap';
 
 const Product_Details = () => {
     const { UserData, loadingUserData } = useUser()
@@ -33,7 +34,9 @@ const Product_Details = () => {
                 </div>
                 : 
                 //TODO: criar componente para animação de loading
-                <h1>Carregando</h1>
+                <div className='d-flex justify-content-center'>
+                    <Spinner/>
+                </div>
         }
         <CallToActionV1 />
         <Footer />
