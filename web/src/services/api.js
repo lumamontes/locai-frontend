@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL:"http://localhost:8080/api",
+  baseURL: process.env.REACT_APP_BASEURL,
   Authorization: ''
 })
 //TODO: descomentar lógica e criar  estrutura para interceptacao de requests(ex,sessão ou token expirada, tratamento de errors em request para api etc)
