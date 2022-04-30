@@ -4,6 +4,7 @@ import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
 import moment  from 'moment';
 import * as yup from 'yup'
+import { toast } from 'react-toastify';
 export default function Register() {
 	const history = useHistory();
 	const {handleLogin, user} = useAuth()
@@ -11,7 +12,7 @@ export default function Register() {
 	const [valuesForm, setValuesForm] = useState({
 		name:"",
 		email:"",
-		telephone:null,
+		telephone:"",
 		city:"",
 		state:"",
 		password:""
@@ -22,7 +23,7 @@ export default function Register() {
 			const schema = yup.object({
 				name:yup.string().required('O campo nome é obrigatorio e não pode está em branco'),
 				email:yup.string().email().required("O campo email é obrigatorio e não pode está em branco"),
-				telephone:yup.number().required('O campo telefone é obrigatorio e não pode está em branco'),
+				telephone:yup.string().required('O campo telefone é obrigatorio e não pode está em branco'),
 				state:yup.string().required('O campo estado é obrigatorio e não pode está em branco'),
 				city:yup.string().required('O campo cidade é obrigatorio e não pode está em branco'),
 				password:yup.string().required('O campo senha é obrigatorio e não pode está em branco')
@@ -49,7 +50,14 @@ export default function Register() {
 				error.inner.forEach((error) => {
 					errorMessages[error.path] = error.message;
 				});
-				setErrorMsg(errorMessages);
+				for (const key in errorMessages) {
+					if (Object.hasOwnProperty.call(errorMessages, key)) {
+						const element = errorMessages[key];
+						toast(element, {
+							hideProgressBar:true
+						})
+					}
+				}
 			}
 		}
 		

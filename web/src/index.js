@@ -57,7 +57,8 @@ import CadastrarImovel from "./components/Custom-components/CadastrarImovel"
 import { AnuncioProvider } from "./contexts/AnuncioContext"
 import { UserProvider } from "./contexts/UserContext"
 import { BrowserRouter } from "react-router-dom"
-
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 export default function Root() {
   return (
     <BrowserRouter>
@@ -122,6 +123,7 @@ ReactDOM.render(
     <UserProvider>
     <AnuncioProvider>
       <Root />
+      <ToastContainer newestOnTop />
     </AnuncioProvider>
     </UserProvider>
   </AuthProvider>,

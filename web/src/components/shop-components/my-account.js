@@ -12,6 +12,10 @@ export default function MyAccount() {
 	const [fullUser, setFullUser] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [properties, setProperties] = useState([])
+	const [userName, SetUserName] = useState('')
+	const [email, setEmail] = useState('')
+	const [city, setCity] = useState('')
+	const [state, setState] = useState('')
 	async function fetchData() {
 		if (user !== null) {
 			try {
@@ -21,6 +25,10 @@ export default function MyAccount() {
 					}
 				})
 				setFullUser(response.data);
+				SetUserName(response.data[0].name)
+				setEmail(response.data[0].email)
+				setCity(response.data[0].city)
+				setState(response.data[0].state)
 				setLoading(true);
 			} catch (err) {
 				console.log(err)
@@ -36,7 +44,6 @@ async function fetchProperties () {
 				}
 			})
 			setProperties(response.data)
-			console.log(response.data)
 		} catch (error) {
 			console.log(error)
 		}
@@ -66,7 +73,7 @@ async function fetchProperties () {
 												<a data-bs-toggle="tab" href="#ltn_tab_1_3">Endereço <i className="fas fa-map-marker-alt" /></a>
 												<a data-bs-toggle="tab" href="#ltn_tab_1_4">Detalhes da Conta <i className="fas fa-user" /></a>
 												<a data-bs-toggle="tab" href="#ltn_tab_1_5">Meus imóveis<i className="fa-solid fa-list" /></a>
-												<a data-bs-toggle="tab" href="#ltn_tab_1_6">Imóveis Favoritos <i className="fa-solid fa-heart" /></a>
+												{/* <a data-bs-toggle="tab" href="#ltn_tab_1_6">Imóveis Favoritos <i className="fa-solid fa-heart" /></a> */}
 												<a data-bs-toggle="tab" href="#ltn_tab_1_7">Anunciar Imóvel <i className="fa-solid fa-map-location-dot" /></a>
 												<a data-bs-toggle="tab" href="#ltn_tab_1_8">Payments <i className="fa-solid fa-money-check-dollar" /></a>
 												<a data-bs-toggle="tab" href="#ltn_tab_1_9">Change Password <i className="fa-solid fa-lock" /></a>
@@ -157,22 +164,24 @@ async function fetchProperties () {
 													<p>The following addresses will be used on the checkout page by default.</p>
 													<div className="ltn__form-box">
 														<form action="#">
-															<div className="row mb-50">
+															<div className="row">
 																<div className="col-md-6">
-																	<label>First name:</label>
-																	<input type="text" name="ltn__name" />
+																	<label>Nome:</label>
+																	<input type="text" name="ltn__name" onChange={(e) => SetUserName(e.target.value)} value={userName} />
 																</div>
 																<div className="col-md-6">
-																	<label>Last name:</label>
-																	<input type="text" name="ltn__lastname" />
+																	<label>Email:</label>
+																	<input type="email" name="ltn__lastname"  onChange={(e) => setEmail(e.target.value)} value={email} placeholder="example@example.com" />
+																</div>
+															</div>
+															<div className="row ">
+																<div className="col-md-6">
+																	<label>Cidade</label>
+																	<input type="text" onChange={(e) => setCity(e.target.value)} name="ltn__name" value={city} />
 																</div>
 																<div className="col-md-6">
-																	<label>Display Name:</label>
-																	<input type="text" name="ltn__lastname" placeholder="Ethan" />
-																</div>
-																<div className="col-md-6">
-																	<label>Display Email:</label>
-																	<input type="email" name="ltn__lastname" placeholder="example@example.com" />
+																	<label>Estado:</label>
+																	<input type="email" name="ltn__lastname" onChange={(e) => setState(e.target.value)} value={state} placeholder="example@example.com" />
 																</div>
 															</div>
 															<fieldset>
