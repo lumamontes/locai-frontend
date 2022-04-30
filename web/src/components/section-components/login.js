@@ -1,7 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import parse from 'html-react-parser';
-import axios from 'axios';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
 import * as yup from 'yup'

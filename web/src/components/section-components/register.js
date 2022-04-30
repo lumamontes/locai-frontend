@@ -22,9 +22,6 @@ export default function Register() {
 			const schema = yup.object({
 				name:yup.string().required('O campo nome é obrigatório e não pode está em branco'),
 				email:yup.string().email("O email não é válido").required("O campo email é obrigatório e não pode está em branco"),
-				telephone:yup.string().required('O campo telefone é obrigatório e não pode está em branco'),
-				state:yup.string().required('O campo estado é obrigatório e não pode está em branco'),
-				city:yup.string().required('O campo cidade é obrigatório e não pode está em branco'),
 				password:yup.string().required('O campo senha é obrigatório e não pode está em branco')
 			})
 		await	schema.validate(valuesForm, {
@@ -87,12 +84,8 @@ export default function Register() {
 						<form onSubmit={(e) => e.preventDefault()} className="ltn__form-box contact-form-box">
 						<input type="text" name="name" placeholder="Nome" value={valuesForm.name}  onChange={handleChange}/>
 						<input type="text" name="email" placeholder="Email*" value={valuesForm.email}  onChange={handleChange} />
-						<input type="number" name="telephone" placeholder="Telefone" value={valuesForm.telephone}  onChange={handleChange}/>
-						<input type="text" name="birth_date" placeholder="Coloque sua data de nascimento" onChange={(e) => setDate(e.target.value)} />
-						<input type="text" name="state" placeholder="Estado" value={valuesForm.state}  onChange={handleChange}/>
-						<input type="text" name="city" placeholder="Cidade" value={valuesForm.city}  onChange={handleChange}/>
-						<input type="password" name="password" placeholder="Password*" value={valuesForm.password}  onChange={handleChange}/>
-						<input type="password" name="confirmpassword" placeholder="Confirm Password*" />
+						<input type="password" name="password" placeholder="Senha*" value={valuesForm.password}  onChange={handleChange}/>
+						<input type="password" name="confirmpassword" placeholder="Confirme Senha*" />
 						<label className="checkbox-inline">
 							<input type="checkbox" defaultValue /> &nbsp;
 							Ao Clicar você irá concordar com os Termos &amp; Condições

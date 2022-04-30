@@ -9,20 +9,23 @@ export function UserProvider(props) {
     const [loadingUserData, setLoadingUserData] = useState(false)
     const item = window.localStorage.getItem('user')
     const user = item != null ? (JSON.parse(item)) : null;
-    useEffect( async ()  => {
-        try {
-            const response = await api.get(`/users/${user.id}`, {
-                headers: {
-                    Authorization: `Bearer ${user.token}`
+    useEffect(async () => {
+        if (user != null) {
+            try {
+                const response = await api.get(`/users/${user.id}`, {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`
+                    }
+                })
+                if (response.data) {
+                    setUserData(response.data[0]);
+                    setLoadingUserData(true)
                 }
-            })
-            if(response.data){
-                setUserData(response.data[0]);
-                setLoadingUserData(true)
+            } catch (err) {
+                console.log(err)
             }
-        } catch (err) {
-            console.log(err)
         }
+
     }, []);
 
     return (
