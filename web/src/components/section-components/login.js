@@ -4,6 +4,9 @@ import parse from 'html-react-parser';
 import axios from 'axios';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
+import * as yup from 'yup'
+import { toast } from 'react-toastify';
+
 export default function Login () {
 	const history = useHistory();
 	const [email, setEmail] = useState('')
@@ -11,12 +14,37 @@ export default function Login () {
 	const {handleLogin, user} = useAuth()
 
 	async function login() {
-		const response = await api.post('/login', {
-			email:email,
-			password:password
-		});
-		await handleLogin(response.data);
-		history.push('my-account')
+		try {
+			const schema = yup.object({
+				email:yup.string().email('Por favor, digite um email válido').required('Email é um campo obrigatório'),
+				password:yup.string().required('Senha é um campo obrigatório')
+			})
+			await schema.validate({email, password}, {
+				abortEarly:false
+			})
+			const response = await api.post('/login', {
+				email:email,
+				password:password
+			});
+			await handleLogin(response.data);
+			history.push('my-account')
+		} catch (error) {
+			if (error instanceof yup.ValidationError) {
+				const errorMessages = {};
+	
+				error.inner.forEach((error) => {
+					errorMessages[error.path] = error.message;
+				});
+				for (const key in errorMessages) {
+					if (Object.hasOwnProperty.call(errorMessages, key)) {
+						const element = errorMessages[key];
+						toast(element, {
+							hideProgressBar:true
+						})
+					}
+				}
+			}
+		}
 	}
 	return (
 		<div>
@@ -72,7 +100,7 @@ confira mais rapidamente acompanhe seus pedidos cadastre-se</p>
 						<div className="row">
 							<div className="col-12">
 							<div className="modal-product-info text-center">
-								<h4>FORGET PASSWORD?</h4>
+								<h4>Esqueceu a senha?</h4>
 								<p className="added-cart"> Enter you register email.</p>
 								<form action="#" className="ltn__form-box">
 								<input type="text" name="email" placeholder="Type your register email*" />

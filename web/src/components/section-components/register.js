@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 export default function Register() {
 	const history = useHistory();
 	const {handleLogin, user} = useAuth()
-	const [errorMsg, setErrorMsg] = useState({});
 	const [valuesForm, setValuesForm] = useState({
 		name:"",
 		email:"",
@@ -21,16 +20,17 @@ export default function Register() {
 	async function handleRegister() {
 		try {
 			const schema = yup.object({
-				name:yup.string().required('O campo nome é obrigatorio e não pode está em branco'),
-				email:yup.string().email().required("O campo email é obrigatorio e não pode está em branco"),
-				telephone:yup.string().required('O campo telefone é obrigatorio e não pode está em branco'),
-				state:yup.string().required('O campo estado é obrigatorio e não pode está em branco'),
-				city:yup.string().required('O campo cidade é obrigatorio e não pode está em branco'),
-				password:yup.string().required('O campo senha é obrigatorio e não pode está em branco')
+				name:yup.string().required('O campo nome é obrigatório e não pode está em branco'),
+				email:yup.string().email("O email não é válido").required("O campo email é obrigatório e não pode está em branco"),
+				telephone:yup.string().required('O campo telefone é obrigatório e não pode está em branco'),
+				state:yup.string().required('O campo estado é obrigatório e não pode está em branco'),
+				city:yup.string().required('O campo cidade é obrigatório e não pode está em branco'),
+				password:yup.string().required('O campo senha é obrigatório e não pode está em branco')
 			})
 		await	schema.validate(valuesForm, {
 				abortEarly:false
 			})
+
 			const response = await api.post("/users", {
 				...valuesForm,
 				birth_date: moment(date).format('YYYY-MM-DD')
@@ -62,7 +62,6 @@ export default function Register() {
 		}
 		
 	}
-	console.log(errorMsg)
 	const handleChange = (e) => {
     const { name, value } = e.target
     setValuesForm({
