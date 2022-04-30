@@ -4,7 +4,6 @@ import Banner from './section-components/banner';
 import SearchForm from './section-components/search-form';
 import Aboutv1 from './section-components/about-v1';
 import Counter from './section-components/counter-v1';
-import AboutV2 from './section-components/about-v2';
 import Featuresv1 from './section-components/features-v1';
 import ProSlider from './section-components/product-slider-v1';
 import VideoV1 from './section-components/video-v1';
@@ -20,7 +19,6 @@ const Home_V1 = () => {
         <SearchForm />
         <Aboutv1 />
         <Counter />
-        <AboutV2 />
         <Featuresv1 customClass="ltn__feature-area section-bg-1 pt-120 pb-90 mb-120---"/>
         <ProSlider />
         <VideoV1 />
