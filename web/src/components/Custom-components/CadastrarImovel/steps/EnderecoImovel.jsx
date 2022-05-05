@@ -9,9 +9,21 @@ export default function Endereco () {
      <form className='d-flex flex-column gap-1 w-100 align-items-center'>
         <div className='d-flex flex-column w-75'>
            <label>
+             CEP
+           </label >
+           <Input   />
+        </div>
+        <div className='d-flex flex-column w-75'>
+           <label>
              Endereço
            </label >
            <Input value={valuesForm.property_adress}  name="property_adress" onChange={handleChange}/>
+        </div>
+        <div className='d-flex flex-column w-75'>
+           <label>
+             Bairro
+           </label>
+           <Input value={valuesForm.property_neighborhood}  name="property_neighborhood" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>

@@ -29,6 +29,7 @@ import { AnuncioProvider } from "./contexts/AnuncioContext"
 import { UserProvider } from "./contexts/UserContext"
 import { BrowserRouter } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
+import EditarImovel from "./components/EditarImovel"
 import 'react-toastify/dist/ReactToastify.css';
 export default function Root() {
   return (
@@ -54,6 +55,7 @@ export default function Root() {
         <Route path="/add-listing" component={AddListing} />
 
         <Route path="/cadastrar-imovel" component={CadastrarImovel} />
+        <Route path='/editar/:id' component={EditarImovel}/>
       </Switch>
     </BrowserRouter>
   )

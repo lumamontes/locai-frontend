@@ -8,6 +8,9 @@ import './CadastrarImovel.css'
 import { api } from "../../../services/api";
 import { useAuth } from "../../../hooks/useAuth";
 import { useAnuncio } from "../../../hooks/useAnuncio";
+import * as yup from 'yup'
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 const FirstStep = React.forwardRef((props, ref) => {
   const [randomState, setRandomState] = React.useState(
     "1. This is a random state for first step."
@@ -67,19 +70,54 @@ const steps = [
 export default function CadastrarImovelForm() {
   const { user } = useAuth()
   const { valuesForm, images } = useAnuncio()
+  const history = useHistory()
   const finishButtonClick = async () => {
-    const formData = new FormData()
-    formData.append('user_id', user.id)
-    Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
-    for (let index = 0; index < images.length; index++) {
-      const element = images[index];
-
-      formData.append('files', element)
+    try {
+      const schema = yup.object({
+        ad_title: yup.string().required('O Titulo para o anúncio é obrigatório'),
+        ad_description: yup.string().required('A descrição do anúncio para o anúncio é obrigatória'),
+        ad_value: yup.string().required('O valor para o anúncio é obrigatório'),
+        property_adress: yup.string().required('O Endereço é obrigatório'),
+        property_city: yup.string().required('A cidade é obrigatória'),
+        property_state:yup.string().required('O Estado é obrigatório'),
+        property_neighborhood: yup.string().required('O Bairro é obrigatório'),
+        room_quantity:yup.string().required('A quantidade de quartos é obrigatória'),
+        bathroom_quantity:yup.string().required('A quantidade de banheiros é obrigatória'),
+        garage_quantity:yup.string().required('A quantidade de garagem é obrigatória')
+      })
+      await schema.validate(valuesForm, {
+        abortEarly:false
+      })
+      const formData = new FormData()
+      formData.append('beds_quantity', 0)
+      formData.append('user_id', user.id)
+      Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
+      for (let index = 0; index < images.length; index++) {
+        const element = images[index];
+  
+        formData.append('files', element)
+      }
+      await api.post('/properties', formData).then((response) => {
+        history.push('/imoveis')
+      })
+  
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+				const errorMessages = {};
+	
+				error.inner.forEach((error) => {
+					errorMessages[error.path] = error.message;
+				});
+				for (const key in errorMessages) {
+					if (Object.hasOwnProperty.call(errorMessages, key)) {
+						const element = errorMessages[key];
+						toast.error(element, {
+							hideProgressBar:true
+						})
+					}
+				}
+			}
     }
-    await api.post('/properties', formData).then((response) => {
-      console.log(response.data)
-    })
-
   }
 
   return (
