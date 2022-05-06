@@ -231,7 +231,7 @@ async function fetchProperties () {
 																			</div>
 																		</td>
 																		<td className='text-center'>{moment(item.created_at).format('DD/MM/YYYY')}</td>
-																		<td><Link to="#">Editar</Link></td>
+																		<td><Link to={`/editar/${item.user_type_id}`}>Editar</Link></td>
 																		<td className='text-center'><Link tp="#"><i className="fa-solid fa-trash-can" /></Link></td>
 																	</tr>
 																	)
