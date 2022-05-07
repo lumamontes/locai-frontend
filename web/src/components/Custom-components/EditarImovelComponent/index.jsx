@@ -508,7 +508,7 @@ export default function EditarImovelComponent() {
     Please note that the date and time you requested may not be available. We will contact you to confirm your actual appointment details.
   </div> */}
           <div className="btn-wrapper text-center--- mt-30">
-            <button className="btn theme-btn-1 btn-effect-1 text-uppercase" onClick={handleUpdateImovel}>Submit Property</button>
+            <button className="btn theme-btn-1 btn-effect-1 text-uppercase" onClick={handleUpdateImovel}>Editar</button>
           </div>
         </div>
       </div>
