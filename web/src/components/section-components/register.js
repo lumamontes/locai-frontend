@@ -29,8 +29,8 @@ export default function Register() {
 			})
 
 			const response = await api.post("/users", {
-				...valuesForm,
-				birth_date: moment(date).format('YYYY-MM-DD')
+				...valuesForm
+				// birth_date: moment(date).format('YYYY-MM-DD')
 			});
 			if(response.status !== 500){
 				const responseLogin = await api.post('/login', {
