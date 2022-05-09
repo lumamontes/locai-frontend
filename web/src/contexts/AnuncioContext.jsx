@@ -4,7 +4,7 @@ export const AnuncioContext = createContext({})
 
 export function AnuncioProvider(props) {
   const [anuncio, setAnuncio] = useState()
-  const [images, setImages] = useState()
+  const [images, setImages] = useState('')
   const [params, setParams] = useState() 
   const [valuesForm, setValuesForm] = useState({
     ad_title: "",
