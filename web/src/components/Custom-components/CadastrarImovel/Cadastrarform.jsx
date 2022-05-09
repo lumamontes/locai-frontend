@@ -92,16 +92,17 @@ export default function CadastrarImovelForm() {
       formData.append('beds_quantity', 0)
       formData.append('user_id', user.id)
       Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
-      for (let index = 0; index < images.length; index++) {
-        const element = images[index];
-  
-        formData.append('files', element)
-      }
-      await api.post('/properties', formData).then((response) => {
-        history.push('/imoveis')
-      })
-  
+        for (let index = 0; index < images.length; index++) {
+          const element = images[index];
+          formData.append('files', element)
+        }
+      await api.post('/properties', formData, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      }) ;
     } catch (error) {
+      console.log(error);
       if (error instanceof yup.ValidationError) {
 				const errorMessages = {};
 	
