@@ -17,11 +17,10 @@ class Error extends Component {
 						<img src={publicUrl+"assets/img/others/error-1.png"} alt="#" />
 						</div>
 						<h1 className="error-404-title d-none">404</h1>
-						<h2>Page Not Found!</h2>
-						{/* <h3>Oops! Looks like something going rong</h3> */}
-						<p>Oops! The page you are looking for does not exist. It might have been moved or deleted.</p>
+						<h2>Página não encontrada!</h2>
+						<p>Opa! Parece que a página que você tentou acessar não existe.</p>
 						<div className="btn-wrapper go-top">
-						<Link to="/" className="btn btn-transparent"><i className="fas fa-long-arrow-alt-left" /> BACK TO HOME</Link>
+						<Link to="/" className="btn btn-transparent"><i className="fas fa-long-arrow-alt-left" /> Voltar </Link>
 						</div>
 					</div>
 					</div>

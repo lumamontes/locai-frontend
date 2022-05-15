@@ -15,7 +15,7 @@ import About from "./components/about"
 import Service from "./components/service"
 import Team from "./components/team"
 import TeamDetails from "./components/team-details"
-import Error from "./components/404"
+import NotFound from "./components/404"
 
 import ShopGrid from "./components/shop-grid"
 import ProdductDetails from "./components/product-details"
@@ -45,7 +45,6 @@ export default function Root() {
         <Route path="/service" component={Service} />
         <Route path="/team" component={Team} />
         <Route path="/team-details" component={TeamDetails} />
-        <Route path="/404" component={Error} />
         <Route path="/imoveis" component={ShopGrid} />
         <Route
           path="/product-details/:property_id"
@@ -61,6 +60,7 @@ export default function Root() {
 
         <Route path="/cadastrar-imovel" component={CadastrarImovel} />
         <Route path='/editar/:id' component={EditarImovel} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   )

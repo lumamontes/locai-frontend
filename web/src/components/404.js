@@ -8,9 +8,7 @@ import Footer from './global-components/footer';
 const ErrorPage = () => {
     return <div>
         <Navbar />
-        <PageHeader headertitle="404 Page" />
         <Error />
-        <CallToActionV1 />
         <Footer />
     </div>
 }
