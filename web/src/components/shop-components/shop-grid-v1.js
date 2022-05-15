@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useAnuncio } from '../../hooks/useAnuncio'
 import { api } from '../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
+import { toast } from 'react-toastify';
 
 export default function ShogGridV1() {
 	const { user } = useAuth()
@@ -35,11 +36,19 @@ export default function ShogGridV1() {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 	function handleFavorite(property_id) {
-		api.post(`/user_favorites/${property_id}`, {
-			user_id: user.id,
-		}).then((response) => {
-			console.log(response.data)
-		})
+		if (user === null) {
+			toast.error('Você precisa está logado para favoritar um imóvel', {
+				hideProgressBar:true
+			})
+		} else {
+			api.post(`/user_favorites/${property_id}`, {
+				user_id: user.id,
+			}).then((response) => {
+				toast.success('Imóvel adicionado aos favoritos', {
+					hideProgressBar:true
+				})
+			})
+		}
 	}
 	return (
 		<div>

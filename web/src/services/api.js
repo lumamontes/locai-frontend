@@ -1,11 +1,15 @@
 import axios from "axios";
 import { toast } from 'react-toastify';
-
+const initialUser = () => {
+  const item = window.localStorage.getItem('user')
+  return item ? JSON.parse(item) : null
+}
 export const api = axios.create({
   baseURL:'https://tcc-backend-w3aet.ondigitalocean.app/api/',
   // baseURL:'http://localhost:8080/api/',
   Authorization: ''
 })
+api.defaults.headers.Authorization = `Bearer ${initialUser() !== null && initialUser().token}`
 //TODO: descomentar lógica e criar  estrutura para interceptacao de requests(ex,sessão ou token expirada, tratamento de errors em request para api etc)
 api.interceptors.response.use(
   (response) => {
