@@ -9,8 +9,6 @@ import { toast } from 'react-toastify';
 
 export default function ShogGridV1() {
 	const { user } = useAuth()
-	const [loading, setLoading] = useState(false)
-	const [properties, setProperties] = useState([])
 	const { params } = useAnuncio()
 	const [bairro, setBairro] = useState('')
 	const [ad_value, setAd_value] = useState('')

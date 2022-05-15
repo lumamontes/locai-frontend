@@ -14,7 +14,6 @@ export default function Navbar() {
 			api.get(`/user_favorites/${user.id}`).then((response) => {
 				setFavorites(response.data)
 				setLoading(true)
-				console.log(response.data)
 			})
 		}
 	}, [])

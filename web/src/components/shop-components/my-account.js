@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
+
+
 import { useAuth } from '../../hooks/useAuth';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { api } from '../../services/api';
 import EditUserFormTab from './my-account-components/EditUserForm';
 import AdressUserTab from './my-account-components/AdressUserTab';
 import UserDashboardSideBar from './my-account-components/DashboardSideBar';
@@ -12,11 +9,10 @@ import UserProfileTab from './my-account-components/UserProfileTab';
 import ChangePasswordTab from './my-account-components/ChangePasswordTab';
 import UserPropertiesTab from './my-account-components/UserPropertiesTab';
 import WelcomeDashboardTab from './my-account-components/WelcomeDashboardTab';
-import moment from 'moment';
 
 export default function MyAccount() {
 
-	const { user } = useAuth()
+	const { user } = useAuth();
 	// async function fetchData() {
 	// 	if (user !== null) {
 	// 		try {
@@ -31,20 +27,7 @@ export default function MyAccount() {
 	// 		}
 	// 	}
 	// }
-	// async function fetchProperties() {
-	// 	if (user !== null) {
-	// 		try {
-	// 			const response = await api.get(`/properties_user/${user.id}`, {
-	// 				headers: {
-	// 					Authorization: `Bearer ${user.token}`
-	// 				}
-	// 			})
-	// 			setProperties(response.data)
-	// 		} catch (error) {
-	// 			console.log(error)
-	// 		}
-	// 	}
-	// }
+	
 	// useEffect(() => {
 	// 	fetchData()
 	// 	fetchProperties()
@@ -72,7 +55,7 @@ export default function MyAccount() {
 
 											<EditUserFormTab />
 
-											<UserPropertiesTab />
+											<UserPropertiesTab user_id={user.id} token={user.token} />
 
 											<ChangePasswordTab />
 
