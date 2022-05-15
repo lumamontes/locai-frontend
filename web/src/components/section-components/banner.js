@@ -24,7 +24,7 @@ class Banner extends Component {
 				                      <i className="fa fa-play" />
 				                    </a>
 				                  </div>
-				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> NOMEDOSIS</h6>
+				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> LOCAÍ</h6>
 				                  <h1 className="slide-title animated ">Encontre o lar <br /> Perfeito para você</h1>
 				                  <div className="slide-brief animated">
 				                    <p>Alugue de forma rápida e fácil</p>
@@ -53,7 +53,7 @@ class Banner extends Component {
 				            <div className="col-lg-12 align-self-center">
 				              <div className="slide-item-info">
 				                <div className="slide-item-info-inner ltn__slide-animation">
-				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> NOMEDOSIS</h6>
+				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> LOCAÍ</h6>
 				                  <h1 className="slide-title animated ">Facilite a sua vida  <br />e de outras pessoas</h1>
 				                  <div className="slide-brief animated">
 				                    <p>Anuncie apartamentos na melhor plataforma do estado.</p>
