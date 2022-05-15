@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-
+import Image from '../../assets/imagem_home.jpg'
+import ImageChave from '../../assets/image_chave_home.jpg'
 class Banner extends Component {
 
     render() {
@@ -20,9 +21,7 @@ class Banner extends Component {
 				              <div className="slide-item-info">
 				                <div className="slide-item-info-inner ltn__slide-animation">
 				                  <div className="slide-video mb-50 d-none">
-				                    <a className="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
-				                      <i className="fa fa-play" />
-				                    </a>
+													<img src={"/assets/img/slider/21.png"} alt="#" />
 				                  </div>
 				                  <h6 className="slide-sub-title white-color--- animated"><span><i className="fas fa-home" /></span> LOCAÍ</h6>
 				                  <h1 className="slide-title animated ">Encontre o lar <br /> Perfeito para você</h1>
@@ -38,7 +37,7 @@ class Banner extends Component {
 				                </div>
 				              </div>
 				              <div className="slide-item-img">
-				                <img src={publicUrl+"/assets/img/slider/21.png"} alt="#" />
+				                <img src={Image} alt="#" />
 				              </div>
 				            </div>
 				          </div>
@@ -59,13 +58,13 @@ class Banner extends Component {
 				                    <p>Anuncie apartamentos na melhor plataforma do estado.</p>
 				                  </div>
 				                  <div className="btn-wrapper animated">
-				                    <Link to="/service" className="theme-btn-1 btn btn-effect-1">OUR SERVICES</Link>
-				                    <Link to="/about" className="btn btn-transparent btn-effect-3">LEARN MORE</Link>
+				                    <Link to="cadastrar-imovel" className="theme-btn-1 btn btn-effect-1">Anunciar</Link>
+				                    {/* <Link to="/about" className="btn btn-transparent btn-effect-3">LEARN MORE</Link> */}
 				                  </div>
 				                </div>
 				              </div>
 				              <div className="slide-item-img slide-img-left">
-				                <img src={publicUrl+"/assets/img/slider/21.png"} alt="#" />
+				                <img src={ImageChave} alt="#" />
 				              </div>
 				            </div>
 				          </div>
