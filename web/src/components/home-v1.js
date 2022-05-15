@@ -20,10 +20,10 @@ const Home_V1 = () => {
         <Aboutv1 />
         <Counter />
         <Featuresv1 customClass="ltn__feature-area section-bg-1 pt-120 pb-90 mb-120---"/>
-        <ProSlider />
-        <VideoV1 />
+        {/* <ProSlider /> */}
+        {/* <VideoV1 /> */}
         <Category />
-        <Testimonial />
+        {/* <Testimonial /> */}
         <CallToActionV1 />
         <Footer />
     </div>

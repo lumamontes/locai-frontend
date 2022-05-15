@@ -22,7 +22,7 @@ class CategoryV1 extends Component {
 			    <div className="row ltn__category-slider-active--- slick-arrow-1 justify-content-center">
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-car" /></span>
 			            <span className="category-title">Estacionamento</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -31,7 +31,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-swimming" /></span>
 			            <span className="category-title">Piscina</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -40,7 +40,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-secure-shield" /></span>
 			            <span className="category-title">Segurança</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -49,7 +49,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-stethoscope" /></span>
 			            <span className="category-title">Hospital</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -58,7 +58,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-book" /></span>
 			            <span className="category-title">Área de Biblioteca</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -67,7 +67,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-bed-1" /></span>
 			            <span className="category-title">Camas King Size</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -76,7 +76,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-home-2" /></span>
 			            <span className="category-title">Casas Smart</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>
@@ -85,7 +85,7 @@ class CategoryV1 extends Component {
 			      </div>
 			      <div className="col-lg-3 col-md-4 col-sm-6 col-6">
 			        <div className="ltn__category-item ltn__category-item-5 text-center">
-			          <Link to="/shop">
+			          <Link to="/imoveis">
 			            <span className="category-icon"><i className="flaticon-slider" /></span>
 			            <span className="category-title">Praça</span>
 			            <span className="category-btn"><i className="flaticon-right-arrow" /></span>

@@ -27,9 +27,9 @@ class FeaturesV1 extends Component {
 			            <img src={publicUrl+"assets/img/icons/icon-img/21.png"} alt="#" />
 			          </div>
 			          <div className="ltn__feature-info">
-			            <h3><Link to="/service-details">Anunciar imóvel</Link></h3>
+			            <h3><Link to="/cadastrar-imovel">Anunciar imóvel</Link></h3>
 			            <p>Anuncie o seu imóvel em nosso website de forma fácil e rápida</p>
-			            <Link className="ltn__service-btn" to="/service-details">Find A Home <i className="flaticon-right-arrow" /></Link>
+			            <Link className="ltn__service-btn" to="/cadastrar-imovel">Anunciar <i className="flaticon-right-arrow" /></Link>
 			          </div>
 			        </div>
 			      </div>
@@ -39,9 +39,9 @@ class FeaturesV1 extends Component {
 			            <img src={publicUrl+"assets/img/icons/icon-img/22.png"} alt="#" />
 			          </div>
 			          <div className="ltn__feature-info">
-			            <h3><Link to="/service-details">Alugar imóvel</Link></h3>
+			            <h3><Link to="/imoveis">Alugar imóvel</Link></h3>
 			            <p>Encontre o lar perfeito pra você alugar através de nossos anuncios, filtrando de acordo com a sua preferência </p>
-			            <Link className="ltn__service-btn" to="/service-details">Find A Home <i className="flaticon-right-arrow" /></Link>
+			            <Link className="ltn__service-btn" to="/imoveis">Encontre um imóvel <i className="flaticon-right-arrow" /></Link>
 			          </div>
 			        </div>
 			      </div>
@@ -51,9 +51,9 @@ class FeaturesV1 extends Component {
 			            <img src={publicUrl+"assets/img/icons/icon-img/23.png"} alt="#" />
 			          </div>
 			          <div className="ltn__feature-info">
-			            <h3><Link to="/service-details">Assinatura Online</Link></h3>
+			            <h3><Link to="/imoveis">Assinatura Online</Link></h3>
 			            <p>Realize a assinatura do seu contrato de aluguel de forma online </p>
-			            <Link className="ltn__service-btn" to="/service-details">Find A Home <i className="flaticon-right-arrow" /></Link>
+			            <Link className="ltn__service-btn" to="/imoveis">Encontre um imóvel <i className="flaticon-right-arrow" /></Link>
 			          </div>
 			        </div>
 			      </div>

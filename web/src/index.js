@@ -77,7 +77,7 @@ ReactDOM.render(
             <ToastContainer newestOnTop />
           </AnuncioProvider>
         </UserProvider>
-      </AuthProvider>,
+      </AuthProvider>
   </QueryClientProvider>,
   document.getElementById("quarter")
 )

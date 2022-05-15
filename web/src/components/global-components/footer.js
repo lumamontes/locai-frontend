@@ -94,7 +94,7 @@ class Footer_v1 extends Component {
 				            <div className="footer-menu go-top">
 				              <ul>
 				                <li><Link to="/about">Sobre</Link></li>
-				                <li><Link to="/shop">Imóveis</Link></li>
+				                <li><Link to="/imoveis">Imóveis</Link></li>
 				                <li><Link to="/contact">Contatos</Link></li>
 				              </ul>
 				            </div>
@@ -105,8 +105,8 @@ class Footer_v1 extends Component {
 				            <h4 className="footer-title">Serviços</h4>
 				            <div className="footer-menu go-top">
 				              <ul>
-				                <li><Link to="/cart">Carrinho</Link></li>
-				                <li><Link to="/checkout">Checkout</Link></li>
+				                <li><Link to="/cadastrar-imovel">Anuncio</Link></li>
+				                {/* <li><Link to="/checkout">Checkout</Link></li> */}
 				                <li><Link to="/about">Termos &amp; Condições</Link></li>
 				              </ul>
 				            </div>
@@ -120,7 +120,7 @@ class Footer_v1 extends Component {
 				                <li><Link to="/login">Login</Link></li>
 				                <li><Link to="/my-account">Minha conta</Link></li>
 				                <li><Link to="/wishlist">Lista de desejos</Link></li>
-				                <li><Link to="/add-listing">Anunciar</Link></li>
+				                {/* <li><Link to="/add-listing">Anunciar</Link></li> */}
 				              </ul>
 				            </div>
 				          </div>
