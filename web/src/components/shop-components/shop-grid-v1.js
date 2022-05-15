@@ -15,13 +15,13 @@ export default function ShogGridV1() {
 	const [ad_value, setAd_value] = useState('')
 
 	const { data, isLoading, error } = useQuery('properties', async () => {
-		const response = await api.get('/properties')
+		const response = await api.get('/properties', ({params}))
 		const data = await response.data
-		setProperties(data)
-
+		return data
 	});
 	// const history = useHistory()
 	function handleValuesSearch() {
+
 		const cidadesName = document.getElementById('cidades')
 		handleFilter({
 			property_city: cidadesName.value,
@@ -113,7 +113,7 @@ export default function ShogGridV1() {
 													</div>
 												</div>
 												{/* ltn__product-item */}
-												{properties.length > 0 ? properties.map((item) => {
+												{data.length > 0 ? data.map((item) => {
 													return (
 														<div className="col-lg-4 col-sm-6 col-12">
 															<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
