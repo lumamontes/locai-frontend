@@ -9,10 +9,12 @@ import UserProfileTab from './my-account-components/UserProfileTab';
 import ChangePasswordTab from './my-account-components/ChangePasswordTab';
 import UserPropertiesTab from './my-account-components/UserPropertiesTab';
 import WelcomeDashboardTab from './my-account-components/WelcomeDashboardTab';
+import { useUser } from "../../hooks/useUser";
 
 export default function MyAccount() {
 
 	const { user } = useAuth();
+	const { UserData } = useUser()
 	// async function fetchData() {
 	// 	if (user !== null) {
 	// 		try {
@@ -49,7 +51,7 @@ export default function MyAccount() {
 										<div className="tab-content">
 											<WelcomeDashboardTab user={user}/>
 
-											<UserProfileTab />
+											<UserProfileTab user={UserData}/>
 
 											<AdressUserTab />
 
