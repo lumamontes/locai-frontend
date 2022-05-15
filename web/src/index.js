@@ -6,6 +6,9 @@ import {
   Route,
   Switch,
 } from "react-router-dom"
+
+import { QueryClientProvider, QueryClient } from "react-query"
+
 import HomeV1 from "./components/home-v1"
 
 import About from "./components/about"
@@ -31,11 +34,13 @@ import { BrowserRouter } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import EditarImovel from "./components/EditarImovel"
 import 'react-toastify/dist/ReactToastify.css';
+
+const queryClient = new QueryClient();
 export default function Root() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/"  exact component={HomeV1} />
+        <Route path="/" exact component={HomeV1} />
         <Route path="/about" component={About} />
         <Route path="/service" component={Service} />
         <Route path="/team" component={Team} />
@@ -55,7 +60,7 @@ export default function Root() {
         <Route path="/add-listing" component={AddListing} />
 
         <Route path="/cadastrar-imovel" component={CadastrarImovel} />
-        <Route path='/editar/:id' component={EditarImovel}/>
+        <Route path='/editar/:id' component={EditarImovel} />
       </Switch>
     </BrowserRouter>
   )
@@ -64,13 +69,15 @@ export default function Root() {
 // export default Root;
 
 ReactDOM.render(
-  <AuthProvider>
-    <UserProvider>
-    <AnuncioProvider>
-      <Root />
-      <ToastContainer newestOnTop />
-    </AnuncioProvider>
-    </UserProvider>
-  </AuthProvider>,
+  <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <UserProvider>
+          <AnuncioProvider>
+            <Root />
+            <ToastContainer newestOnTop />
+          </AnuncioProvider>
+        </UserProvider>
+      </AuthProvider>,
+  </QueryClientProvider>,
   document.getElementById("quarter")
 )
