@@ -7,7 +7,7 @@ import moment from 'moment';
 
 
 export default function UserPropertiesTab(props) {
-	const { data, isLoading, isFetching, error, refetch } = useQuery('properties_user', async () => {
+	const { data, isLoading, isFetching, error } = useQuery('properties_user', async () => {
 		const response = await api.get(`/properties_user/${props.user_id}`);
 		const data = await response.data
 		return data
