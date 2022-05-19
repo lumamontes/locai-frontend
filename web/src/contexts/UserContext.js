@@ -9,9 +9,9 @@ export function UserProvider(props) {
     const [loadingUserData, setLoadingUserData] = useState(false)
     const item = window.localStorage.getItem('user')
     const user = item != null ? (JSON.parse(item)) : null;
-    useEffect(async () => {
+    useEffect(() => {
         if (user != null) {
-            try {
+            async function getUser() {
                 const response = await api.get(`/users/${user.id}`, {
                     headers: {
                         Authorization: `Bearer ${user.token}`
@@ -21,13 +21,15 @@ export function UserProvider(props) {
                     setUserData(response.data[0]);
                     setLoadingUserData(true)
                 }
-            } catch (err) {
-                console.log(err)
+            }
+            try {
+                getUser();
+            } catch (error) {
+                console.log(error);
             }
         }
 
     }, []);
-
     return (
         <UserContext.Provider value={{ UserData, loadingUserData }}>
             {props.children}
