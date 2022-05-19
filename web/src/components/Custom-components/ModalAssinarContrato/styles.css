@@ -1,0 +1,39 @@
+#info-user-container {
+    position: relative;
+    z-index: 2147483648;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+#info-user-container .form-user {
+    display: flex;
+    gap: 3%;
+}
+
+#info-user-container .form-user .label{
+    margin-bottom: 0;
+}
+
+
+#info-user-container button {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    background: #6933ff;
+    border: 0;
+    padding: 0rem 3rem;
+    border-radius: 0.25rem;
+    height: 65px;
+    transition: filter 0.2s;
+
+}
+
+#info-user-container button:hover{
+    filter: brightness(0.9);
+}
