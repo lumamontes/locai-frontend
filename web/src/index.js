@@ -33,6 +33,7 @@ import { UserProvider } from "./contexts/UserContext"
 import { BrowserRouter } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import EditarImovel from "./components/EditarImovel"
+import Contrato from "./components/Custom-components/ContratoComponent"
 import 'react-toastify/dist/ReactToastify.css';
 
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ export default function Root() {
 
         <Route path="/cadastrar-imovel" component={CadastrarImovel} />
         <Route path='/editar/:id' component={EditarImovel} />
+        <Route path='/contrato/:property_id' component={Contrato} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
