@@ -6,7 +6,7 @@ const initialUser = () => {
 }
 export const api = axios.create({
   baseURL:'https://tcc-backend-w3aet.ondigitalocean.app/api/',
-  // baseURL:'http://localhost:8080/api/',
+  // baseURL: 'http://localhost:8080/api/',
   Authorization: ''
 })
 api.defaults.headers.Authorization = `Bearer ${initialUser() !== null && initialUser().token}`
@@ -16,20 +16,25 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    // console.log(error.response.data, 'uuu')
-    // switch(error.response.status){
-    //   //TODO: adicionar tratamento quit
-    //   // case 401:
-    //   // break 
-    //   // case 500:
-    //   // break
-    //   default:
-    //     toast.error(`${error.response.data.message}`, {
-    //       hideProgressBar:true
-    //     });
-    //   break;
-    // }
- 
+    console.log(error.response.data.code)
+    switch (error.response.data?.code) {
+      case 'user.invalid_password':
+        toast.error(`Senha incorreta! Tente novamente.`, {
+          hideProgressBar: true
+        });
+        break
+        case 'user.not_found':
+          toast.error(`Usuário não encontrado! Tente novamente.`, {
+            hideProgressBar: true
+          });
+        break
+        //   default:
+        //     toast.error(`${error.response.data.message}`, {
+        //       hideProgressBar:true
+        //     });
+        break;
+    }
+
     if (error.response.status == 400) {
     }
     return Promise.reject(error);
