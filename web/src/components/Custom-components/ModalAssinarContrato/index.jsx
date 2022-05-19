@@ -42,7 +42,7 @@ export default function SignDocument() {
                     <Form.Control type="text" placeholder={ipValue.ip} readOnly />
                 </Form.Label>
             </Form>
-            <button >Aceitars <i className="fa fa-check"></i></button>
+            <button >Aceitar <i className="fa fa-check"></i></button>
         </div>
     )
 }
