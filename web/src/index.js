@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 
 import { QueryClientProvider, QueryClient } from "react-query"
+import { ReactQueryDevtools } from "react-query/devtools"
 
 import HomeV1 from "./components/home-v1"
 
@@ -80,6 +81,7 @@ ReactDOM.render(
           </AnuncioProvider>
         </UserProvider>
       </AuthProvider>
+      <ReactQueryDevtools />
   </QueryClientProvider>,
   document.getElementById("quarter")
 )
