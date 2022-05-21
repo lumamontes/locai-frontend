@@ -27,7 +27,7 @@ export default function ShopDetails (props) {
 		 try {
 		await	api.post('/bookings', {
 				booker_user_id:props.user.id,
-				property_id:params.id,
+				property_id:params.property_id,
 				property_user_id:property.user_id,
 				message_content:message,
 				date_booking:moment(date[0]).format('YYYY-MM-DD'),
