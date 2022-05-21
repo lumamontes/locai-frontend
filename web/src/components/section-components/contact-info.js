@@ -16,9 +16,12 @@ class ContactInfo extends Component {
 						<div className="ltn__contact-address-icon">
 						<img src={publicUrl+"assets/img/icons/10.png"} alt="Icon Image" />
 						</div>
-						<h3>Email Address</h3>
-						<p>info@webmail.com <br />
-						jobs@webexample.com</p>
+						<h3>Email</h3>
+						<p>
+							lumagoesmontes@gmail.com, pantoja24gabriela@gmail.com,
+							ale.silva1120@gmail.com 
+							
+						</p>
 					</div>
 					</div>
 					<div className="col-lg-4">
@@ -26,8 +29,11 @@ class ContactInfo extends Component {
 						<div className="ltn__contact-address-icon">
 						<img src={publicUrl+"assets/img/icons/11.png"} alt="Icon Image" />
 						</div>
-						<h3>Phone Number</h3>
-						<p>+0123-456789 <br /> +987-6543210</p>
+						<h3>Celular</h3>
+						<p>(96)981253685
+						0800 590 6060 <br />
+						+0123-456789
+						</p>
 					</div>
 					</div>
 					<div className="col-lg-4">
@@ -35,9 +41,9 @@ class ContactInfo extends Component {
 						<div className="ltn__contact-address-icon">
 						<img src={publicUrl+"assets/img/icons/12.png"} alt="Icon Image" />
 						</div>
-						<h3>Office Address</h3>
-						<p>18/A, New Born Town Hall <br />
-						New York, US</p>
+						<h3>Endereço</h3>
+						<p>R. Pedro Siqueira, 333 - Jardim Marco Zero, Macapá - AP, 68903-150 <br />
+						</p>
 					</div>
 					</div>
 				</div>

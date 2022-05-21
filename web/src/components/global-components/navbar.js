@@ -26,7 +26,7 @@ export default function Navbar() {
 							<div className="col">
 								<div className="site-logo-wrap">
 									<div className="site-logo go-top">
-										<Link to="/"><img src={"/assets/img/logo.png"} alt="Logo" /></Link>
+										<Link to="/"><img src={"https://imgur.com/VKAuLWj.jpg"} alt="Logo" /></Link>
 									</div>
 									<div className="get-support clearfix d-none">
 										<div className="get-support-icon">
@@ -115,7 +115,7 @@ export default function Navbar() {
 							return (
 								<div className="mini-cart-item clearfix">
 									<div className="mini-cart-img go-top">
-										<Link to="/product-details"><img src={item.ad_image} alt="Image" /></Link>
+										<Link to="/product-details"><img src={item.ad_image} alt="Imagem principal de anuncio" /></Link>
 										<span className="mini-cart-item-delete"><i className="icon-cancel" /></span>
 									</div>
 									<div className="mini-cart-info go-top">

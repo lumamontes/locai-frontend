@@ -51,7 +51,7 @@ class Footer_v1 extends Component {
 				          <div className="footer-widget footer-about-widget">
 				            <div className="footer-logo">
 				              <div className="site-logo">
-				                <img src={publicUrl+"assets/img/logo-2.png"} alt="Logo" />
+				                <h2>Locaí</h2>
 				              </div>
 				            </div>
 				            <p>Sistema para anúncio e aluguel de imóveis</p>
@@ -78,7 +78,7 @@ class Footer_v1 extends Component {
 				                    <i className="icon-mail" />
 				                  </div>
 				                  <div className="footer-address-info">
-				                    <p><a href="mailto:example@example.com">example@example.com</a></p>
+				                    <p><a href="mailto:example@example.com">locai@gmail.com</a></p>
 				                  </div>
 				                </li>
 				              </ul>
