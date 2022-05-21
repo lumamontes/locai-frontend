@@ -49,7 +49,7 @@ export default function Root() {
         <Route path="/team-details" component={TeamDetails} />
         <Route path="/imoveis" component={ShopGrid} />
         <Route
-          path="/product-details/:property_id"
+          path="/imovel/:property_id"
           component={ProdductDetails}
         />
         {/* blog */}

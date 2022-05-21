@@ -72,6 +72,9 @@ export default function CadastrarImovelForm() {
   const { valuesForm, images } = useAnuncio()
   const history = useHistory()
   const finishButtonClick = async () => {
+    toast.loading('Fazendo o seu anúncio. Aguarde', {
+      toastId:"1"
+    })
     try {
       const schema = yup.object({
         ad_title: yup.string().required('O Titulo para o anúncio é obrigatório'),
@@ -101,6 +104,8 @@ export default function CadastrarImovelForm() {
           Authorization: `Bearer ${user.token}`
         }
       }) ;
+      history.push('/imoveis')
+      toast.dismiss('1')
     } catch (error) {
       console.log(error);
       if (error instanceof yup.ValidationError) {
