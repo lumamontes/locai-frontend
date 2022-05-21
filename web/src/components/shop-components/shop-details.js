@@ -1,11 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-
+import moment from 'moment';
+import Flatpickr from "react-flatpickr";
+import 'flatpickr/dist/themes/airbnb.css'
+import { Portuguese } from "flatpickr/dist/l10n/pt"
+import flatpickr from 'flatpickr'
+import { Input } from 'reactstrap';
+import { api } from '../../services/api';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+flatpickr.localize(Portuguese)
 export default function ShopDetails (props) {
+	const [message, setMessage] = useState('')
+	const [date, setDate] = useState('')
+	const [time, setTime] = useState('')
+	const params = useParams()
 		let publicUrl = process.env.PUBLIC_URL + '/'
 		let property = props.data.property[0];
 		let files = props.data.files;
+		async function handleBooking () {
+			toast.loading('Sua visita está sendo marcada', {
+				hideProgressBar:true, 
+				toastId:"visita"
+			})
+		 try {
+		await	api.post('/bookings', {
+				booker_user_id:props.user.id,
+				property_id:params.id,
+				property_user_id:property.user_id,
+				message_content:message,
+				date_booking:moment(date[0]).format('YYYY-MM-DD'),
+				time_booking:time
+			})
+			toast.success('Sua solicitação de visita foi enviada com sucesso', {
+				hideProgressBar:true
+			})
+			toast.dismiss('visita')
+		 } catch (error) {
+			 toast.error('Algo deu errado', {
+				 hideProgressBar:true
+			 })
+		 }
+		}
 		return <div className="ltn__shop-details-area pb-10">
 			{props.loading ?
 				<div className="container">
@@ -21,7 +58,7 @@ export default function ShopDetails (props) {
 											<Link className="bg-orange" to="#">Para Alugar</Link>
 										</li>
 										<li className="ltn__blog-date">
-											<i className="far fa-calendar-alt" />May 19, 2021
+											<i className="far fa-calendar-alt" />{moment(property.created_at).format('DD/MM/YYYY')}
 										</li>
 										<li>
 											<Link to="#"><i className="far fa-comments" />35 Comments</Link>
@@ -539,42 +576,48 @@ export default function ShopDetails (props) {
 										<h5>{props.user.name}</h5>
 										<small>{props.user.profession}</small>
 										<div className="product-ratting">
-											<ul>
+											{/* <ul>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
 												<li><a href="#"><i className="fas fa-star-half-alt" /></a></li>
 												<li><a href="#"><i className="far fa-star" /></a></li>
 												<li className="review-total"> <a href="#"> ( 1 Reviews )</a></li>
-											</ul>
+											</ul> */}
 										</div>
 										<p>{props.user.biography}</p>
-										<div className="ltn__social-media">
+										{/* <div className="ltn__social-media">
 											<ul>
 												<li><a href="#" title="Facebook"><i className="fab fa-facebook-f" /></a></li>
 												<li><a href="#" title="Twitter"><i className="fab fa-twitter" /></a></li>
 												<li><a href="#" title="Linkedin"><i className="fab fa-linkedin" /></a></li>
 												<li><a href="#" title="Youtube"><i className="fab fa-youtube" /></a></li>
 											</ul>
-										</div>
+										</div> */}
 									</div>
 								</div>
 								{/* Search Widget */}
-								<div className="widget ltn__search-widget">
+								{/* <div className="widget ltn__search-widget">
 									<h4 className="ltn__widget-title ltn__widget-title-border-2">Search Objects</h4>
 									<form action="#">
 										<input type="text" name="search" placeholder="Search your keyword..." />
 										<button type="submit"><i className="fas fa-search" /></button>
 									</form>
-								</div>
+								</div> */}
 								{/* Form Widget */}
 								<div className="widget ltn__form-widget">
-									<h4 className="ltn__widget-title ltn__widget-title-border-2">Drop Messege For Book</h4>
-									<form action="#">
-										<input type="text" name="yourname" placeholder="Your Name*" />
-										<input type="text" name="youremail" placeholder="Your e-Mail*" />
-										<textarea name="yourmessage" placeholder="Write Message..." defaultValue={""} />
-										<button type="submit" className="btn theme-btn-1">Send Messege</button>
+									<h4 className="ltn__widget-title ltn__widget-title-border-2">Marque uma visita</h4>
+									<form onSubmit={(event) => event.preventDefault()} action="#">
+										<textarea onChange={(e) => setMessage(e.target.value)} name="yourmessage" placeholder="Escreva uma mensagem"  /> 
+										<Flatpickr 
+										 options={{
+											dateFormat: "d/m/Y",
+										}}
+										value={date}
+										onChange={(date) => setDate(date) }
+                      placeholder="Escolha o dia"/>
+											<Input className='mb-4' onChange={(e) => setTime(e.target.value)} type='time'/>
+										<button onClick={handleBooking} type="button" className="btn theme-btn-1">Marcar</button>
 									</form>
 								</div>
 								{/* Top Rated Product Widget */}

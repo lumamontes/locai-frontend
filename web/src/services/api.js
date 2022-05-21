@@ -35,7 +35,10 @@ api.interceptors.response.use(
         break;
     }
 
-    if (error.response.status == 400) {
+    if (error.response.status === 500) {
+      toast.error('Ops algo deu errado. Por favor tente novamente', {
+        hideProgressBar:true
+      })
     }
     return Promise.reject(error);
   }
