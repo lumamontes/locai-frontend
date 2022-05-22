@@ -9,34 +9,35 @@ import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
 import { useUser } from "../hooks/useUser"
 import { Spinner } from 'reactstrap';
+import { useQuery } from 'react-query';
 
 const Product_Details = () => {
     const { UserData, loadingUserData } = useUser()
     const { property_id } = useParams();
-    const [loading, setLoading] = useState(false)
     const [property, setProperty] = useState([])
     const [images, setImages] = useState([])
-    useEffect(() => {
-        api.get(`/properties/${property_id}`).then((response) => {
-            setProperty(response.data)
-            setImages(response.data.files)
-            setLoading(true)
-        })
-    }, []);
+
+    const { isLoading, error } = useQuery('property_id', async () => {
+        const response = await api.get(`/properties/${property_id}`)
+        setProperty(response.data)
+        setImages(response.data.files)
+    })
     return <div>
         <Navbar />
         {/* <PageHeader headertitle="Product Details" customclass="mb-0" /> */}
         {
-            loading && loadingUserData ?
-                <div>
-                    <ProductSlider data={images} />
-                    <ProductDetails data={property} loading={loading} user={UserData}/>
-                </div>
-                : 
+            isLoading ?
                 //TODO: criar componente para animação de loading
                 <div className='d-flex justify-content-center'>
-                    <Spinner/>
+                    <Spinner />
                 </div>
+                : error ?
+                    <p>Erro! {error.message} </p>
+                    :
+                    <div>
+                        <ProductSlider data={images} />
+                        <ProductDetails data={property} loading={isLoading} user={UserData} />
+                    </div>
         }
         <CallToActionV1 />
         <Footer />
