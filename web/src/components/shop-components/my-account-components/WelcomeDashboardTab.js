@@ -5,7 +5,8 @@ import { api } from '../../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function WelcomeDashboardTab(props) {
-    let results
+    let results = ''
+    let results_property = false
     const { data: bookings, isLoading, error } = useQuery('bookings', async () => {
         const response = await api.get('/bookings', {
             params: {
@@ -17,6 +18,7 @@ export default function WelcomeDashboardTab(props) {
     })
  if (!isLoading) { 
     results = bookings.results_booker.length === 0 ? bookings.results_property : bookings.results_booker
+    results_property = bookings.results_booker.length === 0 
 }
     return (
         <div className="tab-pane fade active show" id="ltn_tab_1_1">
@@ -24,16 +26,17 @@ export default function WelcomeDashboardTab(props) {
                 <p>Olá <strong>{props.user.name}</strong></p>
                 <div>
                     <table className="table">
-                        <thead>
+                        {!isLoading &&  <thead>
                             <tr>
                                 <th scope="col text-center">Minhas visitas</th>
-                                <th scope="col text-center">Informações</th>
-                                <th scope="col text-center">data</th>
-                                <th scope="col text-center">horário</th>
-                                <th scope="col">status</th>
-                                <th scope="col">Ações </th>
+                                {results_property && <th className='text-center' scope="col text-center">Quem agendou</th>}
+                                <th className='text-center' scope="col text-center">Valor</th>
+                                <th className='text-center' scope="col text-center">data</th>
+                                <th className='text-center' scope="col text-center">horário</th>
+                                <th className='text-center' scope="col">status</th>
+                                <th className='text-center' scope="col">Ações </th>
                             </tr>
-                        </thead>
+                        </thead>}
                         <tbody>
                             {
                                 isLoading?
@@ -53,13 +56,9 @@ export default function WelcomeDashboardTab(props) {
                                         <td className="ltn__my-properties-img go-top">
                                             <Link to={`/imovel/${item.property_id} `} ><img src={item.ad_image} alt="Imagem de imóvel" /></Link>
                                         </td>
+                                        {results_property && <td  className='text-center'>{item.user_booked}</td>}
                                         <td>
-                                            <div className="ltn__my-properties-info">
-                                                <h6 className="mb-10 go-top"><Link to="/product-details">{''}</Link>{item.ad_title}</h6>
-                                                <p>{item.description}</p>
-                                                <p>{item.ad_value}</p>
-                                                <small><i className="icon-placeholder" />{item.property_adress}, {item.property_neighborhood}, {item.property_neighborhood}</small>
-                                            </div>
+                                        {item.ad_value}
                                         </td>
                                         <td className='text-center'>
                                         { (item.date_booking instanceof Date) ? item.created.toLocaleDateString() : new Date(item.date_booking).toLocaleDateString('pt-br') }
