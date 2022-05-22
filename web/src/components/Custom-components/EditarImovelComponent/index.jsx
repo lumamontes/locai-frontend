@@ -37,7 +37,7 @@ export default function EditarImovelComponent() {
 
   useEffect(() => {
     api.get(`/properties/${params.id}`).then((response) => {
-      const { ad_description, ad_image, ad_title, ad_value, bathroom_quantity, property_adress, property_city, property_country, property_neighborhood, property_state, room_quantity, garage_quantity } = response.data.property[0]
+      const { ad_description, ad_image, ad_title, ad_value, bathroom_quantity, property_adress, property_city, property_country, property_neighborhood, property_state, room_quantity, garage_quantity } = response.data.property
       setAdtitle(ad_title)
       setAd_description(ad_description)
       setAd_value(ad_value)
@@ -51,15 +51,20 @@ export default function EditarImovelComponent() {
       setroom_quantity(room_quantity)
       setgarage_quantity(garage_quantity)
     })
-  }, [])
+  }, [params.id])
 
   function handleUpdateImovel() {
+    toast.loading("Seu imóvel está sendo editado", {
+      hideProgressBar:true,
+      toastId:"editar"
+    })
     api.put(`/properties/${params.id}`, {
       ad_description, ad_image, ad_title, ad_value, bathroom_quantity, property_adress, property_city, property_country, property_neighborhood, property_state, room_quantity, garage_quantity
     }).then((response) => {
       toast.success('Imóvel editado com sucesso', {
         hideProgressBar:true
       })
+      toast.dismiss("editar")
     })
   }
   return (
@@ -74,7 +79,7 @@ export default function EditarImovelComponent() {
               </div>
               <h6>Descrição do anúncio</h6>
               <div className="input-item input-item-textarea ltn__custom-icon">
-                <textarea name="ltn__message" value={ad_description} onChange={(e) => setAd_description(e.target.value)} placeholder="Descrição" defaultValue={""} />
+                <textarea name="ltn__message" value={ad_description} onChange={(e) => setAd_description(e.target.value)} placeholder="Descrição"  />
               </div>
             </div>
           </div>

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { api } from '../../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
+import UploadFilesModal from '../../Modal/UploadFilesModal';
 
 export default function WelcomeDashboardTab(props) {
+    const [openModal, setOpenModal] = useState(false)
     let results = ''
     let results_property = false
     const { data: bookings, isLoading, error } = useQuery('bookings', async () => {
@@ -25,6 +27,7 @@ export default function WelcomeDashboardTab(props) {
             <div className="ltn__myaccount-tab-content-inner">
                 <p>Olá <strong>{props.user.name}</strong></p>
                 <div>
+                    <UploadFilesModal open={openModal} click={() => setOpenModal(!openModal)}/>
                     <table className="table">
                         {!isLoading &&  <thead>
                             <tr>
@@ -67,8 +70,9 @@ export default function WelcomeDashboardTab(props) {
                                         <td className='text-center'>{item.status}</td>
                                         <td>
                                             <div className='d-flex flex-column align-items-center justify-content-space-around'>
-                                                <Link to="#" title=""><i  className="fa-solid fa-trash-can" /></Link>
+                                                <Link onClick={() => setOpenModal(!openModal)} to="#" title="enviar contrato"><i className="fa-solid fa-file" /></Link>  
                                                 {item.booker_user_id !== props.user.id && <Link to="#" title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
+                                                <Link to="#" title="Deletar"><i  className="fa-solid fa-trash-can" /></Link>
                                                 <Link to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
                                             </div>
                                         </td>

@@ -6,6 +6,7 @@ export function AnuncioProvider(props) {
   const [anuncio, setAnuncio] = useState()
   const [images, setImages] = useState('')
   const [params, setParams] = useState('')
+  const [reload, setReload] = useState(false)
   const [valuesForm, setValuesForm] = useState({
     ad_title: "",
     ad_description: "",
@@ -41,8 +42,11 @@ export function AnuncioProvider(props) {
   function handleFilter(values) {
     setParams(values)
   }
+  function handleHotReload(value) {
+    setReload(value)
+  }
   return (
-    <AnuncioContext.Provider value={{ anuncio, with_furnitureState, handleChange, valuesForm, images, handleImage, handleFilter, params, handleWithFurnite }}>
+    <AnuncioContext.Provider value={{ anuncio, with_furnitureState, handleChange, valuesForm, images, handleImage, handleFilter, params, handleWithFurnite, handleHotReload, reload }}>
       {props.children}
     </AnuncioContext.Provider>
   )

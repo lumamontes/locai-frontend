@@ -37,7 +37,13 @@ import EditarImovel from "./components/EditarImovel"
 import Contrato from "./components/Custom-components/ContratoComponent"
 import 'react-toastify/dist/ReactToastify.css';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 export default function Root() {
   return (
     <BrowserRouter>

@@ -9,26 +9,37 @@ import { toast } from 'react-toastify';
 
 export default function ShogGridV1() {
 	const { user } = useAuth()
-	const { params } = useAnuncio()
+	const { params, reload, handleHotReload } = useAnuncio()
 	const [bairro, setBairro] = useState('')
 	const [ad_value, setAd_value] = useState('')
-
-	const { data, isLoading, error } = useQuery('properties', async () => {
-		const response = await api.get('/properties', ({params}))
-		const data = await response.data
-		return data
-	});
+	const [data, setData] = useState([])
+	const [dataInitial, setDataInitial] = useState([])
+	const [isLoading, SetisLoading] = useState(true)
+	const error = false
+	// const { isLoading, error } = useQuery('properties', async () => {
+	// 	const response = await api.get('/properties', { params })
+	// 	const data = await response.data
+	// 	setDataInitial(data)
+	// 	setData(data)
+	// });
+ useEffect(() => {
+	 api.get('/properties', { params }).then((response) => {
+		setData(response.data)
+		SetisLoading(false)
+	})
+ }, [reload])
 	// const history = useHistory()
-	function handleValuesSearch() {
-
+	async function handleValuesSearch() {
 		const cidadesName = document.getElementById('cidades')
 		handleFilter({
 			property_city: cidadesName.value,
 			property_neighborhood: capitalizeFirstLetter(bairro),
 			ad_value: ad_value
 		})
+		handleHotReload(!reload)
 		// history.push('/imoveis')
 	}
+
 	const { handleFilter } = useAnuncio()
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
@@ -36,14 +47,14 @@ export default function ShogGridV1() {
 	function handleFavorite(property_id) {
 		if (user === null) {
 			toast.error('Você precisa está logado para favoritar um imóvel', {
-				hideProgressBar:true
+				hideProgressBar: true
 			})
 		} else {
 			api.post(`/user_favorites/${property_id}`, {
 				user_id: user.id,
 			}).then((response) => {
 				toast.success('Imóvel adicionado aos favoritos', {
-					hideProgressBar:true
+					hideProgressBar: true
 				})
 			})
 		}
@@ -142,7 +153,7 @@ export default function ShogGridV1() {
 																	<div className="product-img-location">
 																		<ul>
 																			<li className="go-top">
-																				<Link to="/contact"><i className="flaticon-pin" /> {item.property_neighborhood}</Link>
+																				<Link to="/contact"><i className="flaticon-pin" /> {item.property_neighborhood}, {item.property_city}</Link>
 																			</li>
 																		</ul>
 																	</div>
@@ -558,7 +569,7 @@ export default function ShogGridV1() {
 											</div>
 										</div>
 									</div>
-								</div> 
+								</div>
 							)}
 							<div className="ltn__pagination-area text-center">
 								<div className="ltn__pagination">
