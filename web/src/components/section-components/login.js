@@ -4,13 +4,14 @@ import { api } from '../../services/api';
 import { useAuth } from '../../hooks/useAuth';
 import * as yup from 'yup'
 import { toast } from 'react-toastify';
+import { useUser } from '../../hooks/useUser';
 
 export default function Login () {
 	const history = useHistory();
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const {handleLogin, user} = useAuth()
-
+  const {handleUserData} = useUser()
 	async function login() {
 		try {
 			const schema = yup.object({
@@ -24,6 +25,7 @@ export default function Login () {
 				email:email,
 				password:password
 			});
+			handleUserData(response.data)
 			await handleLogin(response.data);
 			history.push('my-account')
 		} catch (error) {

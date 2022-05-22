@@ -5,7 +5,7 @@ const initialUser = () => {
   return item ? JSON.parse(item) : null
 }
 export const api = axios.create({
-  baseURL:'https://tcc-backend-w3aet.ondigitalocean.app/api/',
+  baseURL:'https://locai-k39bx.ondigitalocean.app/api',
   // baseURL: 'http://localhost:8080/api/',
   Authorization: ''
 })

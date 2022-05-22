@@ -2,9 +2,16 @@ import { Input } from "reactstrap"
 import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { useAnuncio } from "../../../../hooks/useAnuncio"
+import { RadioGroup } from "@headlessui/react"
 export default function InfoImovel() {
-  const { handleChange, valuesForm, handleImage } = useAnuncio()
+  const { handleChange, valuesForm, handleImage, handleWithFurnite, with_furnitureState} = useAnuncio()
   const [files, setFiles] = useState([]);
+  const [currentDoc, setCurrent] = useState('')
+  const with_furniture = [
+    {id:1, name:"Sim", value:true},
+    {id:2, name:"Não", value:false}
+  ]
+  console.log(with_furnitureState)
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/jpeg,image/png',
     maxFiles: 5,
@@ -33,11 +40,31 @@ export default function InfoImovel() {
         </div>
         <div className="d-flex flex-column w-75">
           <label>Garagem</label>
-          <Input type="number" />
+          <Input value={valuesForm.garage_quantity} name="garage_quantity"  onChange={handleChange} type="number" />
         </div>
-        <div  className="d-flex flex-column w-75">
-          <label>o Imovél é mobiliado?</label>
-          <Input value={valuesForm.garage_quantity} type="number" name="garage_quantity"  onChange={handleChange}/>
+        <div className="mb-4">
+        <label>O imóvel é mobilado?</label>
+        <RadioGroup
+          className="d-flex justify-content-center gap-4  mt-1"
+          value={currentDoc}
+          onChange={setCurrent}
+        >
+          {with_furniture.map((item) => {
+            return (
+                    <RadioGroup.Option  className={({ active }) => `${active ? "radio-button-active" : "radio-button-disabled" } radio-button border rounded cursor-pointer focus:outline-none `}
+                      key={item.name}
+                      value={item}
+                      onClick={() => handleWithFurnite(item.value)}
+                    >
+                <div  className="cursor-pointer w-100">
+                  <div className="justify-content-center d-flex gap-1 flex-column align-items-center">
+                      <label className="text-center">{item.name}</label>
+                  </div>
+                </div>
+                    </RadioGroup.Option>
+            )
+          })}
+        </RadioGroup>
         </div>
         <div className="border d-flex justify-content-center pt-5 pb-5 w-75">
           <div {...getRootProps({ className: "dropzone" })}>

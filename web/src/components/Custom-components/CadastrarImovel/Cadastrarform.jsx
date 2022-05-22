@@ -69,7 +69,7 @@ const steps = [
 ]
 export default function CadastrarImovelForm() {
   const { user } = useAuth()
-  const { valuesForm, images } = useAnuncio()
+  const { valuesForm, images, with_furnitureState } = useAnuncio()
   const history = useHistory()
   const finishButtonClick = async () => {
     toast.loading('Fazendo o seu anúncio. Aguarde', {
@@ -92,6 +92,7 @@ export default function CadastrarImovelForm() {
         abortEarly:false
       })
       const formData = new FormData()
+      formData.append('with_furniture', with_furnitureState)
       formData.append('beds_quantity', 0)
       formData.append('user_id', user.id)
       Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
@@ -107,7 +108,6 @@ export default function CadastrarImovelForm() {
       history.push('/imoveis')
       toast.dismiss('1')
     } catch (error) {
-      console.log(error);
       if (error instanceof yup.ValidationError) {
 				const errorMessages = {};
 	

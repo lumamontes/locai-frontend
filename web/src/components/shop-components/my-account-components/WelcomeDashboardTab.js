@@ -5,7 +5,7 @@ import { api } from '../../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function WelcomeDashboardTab(props) {
-    
+    let results
     const { data: bookings, isLoading, error } = useQuery('bookings', async () => {
         const response = await api.get('/bookings', {
             params: {
@@ -15,7 +15,9 @@ export default function WelcomeDashboardTab(props) {
         const data = await response.data
         return data
     })
-
+ if (!isLoading) { 
+    results = bookings.results_booker.length === 0 ? bookings.results_property : bookings.results_booker
+}
     return (
         <div className="tab-pane fade active show" id="ltn_tab_1_1">
             <div className="ltn__myaccount-tab-content-inner">
@@ -43,11 +45,11 @@ export default function WelcomeDashboardTab(props) {
                                
                                 : error ?
                                     <div>
-                                        errro, {error.message}
+                                        erro, {error.message}
                                     </div>
                                 :
-                                bookings.results_booker.map(item => (
-                                    <tr>
+                                results.map(item => (
+                                    <tr key={item.id}>
                                         <td className="ltn__my-properties-img go-top">
                                             <Link to={`/imovel/${item.property_id} `} ><img src={item.ad_image} alt="Imagem de imóvel" /></Link>
                                         </td>
@@ -67,7 +69,7 @@ export default function WelcomeDashboardTab(props) {
                                         <td>
                                             <div className='d-flex flex-column align-items-center justify-content-space-around'>
                                                 <Link to="#" title=""><i  className="fa-solid fa-trash-can" /></Link>
-                                                <Link to="#" title="confirmar"><i className="fa-solid fa-circle-check" /></Link>
+                                                {item.booker_user_id !== props.user.id && <Link to="#" title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
                                                 <Link to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
                                             </div>
                                         </td>

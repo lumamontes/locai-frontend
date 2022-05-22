@@ -37,12 +37,6 @@ export default function Endereco () {
            </label>
            <Input value={valuesForm.property_city}  name="property_city" onChange={handleChange}/>
         </div>
-        <div className='d-flex flex-column w-75'>
-           <label>
-            País
-           </label>
-           <Input/>
-        </div>
      </form>
    </div>
   )

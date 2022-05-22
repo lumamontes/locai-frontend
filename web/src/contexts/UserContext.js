@@ -5,7 +5,7 @@ import { api } from '../services/api';
 export const UserContext = createContext({})
 
 export function UserProvider(props) {
-    const [UserData, setUserData] = useState({})
+    const [UserData, setUserData] = useState([])
     const [loadingUserData, setLoadingUserData] = useState(false)
     const item = window.localStorage.getItem('user')
     const user = item != null ? (JSON.parse(item)) : null;
@@ -30,8 +30,11 @@ export function UserProvider(props) {
         }
 
     }, []);
+    function handleUserData(value) {
+        setUserData(value)
+    }
     return (
-        <UserContext.Provider value={{ UserData, loadingUserData }}>
+        <UserContext.Provider value={{ UserData, loadingUserData, handleUserData }}>
             {props.children}
         </UserContext.Provider>
     )

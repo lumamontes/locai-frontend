@@ -17,7 +17,6 @@ export default function ShopDetails(props) {
 	const [time, setTime] = useState('')
 	const params = useParams()
 	let publicUrl = process.env.PUBLIC_URL + '/'
-	console.log(props, 'abaxi')
 	let property = props.data.property;
 	let files = props.data.files;
 	async function handleBooking() {
@@ -72,22 +71,21 @@ export default function ShopDetails(props) {
 						<h4 className="title-2">Detalhes</h4>
 						<div className="property-detail-info-list section-bg-1 clearfix mb-60">
 							<ul>
-								<li><label>ID:</label> <span>{property.id}</span></li>
-								<li><label>Área: </label> <span>120 sqft</span></li>
+								{/* <li><label>Área: </label> <span>120 sqft</span></li> */}
 								<li><label>Quartos:</label> <span> {property.room_quantity}</span></li>
 								<li><label>Banheiros:</label> <span>{property.bathroom_quantity} </span></li>
-								<li><label>Ano de construção:</label> <span>{property.year_constructed}</span></li>
+								{/* <li><label>Ano de construção:</label> <span>{property.year_constructed}</span></li> */}
 							</ul>
 							<ul>
-								<li><label>Área Terreno:</label> <span> {property.land_area} </span></li>
-								<li><label>Dimensões</label> <span>{property.property_area} M²</span> </li>
-								<li><label>Camas:</label> <span>7</span></li>
+								{/* <li><label>Área Terreno:</label> <span> {property.land_area} </span></li> */}
+								{/* <li><label>Dimensões</label> <span>{property.property_area} M²</span> </li> */}
+								{/* <li><label>Camas:</label> <span>7</span></li> */}
 								<li><label>Valor:</label> <span>{property.ad_value}</span></li>
 								<li><label>Bairro:</label> <span>{property.property_neighborhood}</span></li>
 							</ul>
 						</div>
 						<h4 className="title-2">Características</h4>
-						<div className="property-detail-feature-list clearfix mb-45">
+						{/* <div className="property-detail-feature-list clearfix mb-45">
 							<ul>
 								<li>
 									<div className="property-detail-feature-list-item">
@@ -162,7 +160,7 @@ export default function ShopDetails(props) {
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> */}
 						<h4 className="title-2">Galeria</h4>
 						<div className="ltn__property-details-gallery mb-30">
 							<div className="row">
@@ -306,18 +304,18 @@ export default function ShopDetails(props) {
 								</div>
 							</div>
 						</div>
-						<h4 className="title-2">Location</h4>
+						{/* <h4 className="title-2">Location</h4>
 						<div className="property-details-google-map mb-60">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd" width="100%" height="100%" frameBorder={0} allowFullScreen aria-hidden="false" tabIndex={0} />
-						</div>
+						</div> */}
 
 						{/* APARTMENTS PLAN AREA END */}
-						<h4 className="title-2">Property Video</h4>
+						{/* <h4 className="title-2">Property Video</h4>
 						<div className="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bs-bg={publicUrl + "assets/img/others/5.jpg"}>
 							<a className="ltn__video-icon-2 ltn__video-icon-2-border---" href="https://www.youtube.com/embed/eWUxqVFBq74?autoplay=1&showinfo=0" data-rel="lightcase:myCollection">
 								<i className="fa fa-play" />
 							</a>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div className="col-lg-4">
@@ -326,7 +324,7 @@ export default function ShopDetails(props) {
 						<div className="widget ltn__author-widget">
 							<div className="ltn__author-widget-inner text-center">
 								<img src={props.user?.profile_picture || publicUrl + "assets/img/team/4.jpg"} alt="Image" />
-								<h5>{props.user.name}</h5>
+								<h5>{props.data.user[0].name}</h5>
 								<small>{props.user.profession}</small>
 								<div className="product-ratting">
 									{/* <ul>
@@ -358,7 +356,7 @@ export default function ShopDetails(props) {
 									</form>
 								</div> */}
 						{/* Form Widget */}
-						<div className="widget ltn__form-widget">
+						{props.data.user[0].id !== props.user.id && <div className="widget ltn__form-widget">
 							<h4 className="ltn__widget-title ltn__widget-title-border-2">Marque uma visita</h4>
 							<form onSubmit={(event) => event.preventDefault()} action="#">
 								<textarea onChange={(e) => setMessage(e.target.value)} name="yourmessage" placeholder="Escreva uma mensagem" />
@@ -370,9 +368,12 @@ export default function ShopDetails(props) {
 									onChange={(date) => setDate(date)}
 									placeholder="Escolha o dia" />
 								<Input className='mb-4' onChange={(e) => setTime(e.target.value)} type='time' />
-								<button onClick={handleBooking} type="button" className="btn theme-btn-1">Marcar</button>
+								<div className='d-flex flex-column'>
+								<button onClick={handleBooking} disabled={props.user.length === 0} type="button" className="btn theme-btn-1">Marcar</button>
+								{props.user.length === 0 && <small>Você precisa está logado para marcar uma visita</small>}
+								</div>
 							</form>
-						</div>
+						</div>}
 						{/* Menu Widget (Category) */}
 						<div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
 							<h4 className="ltn__widget-title ltn__widget-title-border-2">Top Categories</h4>

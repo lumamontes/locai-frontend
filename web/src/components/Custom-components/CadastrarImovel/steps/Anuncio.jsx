@@ -36,7 +36,7 @@ export default function Anuncio () {
         </div>
 
         <div>
-        <RadioGroup
+        {/* <RadioGroup
           className="d-flex justify-content-center gap-4  mt-1"
           value={currentDoc}
           onChange={setCurrent}
@@ -56,7 +56,7 @@ export default function Anuncio () {
                     </RadioGroup.Option>
             )
           })}
-        </RadioGroup>
+        </RadioGroup> */}
         </div>
      </form>
    </div>

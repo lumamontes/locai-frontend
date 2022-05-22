@@ -19,7 +19,7 @@ class CallToActonV1 extends Component {
 			            <p>Nós podemos ajudar você a encontrar um novo lar :) </p>
 			          </div>
 			          <div className="btn-wrapper go-top">
-			            <Link className="btn btn-effect-3 btn-white" to="/contact">Explorar Imóveis <i className="icon-next" /></Link>
+			            <Link className="btn btn-effect-3 btn-white" to="/imoveis">Explorar Imóveis <i className="icon-next" /></Link>
 			          </div>
 			        </div>
 			      </div>
