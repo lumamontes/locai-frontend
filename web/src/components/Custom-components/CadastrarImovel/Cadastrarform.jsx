@@ -11,6 +11,8 @@ import { useAnuncio } from "../../../hooks/useAnuncio";
 import * as yup from 'yup'
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import Axios from 'axios';
+
 const FirstStep = React.forwardRef((props, ref) => {
   const [randomState, setRandomState] = React.useState(
     "1. This is a random state for first step."
@@ -91,20 +93,42 @@ export default function CadastrarImovelForm() {
       await schema.validate(valuesForm, {
         abortEarly:false
       })
-      const formData = new FormData()
-      formData.append('with_furniture', with_furnitureState)
-      formData.append('beds_quantity', 0)
-      formData.append('user_id', user.id)
-      Object.keys(valuesForm).forEach(key => formData.append(key, valuesForm[key]))
-        for (let index = 0; index < images.length; index++) {
-          const element = images[index];
-          formData.append('files', element)
+      const array_images = [];
+
+      const uploadImageToCloudinary = async (files) => {
+        const response = await Axios.post("https://api.cloudinary.com/v1_1/dr7alklmf/image/upload", files);
+        const data = await response.data
+        return await data.url
+      }
+      const formData = new FormData();
+      for(const image of images){
+        formData.append("file", image);
+        formData.append("upload_preset", 'upload')
+        let url_image = await uploadImageToCloudinary(formData)
+        array_images.push(url_image);
+        console.log(array_images);
+      }
+      const formInfos = {
+        ...valuesForm,
+        "with_furniture": with_furnitureState,
+        "beds_quantity": 0,
+        "user_id": user.id,
+        "files": array_images
+      }
+        // for (let index = 0; index < images.length; index++) {
+        //   const element = images[index];
+        //   formData.append('files', element)
+        // }
+        try {
+         await api.post('/properties', formInfos, {
+            headers: {
+              Authorization: `Bearer ${user.token}`
+            }
+          }) ;
+        } catch (error) {
+          console.log(error);
         }
-      await api.post('/properties', formData, {
-        headers: {
-          Authorization: `Bearer ${user.token}`
-        }
-      }) ;
+
       history.push('/imoveis')
       toast.dismiss('1')
     } catch (error) {
