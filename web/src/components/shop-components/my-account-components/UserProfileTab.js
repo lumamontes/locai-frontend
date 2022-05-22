@@ -26,7 +26,7 @@ export default function UserProfileTab(props) {
 				<form className='d-flex flex-column gap-1 w-100'>
 
 					<div className="author-info d-flex justify-content-center flex-column">
-						<img src={user.profile_picture || "https://shre.ink/6VI"} alt="Imagem de perfil do usuário" />
+						<img src={user.profile_picture || "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-image-icon-default-avatar-profile-icon-social-media-user-vector-image-209162840.jpg"} alt="Imagem de perfil do usuário" />
 						<div>
 							<input
 								type="file"
@@ -36,30 +36,30 @@ export default function UserProfileTab(props) {
 						</div>
 					</div>
 					<label>
-						Nome <input type="text" value={user.name} />
+						Nome <input type="text" value={user?.name} />
 					</label>
 							<label htmlFor="city">
 								Cidade
-								<input type="text" value={user.city} />
+								<input type="text" value={user?.city} />
 							</label>
 							<label htmlFor="city">
 								Estado
-								<input type="text" value={user.state} />
+								<input type="text" value={user?.state} />
 							</label>
 							<label htmlFor="city">
 								País
-								<input type="text" value={user.country || 'Brasil'} disabled />
+								<input type="text" value={user?.country || 'Brasil'} disabled />
 							</label>
 						<label htmlFor="telephone">
 							Celular
 							<div className="footer-address-info">
-								<input type="text" value={user.telephone} />
+								<input type="text" value={user?.telephone} />
 							</div>
 						</label>
 						<label htmlFor="email">
 							Email
 							<div className="footer-address-info">
-								<input type="text" value={user.email} />
+								<input type="text" value={user?.email} />
 							</div>
 						</label>
 
