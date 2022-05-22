@@ -106,7 +106,6 @@ export default function CadastrarImovelForm() {
         formData.append("upload_preset", 'upload')
         let url_image = await uploadImageToCloudinary(formData)
         array_images.push(url_image);
-        console.log(array_images);
       }
       const formInfos = {
         ...valuesForm,
