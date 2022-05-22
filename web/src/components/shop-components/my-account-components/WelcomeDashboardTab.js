@@ -5,6 +5,7 @@ import { api } from '../../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function WelcomeDashboardTab(props) {
+    
     const { data: bookings, isLoading, error } = useQuery('bookings', async () => {
         const response = await api.get('/bookings', {
             params: {
@@ -13,9 +14,8 @@ export default function WelcomeDashboardTab(props) {
         })
         const data = await response.data
         return data
-    });
+    })
 
-    console.log(bookings);
     return (
         <div className="tab-pane fade active show" id="ltn_tab_1_1">
             <div className="ltn__myaccount-tab-content-inner">
@@ -41,6 +41,10 @@ export default function WelcomeDashboardTab(props) {
                                     </Spinner>
 					            </div>
                                
+                                : error ?
+                                    <div>
+                                        errro, {error.message}
+                                    </div>
                                 :
                                 bookings.results_booker.map(item => (
                                     <tr>
