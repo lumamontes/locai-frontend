@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './global-components/navbar';
-import PageHeader from './global-components/page-header';
 import ProductSlider from './shop-components/product-slider-v1';
 import ProductDetails from './shop-components/shop-details';
 import CallToActionV1 from './section-components/call-to-action-v1';
@@ -14,13 +13,10 @@ import { useQuery } from 'react-query';
 const Product_Details = () => {
     const { UserData, loadingUserData } = useUser()
     const { property_id } = useParams();
-    const [property, setProperty] = useState([])
-    const [images, setImages] = useState([])
-
-    const { isLoading, error } = useQuery('property_id', async () => {
+    const { data, isLoading, error } = useQuery('property_id', async () => {
         const response = await api.get(`/properties/${property_id}`)
-        setProperty(response.data)
-        setImages(response.data.files)
+        const data = response.data
+        return data
     })
     return <div>
         <Navbar />
@@ -35,8 +31,8 @@ const Product_Details = () => {
                     <p>Erro! {error.message} </p>
                     :
                     <div>
-                        <ProductSlider data={images} />
-                        <ProductDetails data={property} loading={isLoading} user={UserData} />
+                        <ProductSlider data={data.files} />
+                        <ProductDetails data={data} loading={isLoading} user={UserData} />
                     </div>
         }
         <CallToActionV1 />
