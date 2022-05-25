@@ -23,6 +23,7 @@ export default function ShogGridV1() {
 	// 	setData(data)
 	// });
  useEffect(() => {
+	SetisLoading(true)
 	 api.get('/properties', { params }).then((response) => {
 		setData(response.data)
 		SetisLoading(false)
@@ -571,7 +572,7 @@ export default function ShogGridV1() {
 									</div>
 								</div>
 							)}
-							<div className="ltn__pagination-area text-center">
+							{/* <div className="ltn__pagination-area text-center">
 								<div className="ltn__pagination">
 									<ul>
 										<li><a href="#"><i className="fas fa-angle-double-left" /></a></li>
@@ -583,7 +584,7 @@ export default function ShogGridV1() {
 										<li><a href="#"><i className="fas fa-angle-double-right" /></a></li>
 									</ul>
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

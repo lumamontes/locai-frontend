@@ -83,7 +83,7 @@ ReactDOM.render(
         <UserProvider>
           <AnuncioProvider>
             <Root />
-            <ToastContainer newestOnTop />
+            <ToastContainer hideProgressBar={true} newestOnTop />
           </AnuncioProvider>
         </UserProvider>
       </AuthProvider>
