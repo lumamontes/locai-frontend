@@ -77,6 +77,10 @@ export default function CadastrarImovelForm() {
     toast.loading('Fazendo o seu anúncio. Aguarde', {
       toastId:"1"
     })
+    if (user === null) {
+      toast.error("Você precisa está logado para fazer o anúncio")
+      toast.dismiss("1")
+    }
     try {
       const schema = yup.object({
         ad_title: yup.string().required('O Titulo para o anúncio é obrigatório'),
@@ -114,20 +118,17 @@ export default function CadastrarImovelForm() {
         "user_id": user.id,
         "files": array_images
       }
+      
         // for (let index = 0; index < images.length; index++) {
         //   const element = images[index];
         //   formData.append('files', element)
         // }
-        try {
          await api.post('/properties', formInfos, {
             headers: {
               Authorization: `Bearer ${user.token}`
             }
           }) ;
-        } catch (error) {
-          console.log(error);
-        }
-
+       
       history.push('/imoveis')
       toast.dismiss('1')
     } catch (error) {

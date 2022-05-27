@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 export default function WelcomeDashboardTab(props) {
     const [openModal, setOpenModal] = useState(false)
+    const [id_booking, setId_booking] = useState('')
     let results = ''
     let results_property = false
     const { data: bookings, isLoading, error, refetch} = useQuery('bookings', async () => {
@@ -32,12 +33,17 @@ async function handleStatusBooking (id, id_status) {
         refetch()
     })
 }
+
+function handleContract (id) {
+    setOpenModal(!openModal)
+    setId_booking(id)
+}
      return (
         <div className="tab-pane fade active show" id="ltn_tab_1_1">
             <div className="ltn__myaccount-tab-content-inner">
                 <p>Olá <strong>{props.user.name}</strong></p>
                 <div>
-                    <UploadFilesModal open={openModal} click={() => setOpenModal(!openModal)}/>
+                    <UploadFilesModal open={openModal} id={id_booking} click={() => setOpenModal(!openModal)}/>
                     <table className="table">
                         {!isLoading &&  <thead>
                             <tr>
@@ -80,10 +86,10 @@ async function handleStatusBooking (id, id_status) {
                                         <td className='text-center'>{item.status}</td>
                                         <td>
                                             <div className='d-flex flex-column align-items-center justify-content-space-around'>
-                                            {item.booker_user_id !== props.user.id ? <Link onClick={() => setOpenModal(!openModal)} to="#" title="enviar contrato"><i className="fa-solid fa-file" /></Link>  : <Link onClick={() => setOpenModal(!openModal)} to="#" title="Visualizar contrato"><i className="fa-solid fa-file" /></Link>}
-                                                {item.booker_user_id !== props.user.id && <Link to="#" onClick={() => handleStatusBooking(item.id, 'efd001eb-6ded-4606-bd93-678f85b5b770')} title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
+                                            {item.booker_user_id !== props.user.id ? <Link onClick={() => handleContract(item.id)} to="#" title="enviar contrato"><i className="fa-solid fa-file" /></Link>  : <Link  to={`/contrato/${item.contract_url}/${item.id}`} title="Visualizar contrato"><i className="fa-solid fa-file" /></Link>}
+                                                {item.booker_user_id !== props.user.id && <Link to="#" onClick={() => handleStatusBooking(item.id, '71b008f5-a0ff-4b8c-bb87-8173a21c885d')} title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
                                                 <Link to="#" title="Deletar"><i  className="fa-solid fa-trash-can" /></Link>
-                                                <Link onClick={() => handleStatusBooking(item.id, '29f2bd83-969f-45b6-9674-0a0ef8fd8251')} to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
+                                                <Link onClick={() => handleStatusBooking(item.id, '1f0c0ab7-99d3-4711-b09d-c172d159471e')} to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
                                             </div>
                                         </td>
                                     </tr>

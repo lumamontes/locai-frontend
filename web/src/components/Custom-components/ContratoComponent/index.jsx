@@ -1,13 +1,16 @@
 import React from "react";
-import './styles.css'
 import { PDFViewer } from 'react-view-pdf';
 import SignDocument from '../ModalAssinarContrato';
+import { useLocation } from "react-router-dom";
 
 export default function ContratoComponent() {
+  const params = useLocation()
+  const contract_url = params.pathname.split("/contrato/")[1]
+  const id_booking = params.pathname.split("pdf").pop()
   return (
     <div >
-      <PDFViewer url="https://res.cloudinary.com/dr7alklmf/image/upload/v1652940886/11487-Texto_do_Artigo-45136-44601-10-20201127_a4jvnk.pdf" />
-      <SignDocument />
+      <PDFViewer url={`https://${contract_url.split("pdf")[0]}pdf`} />
+      <SignDocument id={id_booking.split("/").pop()} />
     </div>
   )
 }
