@@ -16,7 +16,7 @@ export default function TeamV1() {
 			"linkedin": "",
 		},
 		{
-			"url_image": '',
+			"url_image": 'https://imgur.com/ZJO9FQJ.jpg',
 			"alt": 'Imagem de equipe',
 			"name": "Gabriela Pantoja",
 			"position": "Product Manager",

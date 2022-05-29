@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default function TeamCard(props) {
     return (
         <div className="col-lg-4 col-sm-6">
             <div className="ltn__team-item ltn__team-item-3---">
                 <div className="team-img">
-                    <img src={props.url_image} alt={props.alt} />
+                    <img style={{objectFit: 'cover', height: 360, width: '100%' }} src={props.url_image} alt={props.alt} />
                 </div>
                 <div className="team-info">
                     <h4>{props.name}</h4>

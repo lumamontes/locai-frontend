@@ -12,13 +12,9 @@ import Footer from './global-components/footer';
 const About_v1 = () => {
     return <div>
         <Navbar />
-        <PageHeader headertitle="Sobre nós" />
         <AboutV4 />
         <Features  customClass="ltn__feature-area section-bg-1 pt-120 pb-90 mb-120---"/>
         <Team />
-        {/* <Testimonial /> */}
-        {/* <BlogSlider /> */}
-        {/* <CallToActionV1 /> */}
         <Footer />
     </div>
 }
