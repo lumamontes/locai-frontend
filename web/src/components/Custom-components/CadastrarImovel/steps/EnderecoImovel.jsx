@@ -4,38 +4,62 @@ import { Button, Input } from 'reactstrap'
 import { useAnuncio } from '../../../../hooks/useAnuncio'
 export default function Endereco () {
    const {handleChange, valuesForm} = useAnuncio()
-  return (
+   const [errorCep, setErrorCep] = useState(false)
+   const formatCep = (e) => {
+      const RegexForLetters = /[A-Za-z]/
+      if (RegexForLetters.test(e.target.value)) {
+         setErrorCep(true)
+      } else {
+         setErrorCep(false)
+         let value =  e.target.value
+         value = value.replace(/\D/g,"")
+         value = value.replace(/(\d{5})(\d)/, '$1-$2')
+         value = value.replace(/(-\d{3})\d+?$/, '$1')
+         e.target.value = value
+         
+         return e
+      }
+   }
+
+   const onBLurCep = () => {
+      if (errorCep) {
+        const input = document.querySelector(".cep")
+        input.focus()
+      }
+   }
+return (
    <div>
      <form className='d-flex flex-column gap-1 w-100 align-items-center'>
         <div className='d-flex flex-column w-75'>
            <label>
              CEP
            </label >
-           <Input   />
+           <Input max={10}  className="cep" onBlur={onBLurCep} placeholder="Ex: 68901-255" onKeyPress={formatCep}  />
+           {errorCep && <small>Digite somente números no CEP</small>}
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Endereço
            </label >
-           <Input value={valuesForm.property_adress}  name="property_adress" onChange={handleChange}/>
+           <Input value={valuesForm.property_adress} placeholder="Ex: Avenida Henrique Galucio, 2800" name="property_adress" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Bairro
            </label>
-           <Input value={valuesForm.property_neighborhood}  name="property_neighborhood" onChange={handleChange}/>
+           <Input value={valuesForm.property_neighborhood} placeholder="Ex: Santa Rita" name="property_neighborhood" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Estado
            </label>
-           <Input value={valuesForm.property_state}  name="property_state" onChange={handleChange}/>
+           <Input value={valuesForm.property_state} placeholder="Ex: Amapá"  name="property_state" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
             Cidade
            </label>
-           <Input value={valuesForm.property_city}  name="property_city" onChange={handleChange}/>
+           <Input value={valuesForm.property_city} placeholder="Ex: Macapá" name="property_city" onChange={handleChange}/>
         </div>
      </form>
    </div>

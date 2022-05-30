@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 export default function Register() {
 	const history = useHistory();
 	const { handleLogin, user } = useAuth()
+	const [erroNome, setErroNome] = useState(false)
 	const [valuesForm, setValuesForm] = useState({
 		name: "",
 		email: "",
@@ -76,6 +77,17 @@ export default function Register() {
 			[name]: value,
 		})
 	}
+
+const onBlurInputs = () => {
+	const regexForNumbers  = /[0-9]/
+	if (regexForNumbers.test(valuesForm.name)) {
+			setErroNome(true)
+			const nomeInput = document.getElementsByName("name")
+			nomeInput[0].focus()
+	} else {
+		setErroNome(false)
+	}
+}
 	return (
 		<div className="ltn__login-area pb-50">
 			<div className="container">
@@ -90,7 +102,8 @@ export default function Register() {
 					<div className="col-lg-6 offset-lg-3">
 						<div className="account-login-inner">
 							<form onSubmit={(e) => e.preventDefault()} className="ltn__form-box contact-form-box">
-								<input type="text" name="name" placeholder="Nome" value={valuesForm.name} onChange={handleChange} autoComplete='username'/>
+								<input type="text" onBlur={onBlurInputs} name="name" placeholder="Nome" value={valuesForm.name} onChange={handleChange} autoComplete='username'/>
+								{erroNome && <small>O nome deve ter apenas letras</small>}
 								<input type="text" name="email" placeholder="Email*" value={valuesForm.email} onChange={handleChange} autoComplete='email' />
 								<input type="password" name="password" placeholder="Senha*" value={valuesForm.password} onChange={handleChange} autoComplete='new-password' />
 								<input type="password" name="passwordConfirmation" placeholder="Confirme Senha*" value={valuesForm.passwordConfirmation} onChange={handleChange} autoComplete='new-password' />

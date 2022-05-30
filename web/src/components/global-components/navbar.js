@@ -52,7 +52,7 @@ export default function Navbar() {
 													<ul>
 														<li><Link to="/about">Sobre</Link></li>
 														<li><Link to="/service">Serviços</Link></li>
-														<li><Link to="/team">Team</Link></li>
+														{/* <li><Link to="/team">Team</Link></li> */}
 													</ul>
 												</li>
 

@@ -20,19 +20,19 @@ export default function Anuncio () {
            <label>
              Titulo do anuncio
            </label>
-           <Input value={valuesForm.ad_title}  name="ad_title" onChange={handleChange}/>
+           <Input value={valuesForm.ad_title} placeholder="Ex: Aluga-se casa em bom estado..."  name="ad_title" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Descrição
            </label>
-           <Input value={valuesForm.ad_description}  name="ad_description" onChange={handleChange}/>
+           <Input value={valuesForm.ad_description} placeholder="Ex: Com 2 quartos e 2 banheiros..." name="ad_description" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
             Valor
            </label>
-           <Input value={valuesForm.ad_value}  name="ad_value" onChange={handleChange}/>
+           <Input value={valuesForm.ad_value} placeholder="750" type="number"  name="ad_value" onChange={handleChange}/>
         </div>
 
         <div>

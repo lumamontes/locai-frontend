@@ -8,6 +8,10 @@ import Spinner from 'react-bootstrap/Spinner';
 import { toast } from 'react-toastify';
 
 export default function ShogGridV1() {
+	const stylesImg = {
+		"max-height":"245px",
+		"min-height":"245px",
+	}
 	const { user } = useAuth()
 	const { params, reload, handleHotReload } = useAnuncio()
 	const [bairro, setBairro] = useState('')
@@ -137,12 +141,7 @@ export default function ShogGridV1() {
 														<div className="col-lg-4 col-sm-6 col-12">
 															<div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
 																<div className="product-img">
-																	<Link to={`/imovel/${item.id}`}>    <img src={item.ad_image != '' ? item.ad_image : "assets/img/product-3/1.jpg"} alt="#" /></Link>
-																	<div className="real-estate-agent">
-																		<div className="agent-img">
-																			<Link to="/team-details"><img src={"assets/img/blog/author.jpg"} alt="#" /></Link>
-																		</div>
-																	</div>
+																	<Link  style={stylesImg} to={`/imovel/${item.id}`}>    <img  src={item.ad_image != '' ? item.ad_image : "assets/img/product-3/1.jpg"} style={stylesImg} className="w-100 h-100"  alt="#" /></Link>
 																</div>
 																<div className="product-info">
 																	<div className="product-badge">

@@ -14,7 +14,7 @@ export function AnuncioProvider(props) {
     property_adress: "",
     property_country: "Brasil",
     with_furniture: 1,
-    property_city: "AP",
+    property_city: "",
     property_state: "",
     property_neighborhood: "",
     room_quantity: 0,
