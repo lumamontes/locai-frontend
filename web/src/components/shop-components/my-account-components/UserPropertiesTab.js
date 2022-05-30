@@ -5,13 +5,20 @@ import { Link } from 'react-router-dom';
 import { api } from './../../../services/api';
 import moment from 'moment';
 
-
+import {toast} from 'react-toastify'
 export default function UserPropertiesTab(props) {
-	const { data, isLoading, isFetching, error } = useQuery('properties_user', async () => {
+	const { data, isLoading, isFetching, error, refetch } = useQuery('properties_user', async () => {
 		const response = await api.get(`/properties_user/${props.user_id}`);
 		const data = await response.data
 		return data
 	});
+
+	async function deleteImovel (id) {
+		await api.delete(`properties/${id}`).then((response) => {
+			toast.success("Anuncio deletado")
+		})
+		await refetch()
+	}
 	return (
 		isLoading ? (
 			<div className="tab-pane fade" id="ltn_tab_1_5">
@@ -60,25 +67,12 @@ export default function UserPropertiesTab(props) {
 														</td>
 														<td className='text-center'>{moment(item.created_at).format('DD/MM/YYYY')}</td>
 														<td><Link to={`/editar/${item.id}`}>Editar</Link></td>
-														<td className='text-center'><Link tp="#"><i className="fa-solid fa-trash-can" /></Link></td>
+														<td className='text-center'><Link onClick={(e) => deleteImovel(item.id)} to="#"><i className="fa-solid fa-trash-can" /></Link></td>
 													</tr>
 												)
 											})}
 										</tbody>
 									</table>
-									<div className="ltn__pagination-area text-center">
-										<div className="ltn__pagination">
-											<ul>
-												<li><Link to="#"><i className="fas fa-angle-double-left" /></Link></li>
-												<li><Link to="#">1</Link></li>
-												<li className="active"><Link to="#">2</Link></li>
-												<li><Link to="#">3</Link></li>
-												<li><Link to="#">...</Link></li>
-												<li><Link to="#">10</Link></li>
-												<li><Link to="#"><i className="fas fa-angle-double-right" /></Link></li>
-											</ul>
-										</div>
-									</div>
 								</>
 							)
 							: (
