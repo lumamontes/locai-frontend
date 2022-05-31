@@ -2,9 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import "./UserProfileTab.css";
+import moment from 'moment';
 import { api } from '../../../services/api';
 import {useAuth} from '../../../hooks/useAuth'
 import {toast} from 'react-toastify'
+import Flatpickr from "react-flatpickr"
+import { Portuguese } from "flatpickr/dist/l10n/pt"
+import flatpickr from 'flatpickr'
+flatpickr.localize(Portuguese)
 export default function UserProfileTab(props) {
 	// const user = props.user;
 	const [imageSelected, setImageSelected] = useState("");
@@ -30,7 +35,7 @@ export default function UserProfileTab(props) {
 			setEstado(data[0].state)
 			setCelular(data[0].telephone)
 			setEmail(data[0].email)
-			setDataNascimento(data[0].birth_date)
+			setDataNascimento(data[0].birth_date.split("T0")[0].split("-").reverse().join("/"))
 			setBiografia(data[0].biography)
 			setProfile_picture(data[0].profile_picture)
 			setCpf(data[0].cpf)
@@ -47,7 +52,7 @@ async function handleForm () {
 	toast.loading("Editando seu perfil", {
 		toastId:"edição"
 	})
-	let response = ""
+	let response = profile_picture
 	if (typeof (imageSelected) === 'object') {
 		const formData = new FormData();
 		formData.append("file", imageSelected);
@@ -59,9 +64,9 @@ async function handleForm () {
 		city:cidade,
 		state:Estado,
 		email:email,
-		birth_date:dataNascimento,
+		birth_date:typeof (dataNascimento) === "string" ? dataNascimento : moment(dataNascimento[0]).format(),
 		biography:biografia,
-		profile_picture:response !== "" ? response.data.secure_url : "",
+		profile_picture:response !== profile_picture ? response.data.secure_url : profile_picture,
 		cpf:cpf,
 		telephone:celular
 	}).then((response) => {
@@ -114,7 +119,13 @@ async function handleForm () {
 
 					<label htmlFor="birth-date">
 						Data de Nascimento
-						<input type='date' />
+						<Flatpickr
+									options={{
+										dateFormat: "d/m/Y",
+									}}
+									value={dataNascimento}
+									onChange={(date) => setDataNascimento(date)}
+									placeholder="Escolha o dia" />
 					</label>
 					<label htmlFor="cpf">
 						CPF
