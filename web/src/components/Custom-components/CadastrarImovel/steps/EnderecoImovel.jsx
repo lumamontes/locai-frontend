@@ -45,7 +45,7 @@ return (
            <label>
              CEP
            </label >
-           <Input max={10}  className="cep" onBlur={onBLurCep} placeholder="Ex: 68901-255" onKeyPress={formatCep}  />
+           <Input max={10} name="cep" onChange={handleChange}  className="cep" onBlur={onBLurCep} placeholder="Ex: 68901-255" onKeyPress={formatCep}  />
            {errorCep && <small>Digite somente números no CEP</small>}
         </div>
         <div className='d-flex flex-column w-75'>

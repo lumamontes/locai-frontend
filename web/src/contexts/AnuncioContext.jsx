@@ -17,6 +17,7 @@ export function AnuncioProvider(props) {
     property_city: "",
     property_state: "",
     property_neighborhood: "",
+    cep:"",
     room_quantity: 0,
     bathroom_quantity: 0,
     garage_quantity: 0
