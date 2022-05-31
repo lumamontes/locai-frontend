@@ -4,6 +4,7 @@ import Axios from 'axios';
 import "./UserProfileTab.css";
 import { api } from '../../../services/api';
 import {useAuth} from '../../../hooks/useAuth'
+import {toast} from 'react-toastify'
 export default function UserProfileTab(props) {
 	// const user = props.user;
 	const [imageSelected, setImageSelected] = useState("");
@@ -17,7 +18,9 @@ export default function UserProfileTab(props) {
 	const [dataNascimento, setDataNascimento] = useState("")
 	const [biografia, setBiografia] = useState("")
 	const [loading, setLoading] = useState(false)
-	const [profile_picture, setProfile_picture] = useState(false)
+	const [profile_picture, setProfile_picture] = useState("")
+	const [cpf, setCpf] = useState("")
+	const [reload, setReload] = useState(false)
 	useEffect(() => {
 		api.get(`/users/${user.id}`).then((response) => {
 			const data = response.data
@@ -30,27 +33,52 @@ export default function UserProfileTab(props) {
 			setDataNascimento(data[0].birth_date)
 			setBiografia(data[0].biography)
 			setProfile_picture(data[0].profile_picture)
+			setCpf(data[0].cpf)
 			setLoading(true)
 		})
-	}, [])
-	const uploadImage = async (files) => {
+	}, [reload])
+	// const uploadImage = async (files) => {
+	
+	// 	setNewImageUrl(response.data.url)
+	// }
+	// Criar função handleForm e chamar a função uploadImage dentro dela
+	// quando enviar os dados do formulario na edição do usuario com uma função handleForm, salvar a variavel newImageUrl no campo profile_picture na tabela de users
+async function handleForm () {
+	toast.loading("Editando seu perfil", {
+		toastId:"edição"
+	})
+	let response = ""
+	if (typeof (imageSelected) === 'object') {
 		const formData = new FormData();
 		formData.append("file", imageSelected);
 		formData.append("upload_preset", 'upload')
-		const response = await Axios.post("https://api.cloudinary.com/v1_1/dr7alklmf/image/upload", formData);
-		setNewImageUrl(response.data.url)
+		response = await Axios.post("https://api.cloudinary.com/v1_1/dr7alklmf/image/upload", formData);
 	}
-	// Criar função handleForm e chamar a função uploadImage dentro dela
-	// quando enviar os dados do formulario na edição do usuario com uma função handleForm, salvar a variavel newImageUrl no campo profile_picture na tabela de users
+	await api.put(`/users/${user.id}`, {
+		name:nome,
+		city:cidade,
+		state:Estado,
+		email:email,
+		birth_date:dataNascimento,
+		biography:biografia,
+		profile_picture:response !== "" ? response.data.secure_url : "",
+		cpf:cpf,
+		telephone:celular
+	}).then((response) => {
+		setReload(!reload)
+		toast.success("Perfil editado com sucesso")
+		toast.dismiss("edição")
+	})
+}
 
 	return (
 		loading && <div className="tab-pane fade" id="ltn_tab_1_2">
 
 		<div className="ltn__myaccount-tab-content-inner">
-			<form className='d-flex flex-column gap-1 w-100'>
+			<form onSubmit={(e) => e.preventDefault()} className='d-flex flex-column gap-1 w-100'>
 
 				<div className="author-info d-flex justify-content-center flex-column">
-					<img src={profile_picture || "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-image-icon-default-avatar-profile-icon-social-media-user-vector-image-209162840.jpg"} alt="Imagem de perfil do usuário" />
+					<img src={profile_picture}/>
 					<div>
 						<input
 							type="file"
@@ -90,10 +118,10 @@ export default function UserProfileTab(props) {
 					</label>
 					<label htmlFor="cpf">
 						CPF
-						<input type='text' />
+						<input type='text' value={cpf} onChange={(e) => setCpf(e.target.value)} />
 					</label>
 				<textarea placeholder='biografia'></textarea>
-				<button className="btn theme-btn-1 btn-effect-1 text-uppercase">Salvar</button>
+				<button type='button' onClick={handleForm} className="btn theme-btn-1 btn-effect-1 text-uppercase">Salvar</button>
 			</form>
 		</div>
 	</div >

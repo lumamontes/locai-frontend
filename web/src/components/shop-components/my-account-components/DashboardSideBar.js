@@ -7,7 +7,7 @@ export default function DashboardSideBar(props) {
             <div className="nav">
                 <a className="active show" data-bs-toggle="tab" href="#ltn_tab_1_1">Dashboard <i className="fas fa-home" /></a>
                 <a data-bs-toggle="tab" href="#ltn_tab_1_2">Perfil <i className="fas fa-user" /></a>
-                <a data-bs-toggle="tab" href="#ltn_tab_1_3">Endereço <i className="fas fa-map-marker-alt" /></a>
+                {/* <a data-bs-toggle="tab" href="#ltn_tab_1_3">Endereço <i className="fas fa-map-marker-alt" /></a> */}
                 <a data-bs-toggle="tab" href="#ltn_tab_1_4">Detalhes da Conta <i className="fas fa-user" /></a>
                 <a data-bs-toggle="tab" href="#ltn_tab_1_5">Meus imóveis<i className="fa-solid fa-list" /></a>
                 {/* <a data-bs-toggle="tab" href="#ltn_tab_1_6">Imóveis Favoritos <i className="fa-solid fa-heart" /></a> */}
