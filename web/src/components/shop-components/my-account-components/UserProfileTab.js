@@ -21,6 +21,7 @@ export default function UserProfileTab(props) {
 	const [celular, setCelular] = useState("")
 	const [email, setEmail] = useState("")
 	const [dataNascimento, setDataNascimento] = useState("")
+	const [padraodataNascimento, setpadraodataNascimentoo] = useState("")
 	const [biografia, setBiografia] = useState("")
 	const [loading, setLoading] = useState(false)
 	const [profile_picture, setProfile_picture] = useState("")
@@ -35,6 +36,7 @@ export default function UserProfileTab(props) {
 			setEstado(data[0].state)
 			setCelular(data[0].telephone)
 			setEmail(data[0].email)
+			setpadraodataNascimentoo(data[0].birth_date)
 			setDataNascimento(data[0].birth_date.split("T0")[0].split("-").reverse().join("/"))
 			setBiografia(data[0].biography)
 			setProfile_picture(data[0].profile_picture)
@@ -64,7 +66,7 @@ async function handleForm () {
 		city:cidade,
 		state:Estado,
 		email:email,
-		birth_date:typeof (dataNascimento) === "string" ? dataNascimento : moment(dataNascimento[0]).format(),
+		birth_date:typeof (dataNascimento) === "string" ? padraodataNascimento : moment(dataNascimento[0]).format(),
 		biography:biografia,
 		profile_picture:response !== profile_picture ? response.data.secure_url : profile_picture,
 		cpf:cpf,
