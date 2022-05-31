@@ -16,6 +16,7 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
+    toast.dismiss()
     console.log(error.response.data.code)
     switch (error.response.data?.code) {
       case 'user.invalid_password':

@@ -24,7 +24,9 @@ export default function SignDocument(props) {
         }
     }, [])
 async function handlesigned() {
-    toast.loading("Assinando o contrato")
+    toast.loading("Assinando o contrato", {
+        id:"contrato"
+    })
     try {
         await api.patch(`/bookings/${props.id}`, {
             signature_ip:ipValue.ip,
@@ -34,6 +36,7 @@ async function handlesigned() {
             status_id:"4e64b2af-b649-4cd3-9c5c-b37b5839074f"
         })
         toast.success("Contrato assinado com sucesso")
+        toast.dismiss("contrato")
         history.push("/my-account")
     } catch (error) {
         toast.error("OPS! Algo deu errado com a assinatura")
