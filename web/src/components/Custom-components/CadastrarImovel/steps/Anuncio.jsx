@@ -5,6 +5,8 @@ import { Button, Input } from 'reactstrap'
 import { useAnuncio } from '../../../../hooks/useAnuncio'
 import { useAuth } from '../../../../hooks/useAuth'
 import './Anuncio.css'
+import * as yup from 'yup'
+import { toast } from "react-toastify"
 export default function Anuncio () {
   const [currentDoc, setCurrent] = useState('')
 
@@ -13,6 +15,14 @@ export default function Anuncio () {
     {id:1, name:"Aluguel", descricao:"O aluguel seria o modelo de anúncio na qual você disponibilizará seu imovél para moradia"  },
     {id:2, name:"Temporada", descricao:"Por temporada você disponibilizará o seu imovél somente por um certo período de tempo. Ex: 7 dias "}
   ]
+  async function validateOnblur(e, nome) {
+    if (e.target.value.length === 0) {
+      toast.error(`o campo ${nome} é obrigatório`, {
+        toastId:"input"
+      })
+      e.target.focus()
+    }
+  }
   return (
    <div>
      <form className='d-flex flex-column gap-1 w-100 align-items-center'>
@@ -20,19 +30,19 @@ export default function Anuncio () {
            <label>
              Titulo do anuncio
            </label>
-           <Input value={valuesForm.ad_title} placeholder="Ex: Aluga-se casa em bom estado..."  name="ad_title" onChange={handleChange}/>
+           <Input value={valuesForm.ad_title} onBlur={(e) => validateOnblur(e, "Titulo do anuncio")} placeholder="Ex: Aluga-se casa em bom estado..."  name="ad_title" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Descrição
            </label>
-           <Input value={valuesForm.ad_description} placeholder="Ex: Com 2 quartos e 2 banheiros..." name="ad_description" onChange={handleChange}/>
-        </div>
+           <Input value={valuesForm.ad_description} onBlur={(e) => validateOnblur(e, "Descrição")}  placeholder="Ex: Com 2 quartos e 2 banheiros..." name="ad_description" onChange={handleChange}/>
+        </div> 
         <div className='d-flex flex-column w-75'>
            <label>
             Valor
            </label>
-           <Input value={valuesForm.ad_value} min="0" placeholder="750" type="number"  name="ad_value" onChange={handleChange}/>
+           <Input value={valuesForm.ad_value}  onBlur={(e) => validateOnblur(e, "Valor")} min="0" placeholder="750" type="number"  name="ad_value" onChange={handleChange}/>
         </div>
 
         <div>

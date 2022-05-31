@@ -1,5 +1,6 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
+import { toast } from 'react-toastify'
 import { Button, Input } from 'reactstrap'
 import { useAnuncio } from '../../../../hooks/useAnuncio'
 export default function Endereco () {
@@ -27,6 +28,16 @@ export default function Endereco () {
         input.focus()
       }
    }
+
+   async function validateOnblur(e, nome) {
+      if (e.target.value.length === 0) {
+        toast.error(`o campo ${nome} é obrigatório`, {
+          toastId:"input"
+        })
+        e.target.focus()
+      }
+    }
+   
 return (
    <div>
      <form className='d-flex flex-column gap-1 w-100 align-items-center'>
@@ -41,25 +52,25 @@ return (
            <label>
              Endereço
            </label >
-           <Input value={valuesForm.property_adress} placeholder="Ex: Avenida Henrique Galucio, 2800" name="property_adress" onChange={handleChange}/>
+           <Input value={valuesForm.property_adress} onBlur={(e) => validateOnblur(e, "Endereço")} placeholder="Ex: Avenida Henrique Galucio, 2800" name="property_adress" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Bairro
            </label>
-           <Input value={valuesForm.property_neighborhood} placeholder="Ex: Santa Rita" name="property_neighborhood" onChange={handleChange}/>
+           <Input value={valuesForm.property_neighborhood}  onBlur={(e) => validateOnblur(e,"Bairro")} placeholder="Ex: Santa Rita" name="property_neighborhood" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
              Estado
            </label>
-           <Input value={valuesForm.property_state} placeholder="Ex: Amapá"  name="property_state" onChange={handleChange}/>
+           <Input value={valuesForm.property_state} onBlur={(e) => validateOnblur(e, "Estado")} placeholder="Ex: Amapá"  name="property_state" onChange={handleChange}/>
         </div>
         <div className='d-flex flex-column w-75'>
            <label>
             Cidade
            </label>
-           <Input value={valuesForm.property_city} placeholder="Ex: Macapá" name="property_city" onChange={handleChange}/>
+           <Input value={valuesForm.property_city} onBlur={(e) => validateOnblur(e, "Cidade")} placeholder="Ex: Macapá" name="property_city" onChange={handleChange}/>
         </div>
      </form>
    </div>
