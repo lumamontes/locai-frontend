@@ -32,15 +32,15 @@ export default function InfoImovel() {
       <form className="d-flex flex-column gap-1 w-100 align-items-center">
         <div className="d-flex flex-column w-75">
           <label>Quantos quartos o seu imóvel possui?</label>
-          <Input value={valuesForm.room_quantity} type="number" name="room_quantity" onChange={handleChange} />
+          <Input value={valuesForm.room_quantity} min="0" type="number" name="room_quantity" onChange={handleChange} />
         </div>
         <div className="d-flex flex-column w-75">
           <label>Quantos banheiros o seu imóvel possui?</label>
-          <Input value={valuesForm.bathroom_quantity} type="number" name="bathroom_quantity" onChange={handleChange} />
+          <Input value={valuesForm.bathroom_quantity} min="0" type="number" name="bathroom_quantity" onChange={handleChange} />
         </div>
         <div className="d-flex flex-column w-75">
-          <label>Garagem</label>
-          <Input value={valuesForm.garage_quantity} name="garage_quantity"  onChange={handleChange} type="number" />
+          <label>Garagem (Capacidade de carros)</label>
+          <Input value={valuesForm.garage_quantity} min="0" name="garage_quantity"  onChange={handleChange} type="number" />
         </div>
         <div className="mb-4">
         <label>O imóvel é mobilado?</label>

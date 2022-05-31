@@ -32,7 +32,7 @@ export default function Anuncio () {
            <label>
             Valor
            </label>
-           <Input value={valuesForm.ad_value} placeholder="750" type="number"  name="ad_value" onChange={handleChange}/>
+           <Input value={valuesForm.ad_value} min="0" placeholder="750" type="number"  name="ad_value" onChange={handleChange}/>
         </div>
 
         <div>
