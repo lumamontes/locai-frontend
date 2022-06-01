@@ -11,22 +11,24 @@ export default function InfoImovel() {
     {id:1, name:"Sim", value:true},
     {id:2, name:"Não", value:false}
   ]
-  console.log(with_furnitureState)
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/jpeg,image/png',
     maxFiles: 5,
     onDrop: acceptedFiles => {
-      setFiles(acceptedFiles.map(file => Object.assign(file, {
+      const filesArray = acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
-      })))
-    },
-    onDropAccepted: (acceptedFiles) => handleImage(acceptedFiles)
+      }))
+      setFiles([...filesArray, ...files])
+      handleImage([...filesArray, ...files])
+    }
+    // onDropAccepted: (acceptedFiles) => 
   })
 
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks
     files.forEach(file => URL.revokeObjectURL(file.preview));
-  }, [files]);
+  }, []);
+console.log(files)
   return (
     <div>
       <form className="d-flex flex-column gap-1 w-100 align-items-center">
@@ -72,12 +74,10 @@ export default function InfoImovel() {
             <h4>Solte as imagens ou clique aqui</h4>
           </div>
         </div>
-        <div>{files.map(file => (
+        <div className="d-flex w-100 gap-1">{files.map(file => (
           <div key={file.name}>
-            <div>
-              <img className="img-logo mb-1"
-                src={file.preview}
-              />
+            <div >
+              <img className="img-preview mb-1" src={file.preview}/>
             </div>
           </div>
         ))}</div>

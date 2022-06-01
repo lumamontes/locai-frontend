@@ -43,7 +43,8 @@ export default function ShopDetails(props) {
 			})
 		}
 	}
-	return <div className="ltn__shop-details-area pb-10">
+	return (
+		<div className="ltn__shop-details-area pb-10">
 		<div className="container">
 			<div className="row">
 				<div className="col-lg-8 col-md-12">
@@ -58,9 +59,6 @@ export default function ShopDetails(props) {
 								</li>
 								<li className="ltn__blog-date">
 									<i className="far fa-calendar-alt" />{moment(property.created_at).format('DD/MM/YYYY')}
-								</li>
-								<li>
-									<Link to="#"><i className="far fa-comments" />35 Comments</Link>
 								</li>
 							</ul>
 						</div>
@@ -191,7 +189,7 @@ export default function ShopDetails(props) {
 								</div>
 							</div>
 						</div>
-						<h4 className="title-2 mb-10">Comodidades</h4>
+						{/* <h4 className="title-2 mb-10">Comodidades</h4>
 						<div className="property-details-Comodidades mb-60">
 							<div className="row">
 								<div className="col-lg-4 col-md-6">
@@ -303,7 +301,7 @@ export default function ShopDetails(props) {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 						{/* <h4 className="title-2">Location</h4>
 						<div className="property-details-google-map mb-60">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd" width="100%" height="100%" frameBorder={0} allowFullScreen aria-hidden="false" tabIndex={0} />
@@ -323,7 +321,7 @@ export default function ShopDetails(props) {
 						{/* Author Widget */}
 						<div className="widget ltn__author-widget">
 							<div className="ltn__author-widget-inner text-center">
-								<img src={props.user?.profile_picture || publicUrl + "assets/img/team/4.jpg"} alt="Image" />
+								<img src={props.data.user[0].profile_picture || publicUrl + "assets/img/team/4.jpg"} alt="Image" />
 								<h5>{props.data.user[0].name}</h5>
 								<small>{props.user.profession}</small>
 								<div className="product-ratting">
@@ -375,7 +373,7 @@ export default function ShopDetails(props) {
 							</form>
 						</div>}
 						{/* Menu Widget (Category) */}
-						<div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
+						{/* <div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
 							<h4 className="ltn__widget-title ltn__widget-title-border-2">Top Categories</h4>
 							<ul className="go-top">
 								<li><Link to="/blog-grid">Apartments <span>(26)</span></Link></li>
@@ -384,7 +382,7 @@ export default function ShopDetails(props) {
 								<li><Link to="/blog-grid">Luxary Vilas <span>(56)</span></Link></li>
 								<li><Link to="/blog-grid">Duplex House <span>(60)</span></Link></li>
 							</ul>
-						</div>
+						</div> */}
 
 						{/* Banner Widget */}
 						<div className="widget ltn__banner-widget d-none go-top">
@@ -395,5 +393,6 @@ export default function ShopDetails(props) {
 			</div>
 		</div>
 	</div>
+	)
 
 }

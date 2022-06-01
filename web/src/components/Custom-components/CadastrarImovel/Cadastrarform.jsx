@@ -132,6 +132,7 @@ export default function CadastrarImovelForm() {
       history.push('/imoveis')
       toast.dismiss('1')
     } catch (error) {
+      toast.dismiss('1')
       if (error instanceof yup.ValidationError) {
 				const errorMessages = {};
 	

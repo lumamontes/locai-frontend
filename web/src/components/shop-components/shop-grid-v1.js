@@ -9,8 +9,8 @@ import { toast } from 'react-toastify';
 
 export default function ShogGridV1() {
 	const stylesImg = {
-		"max-height":"245px",
-		"min-height":"245px",
+		"maxHeight":"245px",
+		"minHeight":"245px",
 	}
 	const { user } = useAuth()
 	const { params, reload, handleHotReload } = useAnuncio()
