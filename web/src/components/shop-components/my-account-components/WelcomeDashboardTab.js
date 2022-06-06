@@ -87,9 +87,9 @@ function handleContract (id) {
                                         <td>
                                             <div className='d-flex flex-column align-items-center justify-content-space-around'>
                                             {item.booker_user_id !== props.user.id ? <Link onClick={() => handleContract(item.id)} to="#" title="enviar contrato"><i className="fa-solid fa-file" /></Link>  : <Link  to={`/contrato/${item.contract_url}/${item.id}`} title="Visualizar contrato"><i className="fa-solid fa-file" /></Link>}
-                                                {item.booker_user_id !== props.user.id && <Link to="#" onClick={() => handleStatusBooking(item.id, '71b008f5-a0ff-4b8c-bb87-8173a21c885d')} title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
+                                                {item.booker_user_id !== props.user.id && <Link to="#" onClick={() => handleStatusBooking(item.id, 'd49f63ed-9932-43d7-813a-03b83065391a')} title="confirmar"><i className="fa-solid fa-circle-check" /></Link>}
                                                 <Link to="#" title="Deletar"><i  className="fa-solid fa-trash-can" /></Link>
-                                                <Link onClick={() => handleStatusBooking(item.id, '1f0c0ab7-99d3-4711-b09d-c172d159471e')} to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
+                                                <Link onClick={() => handleStatusBooking(item.id, 'c8b04218-46d7-4ee9-b584-31ebf7c2cf1d')} to="#" title="cancelar"><i className="fa-solid fa-ban" /></Link>
                                             </div>
                                         </td>
                                     </tr>
