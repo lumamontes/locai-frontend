@@ -77,7 +77,7 @@ export default function UserPropertiesTab(props) {
 							)
 							: (
 								<div>
-									Sem imoveis
+									Sem imóveis
 								</div>
 							)}
 
