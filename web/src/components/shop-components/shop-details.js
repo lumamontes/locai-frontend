@@ -324,6 +324,8 @@ export default function ShopDetails(props) {
 								<img src={props.data.user[0].profile_picture || publicUrl + "assets/img/team/4.jpg"} alt="Image" />
 								<h5>{props.data.user[0].name}</h5>
 								<small>{props.user.profession}</small>
+								<small>{props.user.telephone}</small>
+								<small>{props.user.email}</small>
 								<div className="product-ratting">
 									{/* <ul>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
