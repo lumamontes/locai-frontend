@@ -47,7 +47,7 @@ class Footer_v1 extends Component {
 				  <div className="footer-top-area  section-bg-2 plr--5">
 				    <div className="container-fluid">
 				      <div className="row">
-				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
+				        <div className="col-xl-4 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-about-widget">
 				            <div className="footer-logo">
 				              <div className="site-logo">
@@ -88,7 +88,7 @@ class Footer_v1 extends Component {
 				            </div>
 				          </div>
 				        </div>
-				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
+				        <div className="col-xl-4 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-menu-widget clearfix">
 				            <h4 className="footer-title">Empresa</h4>
 				            <div className="footer-menu go-top">
@@ -100,26 +100,13 @@ class Footer_v1 extends Component {
 				            </div>
 				          </div>
 				        </div>
-				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
+				        <div className="col-xl-4 col-md-4 col-sm-4 col-12">
 				          <div className="footer-widget footer-menu-widget clearfix">
 				            <h4 className="footer-title">Serviços</h4>
 				            <div className="footer-menu go-top">
 				              <ul>
-				                <li><Link to="/cadastrar-imovel">Anuncio</Link></li>
-				                {/* <li><Link to="/checkout">Checkout</Link></li> */}
-				                <li><Link to="/about">Termos &amp; Condições</Link></li>
-				              </ul>
-				            </div>
-				          </div>
-				        </div>
-				        <div className="col-xl-3 col-md-4 col-sm-4 col-12">
-				          <div className="footer-widget footer-menu-widget clearfix">
-				            <h4 className="footer-title">Atendimento ao Consumidor</h4>
-				            <div className="footer-menu go-top">
-				              <ul>
 				                <li><Link to="/login">Login</Link></li>
 				                <li><Link to="/my-account">Minha conta</Link></li>
-				                <li><Link to="/wishlist">Lista de desejos</Link></li>
 				                {/* <li><Link to="/add-listing">Anunciar</Link></li> */}
 				              </ul>
 				            </div>
