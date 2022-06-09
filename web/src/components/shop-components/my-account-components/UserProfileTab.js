@@ -37,7 +37,7 @@ export default function UserProfileTab(props) {
 			setCelular(data[0].telephone)
 			setEmail(data[0].email)
 			setpadraodataNascimentoo(data[0].birth_date)
-			setDataNascimento(data[0].birth_date.split("T0")[0].split("-").reverse().join("/"))
+			setDataNascimento( data[0].birth_date == null ? '' : data[0].birth_date.split("T0")[0].split("-").reverse().join("/"))
 			setBiografia(data[0].biography)
 			setProfile_picture(data[0].profile_picture)
 			setCpf(data[0].cpf)
