@@ -323,9 +323,9 @@ export default function ShopDetails(props) {
 							<div className="ltn__author-widget-inner text-center">
 								<img src={props.data.user[0].profile_picture || publicUrl + "assets/img/team/4.jpg"} alt="Image" />
 								<h5>{props.data.user[0].name}</h5>
-								<small>{props.user.profession}</small>
-								<small>{props.user.telephone}</small>
-								<small>{props.user.email}</small>
+								<small>{props.data.user[0].telephone}</small>
+								<small>{props.data.user[0].email}</small>
+								<small>{props.data.user[0].biography}</small>
 								<div className="product-ratting">
 									{/* <ul>
 												<li><a href="#"><i className="fas fa-star" /></a></li>
