@@ -49,13 +49,7 @@ export default function Navbar() {
 												<li className="menu-icon"><Link to="/imoveis">Imóveis</Link>
 												</li>
 												<li className="menu-icon"><Link to="/about">Sobre</Link>
-													<ul>
-														<li><Link to="/about">Sobre</Link></li>
-														<li><Link to="/service">Serviços</Link></li>
-														{/* <li><Link to="/team">Team</Link></li> */}
-													</ul>
 												</li>
-
 												<li><Link to="/contact">Contatos</Link></li>
 											</ul>
 										</div>
