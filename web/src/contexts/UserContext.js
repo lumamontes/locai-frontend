@@ -11,6 +11,7 @@ export function UserProvider(props) {
     const user = item != null ? (JSON.parse(item)) : null;
     useEffect(() => {
         if (user != null) {
+            console.log("a")
             async function getUser() {
                 const response = await api.get(`/users/${user.id}`, {
                     headers: {

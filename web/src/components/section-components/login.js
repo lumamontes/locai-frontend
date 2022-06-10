@@ -27,7 +27,7 @@ export default function Login () {
 			});
 			handleUserData(response.data)
 			await handleLogin(response.data);
-			history.push('my-account')
+			window.location = "/my-account"
 		} catch (error) {
 			if (error instanceof yup.ValidationError) {
 				const errorMessages = {};

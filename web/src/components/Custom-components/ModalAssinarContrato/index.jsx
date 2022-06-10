@@ -31,7 +31,7 @@ async function handlesigned() {
         await api.patch(`/bookings/${props.id}`, {
             signature_ip:ipValue.ip,
             signature_name: UserData.name,
-            signature_cpf:UserData.national_register,
+            signature_cpf:UserData.cpf,
             signature_email:UserData.email,
             status_id:"4e64b2af-b649-4cd3-9c5c-b37b5839074f"
         })
@@ -43,8 +43,8 @@ async function handlesigned() {
     }
 }
     return (
-        <div id="info-user-container">
-            <Form onSubmit={e => e.preventDefault()} className="form-user">
+         <div id="info-user-container">
+        <Form onSubmit={e => e.preventDefault()} className="form-user">
                 <Form.Label className="label">
                     Nome
                     <Form.Control size="sm" type="text" placeholder={UserData.name} readOnly />
@@ -55,7 +55,7 @@ async function handlesigned() {
                 </Form.Label>
                 <Form.Label className="label">
                     CPF
-                    <Form.Control type="text" placeholder={UserData.national_register} readOnly />
+                    <Form.Control type="text" placeholder={UserData.cpf} readOnly />
                 </Form.Label>
                 <Form.Label className="label">
                     Endereço IP

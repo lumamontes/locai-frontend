@@ -11,7 +11,8 @@ export default function UploadFilesModal(props) {
   }, [myFiles])
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     maxFiles: 1,
-    onDrop
+    onDrop,
+    accept: "application/pdf",
   })
   async function handleupload(click) {
     toast.loading("Enviando contrato", {
