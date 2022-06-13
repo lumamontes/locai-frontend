@@ -113,7 +113,7 @@ export default function ShogGridV1() {
 																		<input type="text" onChange={(e) => setBairro(e.target.value)} placeholder='bairro' />
 																	</div>
 																	<div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
-																		<input type="text" placeholder='Valor' onChange={(e) => setAd_value(e.target.value)} />
+																		<input type="number" placeholder='Valor' onChange={(e) => setAd_value(e.target.value)} />
 																	</div>
 																	{/* <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
@@ -170,21 +170,21 @@ export default function ShogGridV1() {
 																	</ul>
 																	<div className="product-hover-action">
 																		<ul>
-																			<li>
+																			{/* <li>
 																				<a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
 																					<i className="flaticon-expand" />
 																				</a>
-																			</li>
+																			</li> */}
 																			<li className='cursor-pointer' onClick={() => handleFavorite(item.id)}>
 																				<i className="flaticon-heart-1" />
 																			</li>
-																			<li>
+																			{/* <li>
 																				<span className="go-top">
 																					<Link to={`/imovel/${item.id}`} title="Product Details">
 																						<i className="flaticon-add" />
 																					</Link>
 																				</span>
-																			</li>
+																			</li> */}
 																		</ul>
 																	</div>
 																</div>
