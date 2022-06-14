@@ -30,6 +30,7 @@ export default function Navbar() {
 			<div>
 				<header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
 					<div className="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
+						
 						<div className="container">
 							<div className="row">
 								<div className="col">
@@ -106,6 +107,33 @@ export default function Navbar() {
 						</div>
 					</div>
 				</header>
+				<div id="ltn__utilize-mobile-menu" className="ltn__utilize ltn__utilize-mobile-menu">
+ <div className="ltn__utilize-menu-inner ltn__scrollbar">
+	 <div className="ltn__utilize-menu-head">
+	 <div className="site-logo">
+	 <Link to="/"><img src={"https://imgur.com/VKAuLWj.jpg"} alt="Logo" /></Link>
+	 </div>
+	 <button className="ltn__utilize-close">×</button>
+	 </div>
+	 <div className="ltn__utilize-menu">
+								<div >
+									<nav>
+										<div >
+											<ul>
+												<li className="menu-icon"><Link to="/">Home</Link>
+												</li>
+												<li className="menu-icon"><Link to="/imoveis">Imóveis</Link>
+												</li>
+												<li className="menu-icon"><Link to="/about">Sobre</Link>
+												</li>
+												<li><Link to="/contact">Contatos</Link></li>
+											</ul>
+										</div>
+									</nav>
+								</div>
+							</div>
+ </div>
+ </div>
 				{/* Utilize Cart Menu Start */}
 				<div id="ltn__utilize-cart-menu" className="ltn__utilize ltn__utilize-cart-menu">
 					<div className="ltn__utilize-menu-inner ltn__scrollbar">
