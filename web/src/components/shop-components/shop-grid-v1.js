@@ -157,7 +157,7 @@ export default function ShogGridV1() {
 																	<div className="product-img-location">
 																		<ul>
 																			<li className="go-top">
-																				<Link to="/contact"><i className="flaticon-pin" /> {item.property_neighborhood}, {item.property_city}</Link>
+																				<Link to={`/imovel/${item.id}`}><i className="flaticon-pin" /> {item.property_neighborhood}, {item.property_city}</Link>
 																			</li>
 																		</ul>
 																	</div>
