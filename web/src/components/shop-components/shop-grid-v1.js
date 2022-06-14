@@ -1,17 +1,19 @@
 import React, { Component, useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useAnuncio } from '../../hooks/useAnuncio'
 import { api } from '../../services/api';
 import Spinner from 'react-bootstrap/Spinner';
 import { toast } from 'react-toastify';
+import { useQuery, useQueryClient } from 'react-query'
 
 export default function ShogGridV1() {
 	const stylesImg = {
 		"maxHeight":"245px",
 		"minHeight":"245px",
 	}
+	const queryClient = useQueryClient()
+
 	const { user } = useAuth()
 	const { params, reload, handleHotReload } = useAnuncio()
 	const [bairro, setBairro] = useState('')
@@ -61,7 +63,9 @@ export default function ShogGridV1() {
 				toast.success('Imóvel adicionado aos favoritos', {
 					hideProgressBar: true
 				})
+				queryClient.invalidateQueries('user_favorite_id')
 			})
+
 		}
 	}
 	return (
