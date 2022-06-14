@@ -117,7 +117,7 @@ export default function ShogGridV1() {
 																		<input type="text" onChange={(e) => setBairro(e.target.value)} placeholder='bairro' />
 																	</div>
 																	<div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
-																		<input type="number" placeholder='Valor' onChange={(e) => setAd_value(e.target.value)} />
+																		<input type="number" min="0" placeholder='Valor' onChange={(e) => setAd_value(e.target.value)} />
 																	</div>
 																	{/* <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
 			                    <select className="nice-select">
