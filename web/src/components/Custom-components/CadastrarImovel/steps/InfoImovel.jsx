@@ -47,7 +47,7 @@ console.log(files)
         <div className="mb-4">
         <label>O imóvel é mobilado?</label>
         <RadioGroup
-          className="d-flex justify-content-center gap-4  mt-1"
+          className="d-flex justify-content-center gap-4 mobilado mt-1"
           value={currentDoc}
           onChange={setCurrent}
         >

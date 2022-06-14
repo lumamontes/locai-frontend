@@ -109,7 +109,7 @@ async function handleForm () {
 					<label htmlFor="telephone">
 						Celular
 						<div className="footer-address-info">
-							<input type="text" value={celular} onChange={(e) => setEstado(e.target.value)}/>
+							<input type="text" value={celular} onChange={(e) => setCelular(e.target.value)}/>
 						</div>
 					</label>
 					<label htmlFor="email">
@@ -131,7 +131,7 @@ async function handleForm () {
 					</label>
 					<label htmlFor="cpf">
 						CPF
-						<input type='text' value={cpf} onChange={(e) => setCpf(e.target.value)} />
+						<input disabled type='text' value={cpf} onChange={(e) => setCpf(e.target.value)} />
 					</label>
 				<textarea placeholder='biografia'></textarea>
 				<button type='button' onClick={handleForm} className="btn theme-btn-1 btn-effect-1 text-uppercase">Salvar</button>

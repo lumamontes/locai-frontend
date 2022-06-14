@@ -8,3 +8,12 @@
 .nav-link {
   color: var(--ltn__primary-color-2) ;
 }
+
+@media (max-width:768px) {
+  .mobilado{
+    flex-direction: column;
+  }
+  .mobilado > div {
+    width: 100%;
+  }
+}
