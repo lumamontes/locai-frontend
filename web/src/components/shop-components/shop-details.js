@@ -336,7 +336,7 @@ export default function ShopDetails(props) {
 												<li className="review-total"> <a href="#"> ( 1 Reviews )</a></li>
 											</ul> */}
 								</div>
-								<p>{props.user.biography}</p>
+								{/* <p>{props.data.user[0].biography}</p> */}
 								{/* <div className="ltn__social-media">
 											<ul>
 												<li><a href="#" title="Facebook"><i className="fab fa-facebook-f" /></a></li>
