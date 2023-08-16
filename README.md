@@ -14,9 +14,6 @@
 Aplicação desenvolvida para trabalho de conclusão de curso da faculdade Meta com o objetivo de anunciar imóveis para alugar.<br> 
 O site possui o cadastro de usuário e login, cadastro e listagem de anúncios, agendamentos e assinatura de contrato.
 
-### Live
-
-A aplicação poderá ser acessada pelo link: https://locai.com.br
 
 ### Web
 <p align="center">
